@@ -1,7 +1,7 @@
 <html>
   <head>
 <title>Rekenen-Optellen en Aftrekken</title>
-<meta charset="iso-8859-1">
+<meta charset="utf8">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
 <!--
@@ -44,7 +44,7 @@
 
 
 <style>
-html, body,input {
+html, body,input,sommetjes {
   font-size:24pt;
   font-weight:500;
 }
@@ -56,7 +56,6 @@ html, body,input {
 {
   display:none;
 }
-
 </style>
 
 
@@ -97,7 +96,7 @@ function testWaarde(element,waarde)
     }
   }
 }
-var nrSommen=7;
+var nrSommen=3;
 var count=0;
 
 function nieuweSommetjes()
@@ -110,13 +109,23 @@ function nieuweSommetjes()
   {
     var text="";
     var i;
+    var ondernul = document.getElementById('ondernul').checked;
+
+    text=text+"<font size='24pt' face='Helvetica' weight='500' ><table id='sommen'>"
     for (i=0;i<nrSommen;i++)
     {
       var x=van+Math.floor(Math.random()*(tot-van));
-      var y=van+Math.floor(Math.random()*(tot-van));
+      var y=0
+      if (ondernul) {
+        y=van+Math.floor(Math.random()*(tot-van));
+      } else {
+        y=van+Math.floor(Math.random()*(x));
+      }
       var plus = (Math.random()>0.5);
-      text=text+x + (plus ? "+" : "-") + y + "= <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'><br>";
+      
+      text=text+"<tr><td id='row' width='10%'>" + x + (plus ? " + " : " - ") + y + " = </td><td width='10%'><th> <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></td><td width='80%'></tr>";
     }
+    text=text+"</table>"
     sommetjes.innerHTML=text;
 
     var nextElement=document.getElementById("0");
@@ -125,23 +134,28 @@ function nieuweSommetjes()
       nextElement.focus();
     }
     document.getElementById('next').style.display='none';
-
+    
   }
 }
 
 </script>
   </head>
   <body>
-
+<H2>Sommen Rij</H2>
+<h6>
+<label for='ondernul'>Getallen onder nul?</label>
+<input type='checkbox' id='ondernul' value="1" onchange='nieuweSommetjes();'>
+  </h6>
 <div id='sommetjes'>
 </div>
 <div id='next'>
+  <br>
 <a href='javascript:nieuweSommetjes()'>Nieuwe sommetjes</a>
 <br>
 <label for="van">Van/From (1-1000):</label>
 <input type="number" id="van" name="quantity" min="1" max="1000" value='1'>
 <label for="tot">Tot/To (1-1000):</label>
-<input type="number" id="tot" name="quantity" min="1" max="1000" value='10'>
+<input type="number" id="tot" name="quantity" min="1" max="1000" value='30'>
 </div>
 
   </body>
