@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>Rekenen-Optellen en Aftrekken</title>
+<title>Rekenen-Vlug Optellen en Aftrekken</title>
 <meta charset="iso-8859-1">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
@@ -124,11 +124,11 @@ function pauseResume()
   var element=document.getElementById('pauseresume');
   if (paused)
   {
-    element.innerHTML="PAUZE";
+    element.innerHTML="&nbsp;PAUZE";
   }
   else
   {
-    element.innerHTML="VERVOLG";
+    element.innerHTML="&nbsp;VERVOLG";
   }
   paused=!paused;
   if (!paused)
@@ -143,7 +143,7 @@ function generateQuestion()
   var y=van+Math.floor(Math.random()*(tot-van));
   var plus = (Math.random()>0.5);
   correctAnswer = (plus?(x+y):(x-y));
-  var text=""+x + (plus ? "+" : "-") + y + "=";
+  var text="&nbsp;"+x + (plus ? " + " : " - ") + y + " =";
 
   document.getElementById('question').innerHTML=text;
 }
@@ -151,7 +151,7 @@ function generateQuestion()
 function formatScore(number)
 {
   var text="0000000000000"+score;
-  return text.substring(text.length-5);
+  return "&nbsp;" + text.substring(text.length-5);
 }
 
 function showScore()
@@ -184,7 +184,7 @@ var cyclecount=0;
 function doCycle()
 {
   var height=document.getElementById('mainfield').offsetHeight;
-  var x = document.getElementsByClassName("answer");
+  var answers = document.getElementsByClassName("answer");
 
   cyclecount--;
   if (cyclecount<0)
@@ -194,17 +194,17 @@ function doCycle()
   }
   
   var i;
-  for (i = 0; i < x.length; i++)
+  for (i = 0; i < answers.length; i++)
   {
-    var top=parseInt(x[i].style.top)+1;
+    var top=parseInt(answers[i].style.top)+1;
     if  (top>=height)
     {
-      refuseAnswer(x[i].id, parseInt(x[i].innerHTML));
-      removeElement(x[i].id);
+      refuseAnswer(answers[i].id, parseInt(answers[i].innerHTML));
+      removeElement(answers[i].id);
     }
     else
     {
-      x[i].style.top = ""+top;
+      answers[i].style.top = ""+top;
     }
   }
 
@@ -269,7 +269,7 @@ function refuseAnswer(elementid,a)
   </head>
   <body>
 
-<div id='title'>VLUG OPTELLEN!</div>
+<div id='title'>&nbsp;VLUG OPTELLEN!</div>
 
 <div id='completecontainer'>
 <div id='mainfield'>
@@ -279,7 +279,7 @@ function refuseAnswer(elementid,a)
 </div><div id='scorepanel'>
 <span class='score' id='totalscore'>0000</span>
 <hr>
-<a id='pauseresume' href='javascript:pauseResume();'>PAUSE</a>
+<a id='pauseresume' href='javascript:pauseResume();'>&nbsp;PAUZE</a>
   </div>
 </div>
 <div id='question'>3X2=</div>
