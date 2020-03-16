@@ -69,6 +69,7 @@ a
   width:76vw;
   height:60vh;
   border: 1px solid #808080;
+  overflow:hidden;
 }
 
 #completecontainer
@@ -115,6 +116,26 @@ var count=0;
 var van=1;
 var tot=10;
 
+
+var paused=false;
+
+function pauseResume()
+{
+  var element=document.getElementById('pauseresume');
+  if (paused)
+  {
+    element.innerHTML="PAUZE";
+  }
+  else
+  {
+    element.innerHTML="VERVOLG";
+  }
+  paused=!paused;
+  if (!paused)
+  {
+    doCycle();
+  }
+}
 
 function generateQuestion()
 {
@@ -186,11 +207,15 @@ function doCycle()
       x[i].style.top = ""+top;
     }
   }
-/*
+
   fullcount++;
-  if (fullcount<1000)
-*/
-    setTimeout(function(){ doCycle(); }, 20);
+
+  if (!paused)
+  {
+    var timut=20-((5*fullcount)/5000);
+    if (timut<5) timut=5;
+    setTimeout(function(){ doCycle(); }, timut);
+  }
 }
 
 function removeElement(elementid)
@@ -254,6 +279,7 @@ function refuseAnswer(elementid,a)
 </div><div id='scorepanel'>
 <span class='score' id='totalscore'>0000</span>
 <hr>
+<a id='pauseresume' href='javascript:pauseResume();'>PAUSE</a>
   </div>
 </div>
 <div id='question'>3X2=</div>
