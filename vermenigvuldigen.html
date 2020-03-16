@@ -52,10 +52,7 @@ html, body,input {
 {
   color:#ff0000;
 }
-#next
-{
-  display:none;
-}
+
 
 </style>
 
@@ -95,6 +92,10 @@ function testWaarde(element,waarde)
     {
       document.getElementById('next').style.display='block';
     }
+    else
+    {
+      document.getElementById('next').style.display='none';
+    }
   }
 }
 var nrSommen=7;
@@ -133,8 +134,6 @@ function nieuweSommetjes()
     {
       nextElement.focus();
     }
-    document.getElementById('next').style.display='none';
-
   }
 }
 
