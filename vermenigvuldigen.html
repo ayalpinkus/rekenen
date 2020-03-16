@@ -118,15 +118,17 @@ function nieuweSommetjes()
       var y=van+Math.floor(Math.random()*(tot-van));
       var z=x*y;
       var mult = (Math.random()>0.5);
+
+      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>";
       if (mult)
       {
-        text=text+x + " x " + y + " = <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
+        text=text+x + " x " + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
       }
       else
       {
-        text=text+z + " ÷ " + x + " = <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
+        text=text+z + " ÷ " + x + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
       }
-  
+      text=text+"</div></div>";
     }
     sommetjes.innerHTML=text;
 
@@ -142,7 +144,7 @@ function nieuweSommetjes()
   </head>
   <body>
 
-<div id='sommetjes'>
+<div id='sommetjes' style='display:table;'>
 </div>
 <div id='next'>
 <a href='javascript:nieuweSommetjes()'>Nieuwe sommetjes</a>
