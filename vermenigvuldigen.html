@@ -1,7 +1,7 @@
 <html>
   <head>
 <title>Rekenen-Vermenigvuldigen en Delen</title>
-<meta charset="iso-8859-1">
+<meta charset="utf8">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
 <!--
@@ -118,11 +118,11 @@ function nieuweSommetjes()
       var mult = (Math.random()>0.5);
       if (mult)
       {
-        text=text+x + "X" + y + "= <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
+        text=text+x + " x " + y + " = <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
       }
       else
       {
-        text=text+z + "/" + x + "= <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
+        text=text+z + " ÷ " + x + " = <input id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
       }
   
     }
