@@ -52,10 +52,6 @@ html, body,input,sommetjes {
 {
   color:#ff0000;
 }
-#next
-{
-  display:none;
-}
 </style>
 
 
@@ -93,6 +89,10 @@ function testWaarde(element,waarde)
     if (count==nrSommen)
     {
       document.getElementById('next').style.display='block';
+    }
+    else
+    {
+      document.getElementById('next').style.display='none';
     }
   }
 }
@@ -133,8 +133,6 @@ function nieuweSommetjes()
     {
       nextElement.focus();
     }
-    document.getElementById('next').style.display='none';
-    
   }
 }
 
