@@ -112,7 +112,7 @@ function nieuweSommetjes()
     var i;
     var ondernul = document.getElementById('ondernul').checked;
 
-    text=text+"<div style='display:table;' id='sommen'>"
+
     for (i=0;i<nrSommen;i++)
     {
       var x=van+Math.floor(Math.random()*(tot-van));
@@ -125,7 +125,6 @@ function nieuweSommetjes()
       var plus = (Math.random()>0.5);
       text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
     }
-    text=text+"</div>"
     sommetjes.innerHTML=text;
 
     var nextElement=document.getElementById("0");
@@ -144,8 +143,10 @@ function nieuweSommetjes()
 <label for='ondernul'>Getallen onder nul?</label>
 <input type='checkbox' id='ondernul' value="1" onchange='nieuweSommetjes();'>
   </h6>
-<div id='sommetjes'>
+<div id='sommetjes' style='display:table;'>
 </div>
+
+
 <div id='next'>
   <br>
 <a href='javascript:nieuweSommetjes()'>Nieuwe sommetjes</a>
