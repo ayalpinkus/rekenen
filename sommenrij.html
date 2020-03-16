@@ -45,7 +45,7 @@
 
 <style>
 html, body,input,sommetjes,table {
-  font-size:18pt;
+  font-size:14pt;
   font-weight:500;
   font-family:Helvetica;
 }
@@ -123,7 +123,7 @@ function nieuweSommetjes()
         y=van+Math.floor(Math.random()*(x));
       }
       var plus = (Math.random()>0.5);
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.125in;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
+      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.075in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
     }
     text=text+"</div>"
     sommetjes.innerHTML=text;
