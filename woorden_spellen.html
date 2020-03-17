@@ -56,7 +56,43 @@ var sentences=[
   "Een kip legt een {ei}.",
   "Een woord bestaat uit {letters}.",
   "Overdag staat de {zon} aan de hemel.",
+  "Een appel groeit in een {boom}.",
+  "Een bal is {rond}.",
+  "Een kind heeft een vader en een {moeder}.",
+  "Je kan door een {raam} naar buiten kijken.",
+  "Een {week} heeft zeven dagen.",
+  "Een {hand} heeft vijf vingers.",
+  "Als het {regent} gebruik je een paraplu.",
+  "De kleur van bloed is {rood}.",
+  "Op een {stoel} kan je zitten.",
+  "De kleur van gras is {groen}.",
+  "Een {jaar} telt twaalf maanden.",
+  "&rsquo;s Avonds moet je voor het slapen gaan je {tanden} poetsen.",
+  "Op een camping slaap je in een {tent}.",
+  "Brieven worden rondgebracht door een {postbode}.",
+  "Als je ziek bent, dan bel je de {dokter}.",
+  "In een restaurant wordt het eten klaargemaakt door een {kok}.",
+  "Als je niet vaak naar een kapper gaat dan krijg je lang {haar}.",
+  "Om licht te maken kan je een {kaars} aansteken.",
+  "Je eet meestal met een mes en {vork}.",
+  "Popcorn is gemaakt van korrels {mais}.",
+  "Een hoed draag je op je {hoofd}.",
+  "Haar was je met {shampoo}.",
+  "Handen was je met {zeep}.",
+  "Een hand heeft vijf {vingers}.",
+  "Een raam is gemaakt van {glas}.",
+  "Op een klok kan je de {tijd} zien.",
+  "Een kind heeft een {vader} en een moeder.",
+  "Een ring draag je aan een {vinger}.",
+  "Een ketting draag je om je {hals}.",
+  "Zwemmen als een {vis} in het water.",
+  "Je gaat naar de bioscoop om een {film} te zien.",
+  "Je eet meestal met een {mes} en vork.",
+  "Honing wordt gemaakt door {bijen}.",
+  "Als je een sok wil stoppen, dan gebruik je naald en {draad}.",
+  "Als mannen zich niet scheren dan krijgen ze een baard en {snor}.",
 ];
+
 
 function nieuweZinnen()
 {
@@ -65,9 +101,11 @@ function nieuweZinnen()
   nrZinnen=0;
 
   var used = new Array();
+  var sentencecount= 15; // sentences.length; // 5;
 
-  while (nrZinnen<3)
+  while (nrZinnen<sentencecount)
   {
+
     var index=Math.floor(sentences.length*Math.random());
     if (!used[index])
     {
