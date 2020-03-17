@@ -97,12 +97,18 @@ a.homebutton:hover
   color:#ff0000;
 }
 
+
+.bannerimage-container
+{
+  width:8in;
+  max-width:100%;
+}
+
 .bannerimg
 {
-  width:5in;
-  max-width:100%;
+  width:45%;
   border: 1px solid #d00000;
-  margin:0.125in 0in;
+  margin:0.05in 0.05in;
 }
 .bannerimg:hover
 {
@@ -121,3 +127,24 @@ a.homebutton:hover
   user-select: none;
 }
 
+
+
+@media screen and (max-width: 8in)
+{
+
+  html, body,input,sommetjes,table {
+    font-size:14pt;
+  }
+
+  .bannerimage-container
+  {
+    width:100%;
+    max-width:100%;
+  }
+
+  .bannerimg
+  {
+    width:100%;
+    margin:0.05in 0;
+  }
+}
