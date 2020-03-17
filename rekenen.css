@@ -1,0 +1,112 @@
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+html, body
+{
+  margin:0;
+  padding:0;
+  border:0;
+  background: #ffffff;
+  color: #000000;
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+
+html, body,input,sommetjes,table {
+  font-family:Helvetica;
+  font-size:24pt;
+  font-weight:500;
+}
+
+a
+{
+  color:#d00000;
+  text-decoration:none;
+}
+
+a:hover
+{
+  text-decoration:underline;
+}
+.homebutton
+{
+  font-size:48pt;
+}
+
+a.homebutton:hover
+{
+  text-decoration:none;
+  color:#d0d0d0;
+}
+
+#title, #question
+{
+  font-size:5vh;
+  font-weight:600;
+}
+
+#scorepanel
+{
+  vertical-align:top;
+  display:inline-block;
+  width:20vw;
+  height:60vh;
+//  background:#ff0000;
+}
+
+#mainfield
+{
+  position:relative;
+  vertical-align:top;
+  display:inline-block;
+  width:76vw;
+  height:60vh;
+  border: 1px solid #808080;
+  overflow:hidden;
+}
+
+#completecontainer
+{
+}
+
+.score
+{
+  font-size:4vh;
+  font-weight:600;
+
+}
+
+.answer
+{
+  position:absolute;
+  padding:2vw;
+  border: 1px solid #d00000;
+  color:#d00000;
+  border-radius:1vw;  
+  background:#ffffff;
+  cursor:pointer;
+}
+
+.antwoord
+{
+  color:#ff0000;
+}
+
+.bannerimg
+{
+  width:5in;
+  max-width:100%;
+  border: 1px solid #d00000;
+  margin:0.125in 0in;
+}
+.bannerimg:hover
+{
+  opacity:0.25;
+  border: 1px solid #d0d0d0;
+}
+
