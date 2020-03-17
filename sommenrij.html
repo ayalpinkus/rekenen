@@ -53,6 +53,28 @@ html, body,input,sommetjes,table {
 {
   color:#ff0000;
 }
+
+a
+{
+  color:#d00000;
+  text-decoration:none;
+}
+
+a:hover
+{
+  text-decoration:underline;
+}
+.homebutton
+{
+  font-size:48pt;
+}
+
+a.homebutton:hover
+{
+  text-decoration:none;
+  color:#d0d0d0;
+}
+
 </style>
 
 
@@ -138,7 +160,7 @@ function nieuweSommetjes()
 </script>
   </head>
   <body>
-<H2>Sommen Rij</H2>
+<H2>Optellen en Aftrekken</H2>
 <label for='ondernul'>Getallen onder nul?</label>
 <input type='checkbox' id='ondernul' value="1" onchange='nieuweSommetjes();'>
 <br><br>
@@ -156,6 +178,9 @@ function nieuweSommetjes()
 <label for="tot">Tot/To (1-1000):</label>
 <input type="number" id="tot" name="quantity" min="1" max="1000" value='30'>
 </div>
+
+<a class='homebutton' href='index.html'>&#11013;</a>
+
 
   </body>
 </html>

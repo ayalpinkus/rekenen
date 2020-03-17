@@ -32,7 +32,7 @@
 <meta property='og:title' content='Multiplication and Division Exercises for Children'>
 <meta property='og:description' content='Generates random exercises at any difficulty level.'>
 <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Multiplication-Division-001.png?v=123'>
-<meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+<meta property='og:url' content='https://ayalpinkus.github.io/rekenen/vermenigvuldigen.html'>
 <meta property='og:site_name' content='Rekenen'>
 <meta name='twitter:title' content='Multiplication and Division Exercises for Children'>
 <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
@@ -52,6 +52,27 @@ html, body,input, table {
 .antwoord
 {
   color:#ff0000;
+}
+
+a
+{
+  color:#d00000;
+  text-decoration:none;
+}
+
+a:hover
+{
+  text-decoration:underline;
+}
+.homebutton
+{
+  font-size:48pt;
+}
+
+a.homebutton:hover
+{
+  text-decoration:none;
+  color:#d0d0d0;
 }
 
 
@@ -126,7 +147,7 @@ function nieuweSommetjes()
       }
       else
       {
-        text=text+z + " ÷ " + x + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
+        text=text+z + " &div; " + x + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
       }
       text=text+"</div></div>";
     }
@@ -143,7 +164,7 @@ function nieuweSommetjes()
 </script>
   </head>
   <body>
-<H2>Keer sommen Rij</H2>
+<H2>Vermenigvuldigen en Delen</H2>
 <br><br>
 <div id='sommetjes' style='display:table;'>
 </div>
@@ -156,6 +177,8 @@ function nieuweSommetjes()
 <label for="tot">Tot/To (1-1000):</label>
 <input type="number" id="tot" name="quantity" min="1" max="1000" value='7'>
 </div>
+
+<a class='homebutton' href='index.html'>&#11013;</a>
 
   </body>
 </html>
