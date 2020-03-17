@@ -146,8 +146,8 @@ function doCycle()
 
   if (!paused)
   {
-    var timut=20-((5*fullcount)/5000);
-    if (timut<5) timut=5;
+    var timut=25-((5*fullcount)/5000);
+    if (timut<10) timut=5;
     setTimeout(function(){ doCycle(); }, timut);
   }
 }
