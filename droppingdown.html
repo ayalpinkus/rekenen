@@ -1,129 +1,26 @@
 <html>
   <head>
-<title>Rekenen-Vlug Optellen en Aftrekken</title>
-<meta charset="iso-8859-1">
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-
-
-<meta name="author" content="Ayal Pinkus" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-<meta http-equiv="Pragma" content="no-cache"/>
-<meta http-equiv="Expires" content="-1"/>
-
-
-
-<meta name='description' content='Calculation Exercises for Children'>
-<meta property='og:title' content='Calculation Exercises for Children'>
-<meta property='og:description' content='Generates random exercises at any difficulty level.'>
-<meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-001.png?v=123'>
-<meta property='og:url' content='https://ayalpinkus.github.io/rekenen/droppingdown.html'>
-<meta property='og:site_name' content='Rekenen'>
-<meta name='twitter:title' content='Calculation Exercises for Children'>
-<meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
-<meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-001.png?v=123'>
-<meta name='twitter:card' content='summary_large_image'>
-<meta name='twitter:image:alt' content='Your child can practice calculations here.'>
-<meta name='twitter:site' content='@ayalpinkus'>
-
-
-<style>
-
-* {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
--o-box-sizing: border-box;
-box-sizing: border-box;
-}
-
-html, body
-{
-  margin:0;
-  padding:0;
-  border:0;
-  background: $background;
-  color: $fontcolor;
-  height: 100%;
-  margin-bottom: 1px;
-}
-
-
-html, body,input {
-  font-family:sans;
-  font-size:24pt;
-  font-weight:500;
-}
-
-a
-{
-  color:#d00000;
-  text-decoration:none;
-}
-
-a:hover
-{
-  text-decoration:underline;
-}
-.homebutton
-{
-  font-size:48pt;
-}
-
-a.homebutton:hover
-{
-  text-decoration:none;
-  color:#d0d0d0;
-}
-
-#title, #question
-{
-  font-size:5vh;
-  font-weight:600;
-}
-
-#scorepanel
-{
-  vertical-align:top;
-  display:inline-block;
-  width:20vw;
-  height:60vh;
-//  background:#ff0000;
-}
-
-#mainfield
-{
-  position:relative;
-  vertical-align:top;
-  display:inline-block;
-  width:76vw;
-  height:60vh;
-  border: 1px solid #808080;
-  overflow:hidden;
-}
-
-#completecontainer
-{
-}
-
-.score
-{
-  font-size:4vh;
-  font-weight:600;
-
-}
-
-.answer
-{
-  position:absolute;
-  padding:2vw;
-  border: 1px solid #808080;
-  border-radius:1vw;  
-  background:#ffffff;
-}
-
-</style>
-
+    <title>Rekenen-Vlug Optellen en Aftrekken</title>
+    <meta charset="iso-8859-1">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta name='description' content='Calculation Exercises for Children'>
+    <meta property='og:title' content='Calculation Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-001.png?v=124'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/droppingdown.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Calculation Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-001.png?v=124'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001b" />
 
 <script type='text/javascript'>
 var older_onload=window.onload;
@@ -201,7 +98,7 @@ function addAnswer()
   {
     number=-tot+Math.floor((1+3*tot)*Math.random());
   }
-  var text="<a id='a"+count+"' class='answer' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' href='javascript:giveAnswer(\"a"+count+"\","+number+");'>"+number+"</a>";
+  var text="<div id='a"+count+"' class='answer' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
 //alert(text);
   document.getElementById('mainfield').innerHTML += text;
   
@@ -297,29 +194,19 @@ function refuseAnswer(elementid,a)
   removeElement(elementid);
 }
 
-
 </script>
   </head>
   <body>
-
-<div id='title'>&nbsp;VLUG OPTELLEN!</div>
-
-<div id='completecontainer'>
-<div id='mainfield'>
-<!--
-<a id="a1" class='answer' style='left:100; top:0;' href='javascript:giveAnswer("a1",6);'>6</a>
--->
-</div><div id='scorepanel'>
-<span class='score' id='totalscore'>0000</span>
-<hr>
-<a id='pauseresume' href='javascript:pauseResume();'>&nbsp;PAUZE</a>
-  </div>
-</div>
-<div id='question'>3X2=</div>
-
-<a class='homebutton' href='index.html'>&#11013;</a>
-
-
+    <div id='title'>&nbsp;VLUG OPTELLEN!</div>
+    <div id='completecontainer'>
+      <div id='mainfield'></div><div id='scorepanel'>
+        <span class='score' id='totalscore'>0000</span>
+        <hr>
+        <a id='pauseresume' href='javascript:pauseResume();'>&nbsp;PAUZE</a>
+      </div>
+    </div>
+    <div id='question'>???</div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
   </body>
 </html>
 
