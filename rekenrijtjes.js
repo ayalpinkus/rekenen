@@ -57,7 +57,7 @@ function nieuweOptelSommetjes()
     if (nextElement)
     {
       nextElement.focus();
-      nextElement.prompt();
+      if (nextElement.trigger) nextElement.trigger("tap");
     }
   }
 }
