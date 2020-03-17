@@ -25,7 +25,8 @@
 <script type='text/javascript'>
 function generateQuestion()
 {
-  offerSolution=0.95;
+  solutionOffered=false;
+  offerSolution=1;
   var x=van+Math.floor(Math.random()*(tot-van));
   var y=van+Math.floor(Math.random()*(tot-van));
   var plus = (Math.random()>0.5);
@@ -41,6 +42,8 @@ function generateQuestion()
     <div id='completecontainer'>
       <div id='mainfield'></div><div id='scorepanel'>
         <span class='score' id='totalscore'>0000</span>
+        <hr>
+        <span class='score' id='lives'> </span>
         <hr>
         <a id='pauseresume' href='javascript:pauseResume();'>&nbsp;PAUZE</a>
       </div>
