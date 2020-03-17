@@ -57,7 +57,9 @@ function nieuweOptelSommetjes()
     if (nextElement)
     {
       nextElement.focus();
+/*does not work, was supposed to pop up the keyboard on devices
       if (nextElement.trigger) nextElement.trigger("click");
+*/
     }
   }
 }
