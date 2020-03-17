@@ -21,12 +21,7 @@
     <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
     <meta name='twitter:site' content='@ayalpinkus'>
     <link rel="stylesheet" type="text/css" href="rekenen.css?v=001a" />
-
-
-
-<!--
-<script src='rekenen.js?v=14saw545el3dk4jce' type='text/javascript'></script>
--->
+    <script src='rekenrijtjes.js?v=001c' type='text/javascript'></script>
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -36,76 +31,8 @@ function rekenen_onload()
   {
     older_onload();
   }
-  
-  nieuweSommetjes();
+  nieuweKeerSommetjes();
 }
-
-function testWaarde(element,waarde)
-{
-  if (parseInt(element.value) == waarde)
-  {
-    element.style.color="#00ff00";
-    element.disabled = true;
-
-    var index=parseInt(element.id);
-    index++;
-    var nextElement=document.getElementById(""+index);
-    if (nextElement)
-    {
-      nextElement.focus();
-    }
-    count++;
-    if (count==nrSommen)
-    {
-      document.getElementById('next').style.display='block';
-    }
-    else
-    {
-      document.getElementById('next').style.display='none';
-    }
-  }
-}
-var nrSommen=7;
-var count=0;
-
-function nieuweSommetjes()
-{
-  count=0;
-  var van=parseInt(document.getElementById('van').value);
-  var tot=parseInt(document.getElementById('tot').value);
-  var sommetjes=document.getElementById('sommetjes');
-  if (sommetjes != null)
-  {
-    var text="";
-    var i;
-    for (i=0;i<nrSommen;i++)
-    {
-      var x=van+Math.floor(Math.random()*(tot-van));
-      var y=van+Math.floor(Math.random()*(tot-van));
-      var z=x*y;
-      var mult = (Math.random()>0.5);
-
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>";
-      if (mult)
-      {
-        text=text+x + " x " + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
-      }
-      else
-      {
-        text=text+z + " &div; " + x + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
-      }
-      text=text+"</div></div>";
-    }
-    sommetjes.innerHTML=text;
-
-    var nextElement=document.getElementById("0");
-    if (nextElement)
-    {
-      nextElement.focus();
-    }
-  }
-}
-
 </script>
   </head>
   <body>
@@ -115,7 +42,7 @@ function nieuweSommetjes()
     </div>
     <div id='next'>
       <br>
-    <a href='javascript:nieuweSommetjes()'>Nieuwe sommetjes</a>
+    <a href='javascript:nieuweKeerSommetjes()'>Nieuwe sommetjes</a>
     <br>
     <label for="van">Van/From (1-1000):</label>
     <input type="number" id="van" name="quantity" min="1" max="1000" value='1'>

@@ -1,42 +1,27 @@
 <html>
   <head>
-<title>Rekenen-Optellen en Aftrekken</title>
-<meta charset="utf8">
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-
-<!--
-<meta name="keywords" content="Art, Literature, Book, Illustration" />
-<meta name="rights" content="This Website Copyright Ayal Pinkus unless otherwise noted." />
--->
-
-<meta name="author" content="Ayal Pinkus" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-<meta http-equiv="Pragma" content="no-cache"/>
-<meta http-equiv="Expires" content="-1"/>
-
-<link rel="stylesheet" type="text/css" href="rekenen.css?v=001b" />
-
-
-<meta name='description' content='Addition and Subtraction Exercises for Children'>
-<meta property='og:title' content='Addition and Subtraction Exercises for Children'>
-<meta property='og:description' content='Generates random exercises at any difficulty level.'>
-<meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=124'>
-<meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
-<meta property='og:site_name' content='Rekenen'>
-<meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
-<meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
-<meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=124'>
-<meta name='twitter:card' content='summary_large_image'>
-<meta name='twitter:image:alt' content='Your child can practice calculations here.'>
-<meta name='twitter:site' content='@ayalpinkus'>
-
-
-<!--
-<script src='rekenen.js?v=14saw545el3dk4jce' type='text/javascript'></script>
--->
+    <title>Rekenen-Optellen en Aftrekken</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=124'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=124'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001b" />
+    <script src='rekenrijtjes.js?v=001c' type='text/javascript'></script>
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -46,98 +31,26 @@ function rekenen_onload()
   {
     older_onload();
   }
-  
-  nieuweSommetjes();
+  nieuweOptelSommetjes();
 }
-
-function testWaarde(element,waarde)
-{
-  if (parseInt(element.value) == waarde)
-  {
-    element.style.color="#00ff00";
-    element.disabled = true;
-
-    var index=parseInt(element.id);
-    index++;
-    var nextElement=document.getElementById(""+index);
-    if (nextElement)
-    {
-      nextElement.focus();
-    }
-    count++;
-    if (count==nrSommen)
-    {
-      document.getElementById('next').style.display='block';
-    }
-    else
-    {
-      document.getElementById('next').style.display='none';
-    }
-  }
-}
-var nrSommen=7;
-var count=0;
-
-function nieuweSommetjes()
-{
-  count=0;
-  var van=parseInt(document.getElementById('van').value);
-  var tot=parseInt(document.getElementById('tot').value);
-  var sommetjes=document.getElementById('sommetjes');
-  if (sommetjes != null)
-  {
-    var text="";
-    var i;
-    var ondernul = document.getElementById('ondernul').checked;
-
-
-    for (i=0;i<nrSommen;i++)
-    {
-      var x=van+Math.floor(Math.random()*(tot-van));
-      var y=0
-      if (ondernul) {
-        y=van+Math.floor(Math.random()*(tot-van));
-      } else {
-        y=van+Math.floor(Math.random()*(x));
-      }
-      var plus = (Math.random()>0.5);
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
-    }
-    sommetjes.innerHTML=text;
-
-    var nextElement=document.getElementById("0");
-    if (nextElement)
-    {
-      nextElement.focus();
-    }
-  }
-}
-
 </script>
   </head>
   <body>
-<H2>Optellen en Aftrekken</H2>
-<label for='ondernul'>Getallen onder nul?</label>
-<input type='checkbox' id='ondernul' value="1" onchange='nieuweSommetjes();'>
-<br><br>
-<div id='sommetjes' style='display:table;'>
-
-</div>
-
-
-<div id='next'>
-  <br>
-<a href='javascript:nieuweSommetjes()'>Nieuwe sommetjes</a>
-<br>
-<label for="van">Van/From (1-1000):</label>
-<input type="number" id="van" name="quantity" min="1" max="1000" value='1'>
-<label for="tot">Tot/To (1-1000):</label>
-<input type="number" id="tot" name="quantity" min="1" max="1000" value='30'>
-</div>
-
-<a class='homebutton' href='index.html'>&#11013;</a>
-
-
+    <h2>Optellen en Aftrekken</h2>
+    <label for='ondernul'>Getallen onder nul?</label>
+    <input type='checkbox' id='ondernul' value="1" onchange='nieuweOptelSommetjes();'>
+    <br><br>
+    <div id='sommetjes' style='display:table;'></div>
+    <div id='next'>
+      <br>
+      <a href='javascript:nieuweOptelSommetjes()'>Nieuwe sommetjes</a>
+      <br>
+      <label for="van">Van/From (1-1000):</label>
+      <input type="number" id="van" name="quantity" min="1" max="1000" value='1'>
+      <label for="tot">Tot/To (1-1000):</label>
+      <input type="number" id="tot" name="quantity" min="1" max="1000" value='30'>
+    </div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
   </body>
 </html>
 
