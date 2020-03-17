@@ -200,7 +200,7 @@ function addAnswer()
   {
     number=-tot+Math.floor((1+3*tot)*Math.random());
   }
-  var text="<a id='a"+count+"' class='answer' style='left:"+pos+"; top:0;' href='javascript:giveAnswer(\"a"+count+"\","+number+");'>"+number+"</a>";
+  var text="<a id='a"+count+"' class='answer' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' href='javascript:giveAnswer(\"a"+count+"\","+number+");'>"+number+"</a>";
 //alert(text);
   document.getElementById('mainfield').innerHTML += text;
   
@@ -219,22 +219,24 @@ function doCycle()
   cyclecount--;
   if (cyclecount<0)
   {
-    cyclecount=100;
+    cyclecount=90;
     addAnswer();
   }
   
   var i;
   for (i = 0; i < answers.length; i++)
   {
-    var top=parseInt(answers[i].style.top)+1;
+    var speed=parseFloat(answers[i].dataset.speed);
+    var top=parseFloat(answers[i].dataset.top)+speed;
+    answers[i].dataset.top = ""+top;
+
     if  (top>=height)
     {
       refuseAnswer(answers[i].id, parseInt(answers[i].innerHTML));
-      removeElement(answers[i].id);
     }
     else
     {
-      answers[i].style.top = ""+top;
+      answers[i].style.top = ""+Math.floor(top);
     }
   }
 
