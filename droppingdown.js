@@ -54,17 +54,26 @@ function showScore()
 }
 
 
+var offerSolution=0.95;
+
 function addAnswer()
 {
   var width=document.getElementById('mainfield').offsetWidth;
   var number=correctAnswer;
   var pos=Math.floor(0.9*width*Math.random());
- 
-  if (Math.random()>0.2)
+
+//console.log("offerSolution="+offerSolution);
+
+offerSolution=0.2; //@@@ mechanisme werkt nog niet
+
+  if (Math.random()>offerSolution)
   {
     number=-tot+Math.floor((1+3*tot)*Math.random());
+    offerSolution=0;
   }
-  var text="<div id='a"+count+"' class='answer' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
+  offerSolution*=0.95;
+
+  var text="<div id='a"+count+"' class='answer unselectable' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
 //alert(text);
   document.getElementById('mainfield').innerHTML += text;
   
@@ -139,6 +148,7 @@ function giveAnswer(elementid,a)
     {
       score=0;
     }
+    generateQuestion();
   }
   showScore();
   removeElement(elementid);
