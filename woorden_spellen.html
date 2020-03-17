@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Woordenschat</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+<!--
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
+-->
+
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001d" />
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+  nieuweZinnen();
+}
+
+var count=0;
+var nrZinnen=1;
+
+function nieuweZinnen()
+{
+  var text="";
+  count=0;
+  nrZinnen=0;
+
+  text=text+"Kikkers zijn "+"<input style='margin-bottom:0.05in; font-size:24pt;' id='0' class='antwoord' type='text' oninput='testWoord(this,\"groen\")'>.<br>";
+  nrZinnen++;
+
+  text=text+"Mensen wonen in een "+"<input style='margin-bottom:0.05in; font-size:24pt;' id='1' class='antwoord' type='text' oninput='testWoord(this,\"huis\")'>.<br>";
+  nrZinnen++;
+
+
+  document.getElementById('zinnetjes').innerHTML=text;
+  var nextElement=document.getElementById("0");
+  if (nextElement)
+  {
+    nextElement.focus();
+  }
+
+}
+
+
+function testWoord(element,waarde)
+{
+  if (element.value == waarde)
+  {
+    element.style.color="#00ff00";
+    element.disabled = true;
+
+    var index=parseInt(element.id);
+    index++;
+    var nextElement=document.getElementById(""+index);
+    if (nextElement)
+    {
+      nextElement.focus();
+    }
+    count++;
+    if (count==nrZinnen)
+    {
+      document.getElementById('next').style.display='block';
+    }
+    else
+    {
+      document.getElementById('next').style.display='none';
+    }
+  }
+}
+
+
+</script>
+  </head>
+  <body>
+    <h2>Woordenschat</h2>
+    <div id='zinnetjes'></div>
+    <div id='next'>
+      <br>
+      <a href='javascript:nieuweZinnen()'>Nieuwe zinnen</a>
+    </div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
+  </body>
+</html>
+
