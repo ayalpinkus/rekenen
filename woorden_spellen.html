@@ -40,18 +40,41 @@ function rekenen_onload()
 var count=0;
 var nrZinnen=1;
 
+function convertSentence(sentence)
+{
+  sentence = sentence.replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' oninput='testWoord(this,\"");
+  sentence = sentence.replace(/}/g, "\")'>");
+  nrZinnen++;
+  return sentence;
+}
+
+var sentences=[
+  "De kleur van een kikker is {groen}.",
+  "Mensen wonen in een {huis}.",
+  "Soep eet je met een {lepel}.",
+  "Je slaapt meestal in een {bed}.",
+  "Een kip legt een {ei}.",
+  "Een woord bestaat uit {letters}.",
+  "Overdag staat de {zon} aan de hemel.",
+];
+
 function nieuweZinnen()
 {
   var text="";
   count=0;
   nrZinnen=0;
 
-  text=text+"De kleur van een kikker is "+"<input style='margin-bottom:0.05in; font-size:24pt;' id='0' class='antwoord' type='text' oninput='testWoord(this,\"groen\")'>.<br>";
-  nrZinnen++;
+  var used = new Array();
 
-  text=text+"Mensen wonen in een "+"<input style='margin-bottom:0.05in; font-size:24pt;' id='1' class='antwoord' type='text' oninput='testWoord(this,\"huis\")'>.<br>";
-  nrZinnen++;
-
+  while (nrZinnen<3)
+  {
+    var index=Math.floor(sentences.length*Math.random());
+    if (!used[index])
+    {
+      used[index]=true;
+      text=text+convertSentence(sentences[index])+"<br>";
+    }
+  }
 
   document.getElementById('zinnetjes').innerHTML=text;
   var nextElement=document.getElementById("0");
