@@ -137,6 +137,31 @@ a.homebutton:hover
 }
 
 
+#sommetjes
+{
+  display:table;
+}
+
+
+.reken-regel
+{
+  display:table-row;
+}
+
+.reken-som
+{
+  display:table-cell; 
+  padding-right:0.25in; 
+  white-space:nowrap;
+}
+
+.reken-antwoord
+{
+  display:table-cell;
+}
+
+
+
 
 @media screen and (max-width: 8in)
 {
@@ -156,4 +181,23 @@ a.homebutton:hover
     width:100%;
     margin:0.05in 0;
   }
+
+  #sommetjes
+  {
+    display:block;
+  }
+  .reken-regel
+  {
+    display:block;
+  }
+  .reken-som
+  {
+    display:block; 
+  }
+  .reken-antwoord
+  {
+    display:block;
+  }
+
+
 }

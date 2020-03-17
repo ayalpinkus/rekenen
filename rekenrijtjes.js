@@ -39,7 +39,6 @@ function nieuweOptelSommetjes()
     var i;
     var ondernul = document.getElementById('ondernul').checked;
 
-
     for (i=0;i<nrSommen;i++)
     {
       var x=van+Math.floor(Math.random()*(tot-van));
@@ -50,7 +49,7 @@ function nieuweOptelSommetjes()
         y=van+Math.floor(Math.random()*(x));
       }
       var plus = (Math.random()>0.5);
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in; white-space:nowrap;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
+      text=text+"<div class='reken-regel' ><div class='reken-som'>" + x + (plus ? " + " : " - ") + y + " = </div><div class='reken-antwoord' ><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
     }
     sommetjes.innerHTML=text;
 
@@ -79,14 +78,14 @@ function nieuweKeerSommetjes()
       var z=x*y;
       var mult = (Math.random()>0.5);
 
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in; white-space:nowrap;' >";
+      text=text+"<div class='reken-regel'><div class='reken-som'>";
       if (mult)
       {
-        text=text+x + " x " + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
+        text=text+x + " x " + y + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'>";
       }
       else
       {
-        text=text+z + " &div; " + x + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'><br>";
+        text=text+z + " &div; " + x + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'>";
       }
       text=text+"</div></div>";
     }
