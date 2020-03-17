@@ -50,7 +50,7 @@ function nieuweOptelSommetjes()
         y=van+Math.floor(Math.random()*(x));
       }
       var plus = (Math.random()>0.5);
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
+      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in; white-space:nowrap;' id='row'>" + x + (plus ? " + " : " - ") + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
     }
     sommetjes.innerHTML=text;
 
@@ -79,7 +79,7 @@ function nieuweKeerSommetjes()
       var z=x*y;
       var mult = (Math.random()>0.5);
 
-      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in;' id='row'>";
+      text=text+"<div style='display:table-row; '><div style='display:table-cell; padding-right:0.25in; white-space:nowrap;' >";
       if (mult)
       {
         text=text+x + " x " + y + " = </div><div style='display:table-cell;'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+z+")'><br>";
