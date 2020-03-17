@@ -92,7 +92,7 @@ console.log("offerSolution="+offerSolution);
 
   if (solutionOffered || Math.random()<offerSolution)
   {
-    number=randomSolution(van,tot);
+    number=randomSolution(van,tot,correctAnswer);
     if (number==correctAnswer)
     {
       number++;
@@ -121,9 +121,11 @@ function doCycle()
   cyclecount--;
   if (cyclecount<0)
   {
-
+/*This code makes it go faster and faster
     cyclecount=50-((5*fullcount)/5000);
     if (cyclecount<10) cyclecount=10;
+*/
+    cyclecount=50;
     addAnswer();
   }
   

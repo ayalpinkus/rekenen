@@ -23,9 +23,9 @@
     <link rel="stylesheet" type="text/css" href="rekenen.css?v=001g" />
     <script src='droppingdown.js?v=001i' type='text/javascript'></script>
 <script type='text/javascript'>
-function randomSolution(van,tot)
+function randomSolution(van,tot,correctAnswer)
 {
-  return Math.floor((1+2*tot*tot)*Math.random());
+  return Math.floor((1+2*correctAnswer)*Math.random());
 }
 
 function generateQuestion()
