@@ -105,7 +105,7 @@ console.log("offerSolution="+offerSolution);
     offerSolution=1;
   }
 
-  var text="<div id='a"+count+"' class='answer unselectable' style='left:"+pos+"; top:0;' data-speed='"+(0.5+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
+  var text="<div id='a"+count+"' class='answer unselectable' style='left:"+pos+"; top:0;' data-speed='"+(1+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
 //alert(text);
   document.getElementById('mainfield').innerHTML += text;
   
@@ -121,7 +121,9 @@ function doCycle()
   cyclecount--;
   if (cyclecount<0)
   {
-    cyclecount=90;
+
+    cyclecount=50-((5*fullcount)/5000);
+    if (cyclecount<10) cyclecount=10;
     addAnswer();
   }
   
@@ -142,10 +144,10 @@ function doCycle()
     }
   }
 
-  fullcount++;
 
   if (!paused)
   {
+    fullcount++;
     var timut=25-((5*fullcount)/5000);
     if (timut<10) timut=5;
     setTimeout(function(){ doCycle(); }, timut);

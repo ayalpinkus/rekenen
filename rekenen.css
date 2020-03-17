@@ -166,8 +166,18 @@ a.homebutton:hover
 @media screen and (max-width: 8in)
 {
 
+  body
+  {
+    margin: 0 2vw;
+  }
+
   html, body,input,sommetjes,table {
     font-size:14pt;
+  }
+
+  .answer
+  {
+    font-size:28pt;
   }
 
   .bannerimage-container
@@ -199,5 +209,24 @@ a.homebutton:hover
     display:block;
   }
 
+
+  #scorepanel
+  {
+    color:#a0a0a0;
+    width:94vw;
+    height:auto;
+  }
+
+  #mainfield
+  {
+    width:94vw;
+    height:80vh;
+  }
+
+
+  hr.score-separator
+  {
+    display:none;
+  }
 
 }
