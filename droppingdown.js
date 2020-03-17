@@ -68,7 +68,7 @@ function showScore()
 {
   document.getElementById('totalscore').innerHTML=formatScore(score);
   var i;
-  var livesText="";
+  var livesText="&nbsp;";
   for (i=0;i<lives;i++)
   {
     livesText += "&#9817; ";
