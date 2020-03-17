@@ -92,7 +92,7 @@ console.log("offerSolution="+offerSolution);
 
   if (solutionOffered || Math.random()<offerSolution)
   {
-    number=-tot+Math.floor((1+3*tot)*Math.random());
+    number=randomSolution(van,tot);
     if (number==correctAnswer)
     {
       number++;

@@ -35,6 +35,12 @@ function generateQuestion()
 
   document.getElementById('question').innerHTML=text;
 }
+
+function randomSolution(van,tot)
+{
+  return -tot+Math.floor((1+3*tot)*Math.random());
+}
+
 </script>
   </head>
   <body>
