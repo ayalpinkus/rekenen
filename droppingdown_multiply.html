@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Rekenen-Vlug Vermenigvuldigen en Delen</title>
+    <meta charset="iso-8859-1">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta name='description' content='Calculation Exercises for Children'>
+    <meta property='og:title' content='Calculation Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-Multiply-001.png?v=124'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/droppingdown_multiply.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Calculation Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Dropping-Down-Multiply-001.png?v=124'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001c" />
+    <script src='droppingdown.js?v=001i' type='text/javascript'></script>
+<script type='text/javascript'>
+function randomSolution(van,tot)
+{
+  return Math.floor((1+2*tot*tot)*Math.random());
+}
+
+function generateQuestion()
+{
+  solutionOffered=false;
+  offerSolution=1;
+  var x=van+Math.floor(Math.random()*(tot-van));
+  var y=van+Math.floor(Math.random()*(tot-van));
+  var z=x*y;
+  var mult = (Math.random()>0.5);
+
+  if (mult)
+  {
+    correctAnswer = z;
+    var text="&nbsp;"+x + " X " + y + " =";
+  }
+  else
+  {
+    correctAnswer = y;
+    var text="&nbsp;"+z + " &div; " + x + " =";
+  }
+  document.getElementById('question').innerHTML=text;
+}
+</script>
+  </head>
+  <body>
+    <div id='title'>&nbsp;VLUG VERMENIGVULDIGEN!</div>
+    <div id='completecontainer'>
+      <div id='mainfield'></div><div id='scorepanel'>
+        <span class='score' id='totalscore'>0000</span>
+        <hr>
+        <span class='score' id='lives'> </span>
+        <hr>
+        <a id='pauseresume' href='javascript:pauseResume();'>&nbsp;PAUZE</a>
+      </div>
+    </div>
+    <div id='question'>???</div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
+  </body>
+</html>
+
