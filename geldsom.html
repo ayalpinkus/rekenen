@@ -43,9 +43,10 @@ function nieuweOptelSommetjes()
 {
   var element=document.getElementById('question');
   answer = Math.floor(1+59*Math.random());
+console.log("hier");
   if (element)
   {
-    element.innerHTML=""+answer+"=";
+    element.innerHTML="Hoe maak je "+answer+" Euro?";
   }
   numbers["10"]=0;
   numbers["5"] =0;
@@ -54,7 +55,7 @@ function nieuweOptelSommetjes()
 
   document.getElementById("10").innerHTML="0";
   document.getElementById("5").innerHTML="0";
-  document.getElementById("3").innerHTML="0";
+  document.getElementById("2").innerHTML="0";
   document.getElementById("1").innerHTML="0";
 
 }
