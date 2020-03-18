@@ -1,0 +1,240 @@
+<html>
+  <head>
+    <title>Rekenen-Optellen en Aftrekken</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+<!--
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <script src='rekenrijtjes.js?v=001k' type='text/javascript'></script>
+-->
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
+
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+  nieuweOptelSommetjes();
+}
+
+var answer=0;
+
+function nieuweOptelSommetjes()
+{
+  var element=document.getElementById('question');
+  answer = Math.floor(1+59*Math.random());
+  if (element)
+  {
+    element.innerHTML=""+answer+"=";
+  }
+  numbers["10"]=0;
+  numbers["5"] =0;
+  numbers["2"] =0;
+  numbers["1"] =0;
+
+  document.getElementById("10").innerHTML="0";
+  document.getElementById("5").innerHTML="0";
+  document.getElementById("3").innerHTML="0";
+  document.getElementById("1").innerHTML="0";
+
+}
+
+var numbers = new Array();
+
+
+function checkAnswer()
+{
+  if (answer == numbers["10"]*10+numbers["5"]*5+numbers["2"]*2+numbers["1"]*1)
+  {
+    alert("Goed zo!!!");
+    nieuweOptelSommetjes(); 
+  }
+}
+
+
+function decrement(id)
+{
+  if (numbers[id] > 0)
+  {
+    numbers[id] -= 1;
+    document.getElementById(id).innerHTML=""+numbers[id];
+    checkAnswer();
+  }
+}
+
+function increment(id)
+{
+  numbers[id] += 1;
+  document.getElementById(id).innerHTML=""+numbers[id];
+  checkAnswer();
+}
+
+</script>
+<style>
+.biljet
+{
+  display:inline-block;
+  position:relative;
+  vertical-align:center;
+  
+  width:1.25in;
+  height:0.75in;
+}
+.biljetcentrum, .biljetmunt
+{
+  position:absolute;
+  top:0.125in;
+  left:0.375in;
+  font-size:24pt;
+  font-weight:600;
+  line-height:144%;
+  vertical-align:center;
+  width:0.5in;
+  height:0.5in;
+  border-radius:0.25in;
+}
+
+.biljetcentrum
+{
+  background:#ffffff;
+}
+
+.tientje
+{
+  background:#8080ff;
+  cursor:pointer;
+}
+
+.tientje:hover
+{
+  background:#4040ff;
+}
+
+.vijfje
+{
+  background:#80ff80;
+  cursor:pointer;
+}
+
+.vijfje:hover
+{
+  background:#40ff04;
+}
+
+.munt
+{
+  background:#ffffff;
+}
+
+.twee
+{
+  background:#ff8080;
+}
+.twee:hover
+{
+  background:#ff4040;
+}
+
+.een
+{
+  background:#ffff80;
+}
+.een:hover
+{
+  background:#ffff40;
+}
+
+a.numbutton:hover
+{
+  text-decoration:none;
+  color:#d0d0d0;
+}
+
+</style>
+
+  </head>
+  <body>
+    <h2>Geldsommen</h2>
+
+    <div id='question'> </div>
+<p>
+
+<div style='display:table;'>
+<div style='display:table-row;'>
+<div style='display:table-cell;'>
+<div class='biljet tientje' align='center' ><div class='biljetcentrum'>10</div></div>
+</div>
+
+<div style='display:table-cell; font-size:72pt;' >
+<a class='numbutton' href='javascript:decrement("10")'>-</a><span id='10'>0</span><a href='javascript:increment("10")' class='numbutton' href=''>+</a>
+</div>
+
+</div>
+
+
+<div style='display:table-row;'>
+<div style='display:table-cell;'>
+<div class='biljet vijfje' align='center' ><div class='biljetcentrum'>5</div></div>
+</div>
+
+<div style='display:table-cell; font-size:72pt;' >
+<a class='numbutton' href='javascript:decrement("5")'>-</a><span id='5'>0</span><a href='javascript:increment("5")' class='numbutton' href=''>+</a>
+</div>
+
+</div>
+
+<div style='display:table-row;'>
+<div style='display:table-cell;'>
+<div class='biljet munt' align='center' ><div class='biljetmunt twee'>2</div></div>
+</div>
+
+<div style='display:table-cell; font-size:72pt;' >
+<a class='numbutton' href='javascript:decrement("2")'>-</a><span id='2'>0</span><a href='javascript:increment("2")' class='numbutton' href=''>+</a>
+</div>
+
+</div>
+
+<div style='display:table-row;'>
+<div style='display:table-cell;'>
+<div class='biljet munt' align='center' ><div class='biljetmunt een'>1</div></div>
+</div>
+
+<div style='display:table-cell; font-size:72pt;' >
+<a class='numbutton' href='javascript:decrement("1")'>-</a><span id='1'>0</span><a href='javascript:increment("1")' class='numbutton' href=''>+</a>
+</div>
+
+</div>
+
+</div>
+
+    <div id='next'>
+      <br>
+      <a href='javascript:nieuweOptelSommetjes()'>Nieuw sommetje</a>
+      <br>
+      <label for="tot">Tot/To (1-1000):</label>
+      <input type="number" id="tot" name="quantity" min="1" max="1000" value='60'>
+    </div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
+  </body>
+</html>
+
