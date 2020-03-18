@@ -42,7 +42,8 @@ var answer=0;
 function nieuweOptelSommetjes()
 {
   var element=document.getElementById('question');
-  answer = Math.floor(1+59*Math.random());
+  var tot=parseInt(document.getElementById('tot').value);
+  answer = Math.floor(1+(tot-1)*Math.random());
 console.log("hier");
   if (element)
   {
@@ -175,7 +176,7 @@ a.numbutton:hover
 
   </head>
   <body>
-    <h2>Geldsommen</h2>
+    <h2>Je rekent met geld.</h2>
 
     <div id='question'> </div>
 <p>
