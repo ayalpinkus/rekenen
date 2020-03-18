@@ -105,7 +105,7 @@ console.log("offerSolution="+offerSolution);
     offerSolution=1;
   }
 
-  var text="<div id='a"+count+"' class='answer unselectable' style='left:"+pos+"; top:0;' data-speed='"+(1+1.5*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
+  var text="<div id='a"+count+"' class='answer unselectable' style='left:"+pos+"; top:0;' data-speed='"+(1.0+1.0*Math.random())+"' data-top='0' onclick='giveAnswer(\"a"+count+"\","+number+");'>"+number+"</div>";
 //alert(text);
   document.getElementById('mainfield').innerHTML += text;
   
@@ -150,8 +150,8 @@ function doCycle()
   if (!paused)
   {
     fullcount++;
-    var timut=25-((5*fullcount)/5000);
-    if (timut<10) timut=5;
+    var timut=45-((5*fullcount)/100);
+    if (timut<20) timut=20;
     setTimeout(function(){ doCycle(); }, timut);
   }
 }
@@ -182,6 +182,7 @@ function giveAnswer(elementid,a)
       score=0;
     }
     alert("Jij gaf het antwoord "+a+". Het juiste antwoord was "+correctAnswer+".");
+    fullcount=0;
     lives--;
     generateQuestion();
   }
@@ -206,6 +207,7 @@ function refuseAnswer(elementid,a)
       score=0;
     }
     alert("Het juiste antwoord was "+correctAnswer+".");
+    fullcount=0;
     lives--;
     generateQuestion();
   }
@@ -217,3 +219,5 @@ function refuseAnswer(elementid,a)
     startGame();
   }
 }
+
+
