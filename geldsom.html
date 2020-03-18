@@ -68,8 +68,42 @@ function checkAnswer()
 {
   if (answer == numbers["10"]*10+numbers["5"]*5+numbers["2"]*2+numbers["1"]*1)
   {
-    alert("Goed zo!!!");
-    nieuweOptelSommetjes(); 
+    setTimeout(function(){ 
+      var sumstr="";
+      var added=false;
+      if (numbers["10"]>0)
+      {
+        sumstr = sumstr+numbers["10"]+" keer tien Euro";
+        added=true;
+      }
+
+
+      if (numbers["5"]>0)
+      {
+        if (added) sumstr = sumstr+" plus ";
+        sumstr = sumstr+numbers["5"]+" keer vijf Euro";
+        added=true;
+      }
+
+      if (numbers["2"]>0)
+      {
+        if (added) sumstr = sumstr+" plus ";
+        sumstr = sumstr+numbers["2"]+" keer twee Euro";
+        added=true;
+      }
+
+      if (numbers["1"]>0)
+      {
+        if (added) sumstr = sumstr+" plus ";
+        sumstr = sumstr+numbers["1"]+" keer een Euro";
+        added=true;
+      }
+
+      alert("Goed zo!!!\n"+answer+" Euro is inderdaad gelijk aan "+sumstr+".");
+      nieuweOptelSommetjes(); 
+     }, 100);
+   
+    
   }
 }
 
