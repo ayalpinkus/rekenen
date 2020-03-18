@@ -150,7 +150,7 @@ function doCycle()
   if (!paused)
   {
     fullcount++;
-    var timut=45-((5*fullcount)/100);
+    var timut=45-((5*fullcount)/5000);
     if (timut<20) timut=20;
     setTimeout(function(){ doCycle(); }, timut);
   }
