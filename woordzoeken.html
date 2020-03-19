@@ -263,7 +263,7 @@ function nieuwSpel()
 	if (wordAdded(nieuwWoord))
 	{
           numWords++;
-          woorden=woorden+nieuwWoord+"&nbsp;";
+          woorden=woorden+"<span id='"+nieuwWoord+"'>"+nieuwWoord+"</span>&nbsp;";
 	  break;
 	}
       }
@@ -314,6 +314,12 @@ function clicked(element)
           document.getElementById(clickid).classList.remove("chosen");
 	  {
             var kleur=eenKleur();
+            var wordmark=document.getElementById(used[clickid]);
+	    if (wordmark)
+	    {
+	      wordmark.style.color=kleur;
+	    }
+
 	    var i;
 	    for (i=0;i<newlay[4];i++)
 	    {
