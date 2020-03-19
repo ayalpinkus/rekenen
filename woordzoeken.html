@@ -333,13 +333,24 @@ function clicked(element)
 	  used[clickid] = null;
 	  numWords--;
           wordsDone++;
+          clickstate=0;
+          clickid=null;
         }
 	else
 	{
-          document.getElementById(clickid).classList.remove("chosen");
+          if (clickstate == 1)
+	  {
+            document.getElementById(clickid).classList.remove("chosen");
+	    element.classList.add("chosen");
+	    clickstate=1;
+	    clickid=element.id;
+	  }
+	  else
+	  {
+            clickstate=0;
+            clickid=null;
+	  }
 	}
-        clickstate=0;
-        clickid=null;
         if (numWords==0)
 	{
           setTimeout(function(){ 
@@ -347,7 +358,14 @@ function clicked(element)
             nieuwSpel();
             }, 100);
 
-	}
+        }
+      }
+      else if (clickstate == 1)
+      {
+        document.getElementById(clickid).classList.remove("chosen");
+	element.classList.add("chosen");
+	clickstate=1;
+	clickid=element.id;
       }
     }
   }
