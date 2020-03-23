@@ -133,6 +133,34 @@ var woorden_auou = [
 ];
 
 
+var woorden_set_001 = [
+  "SCHIJNT",
+  "BLAUW",
+  "GEEUW",
+  "KOKEN",
+  "PEPER",
+  "DIENBLAD",
+  "KOFFIE",
+  "TIJD",
+  "KOFFER",
+  "VRIJHEID",
+  "BOTER",
+  "LAMP",
+  "KAKELT",
+  "GESCHREVEN",
+  "BOVENOP",
+  "BLADWIJZER",
+  "KAMERTJE",
+  "VLEES",
+  "TAFEL",
+  "WOORD",
+  "WOORDEN",
+  "ZIN",
+  "ZINNEN",
+];
+
+
+
 var used=new Array();
 var teraden = new Array();
 
@@ -232,6 +260,10 @@ function nieuwSpel()
   if (woordtype=='auou')
   {
     woordenlijst=woorden_auou;
+  }
+  else if (woordtype=='set001')
+  {
+    woordenlijst=woorden_set_001;
   }
 
   teraden = new Array();
@@ -409,6 +441,7 @@ function doHint()
 <select id="woordtype" onchange="nieuwSpel()">
   <option value="eiij">EI of IJ</option>
   <option value="auou">AU of OU</option>
+  <option value="set001">Set 1</option>
 </select>
 
 <a href='javascript:doHint()'>HINT</a>

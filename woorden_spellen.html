@@ -48,7 +48,7 @@ function convertSentence(sentence)
   return sentence;
 }
 
-var sentences=[
+var sentences_set1=[
   "De kleur van een kikker is {groen}.",
   "Mensen wonen in een {huis}.",
   "Soep eet je met een {lepel}.",
@@ -94,14 +94,49 @@ var sentences=[
 ];
 
 
+var sentences_set2=[
+  "Op een klok kun je de {tijd} lezen.",
+  "Het is {tijd} om te gaan.",
+  "Op een boterham kun je {boter} smeren.",
+  "Als je licht nodig hebt, kun je een {lamp} aandoen.",
+  "Mijn tante {kakelt} er altijd doorheen.",
+  "Er stond iets op het briefje {geschreven}.",
+  "De brief lag er {bovenop}.",
+  "Ik legde de {bladwijzer} tussen de bladzijdes.",
+  "Ze ging naar haar {kamertje} om te slapen.",
+  "De zon {schijnt} vanochtent.",
+  "Als ik roep, {stoor} je dan niet.",
+  "Deze leeuw {brult} heel hard.",
+  "De hemel is {blauw}.",
+  "Een diepe {geeuw} en hij sliep.",
+  "Mijn vader houdt van {koken}.",
+  "Rode {peper} kan heel heet zijn.",
+  "Koffie en thee werd gebracht op een {dienblad}.",
+  "Hij vroeg of ik melk of suiker in mijn {koffie} wilde.",
+  "Ze nam haar {koffer} mee op reis.",
+
+/*
+  "",
+*/
+];
+
 function nieuweZinnen()
 {
   var text="";
   count=0;
   nrZinnen=0;
 
+  var sentences=sentences_set1;
+  var woordtype=document.getElementById('woordtype').value;
+  if (woordtype=='set2')
+  {
+    sentences=sentences_set2;
+  }
+
   var used = new Array();
-  var sentencecount= 15; // sentences.length; // 5;
+  var sentencecount= 5; // sentences.length; // 5;
+
+  var woorden= new Array();
 
   while (nrZinnen<sentencecount)
   {
@@ -111,10 +146,38 @@ function nieuweZinnen()
     {
       used[index]=true;
       text=text+convertSentence(sentences[index])+"<p><hr><p>";
+
+
+//antwoorden
+      var start = sentences[index].indexOf("{");
+      if (start>=0)
+      {
+        var antwoord=sentences[index].substr(start+1);
+	var end=antwoord.indexOf("}");
+        if (end>=0)
+	{
+	  antwoord = antwoord.substr(0,end);
+          woorden.push(antwoord);
+//          woorden=woorden+"<span id='woord-"+antwoord+"'>"+antwoord+"</span> ";
+//   	  alert(antwoord);
+	}
+      }
+
     }
   }
 
   document.getElementById('zinnetjes').innerHTML=text;
+
+  woorden.sort();
+
+  var woordentext="";
+  var i;
+  for (i=0;i<woorden.length;i++)
+  {
+    woordentext=woordentext+"<span id='woord-"+woorden[i]+"'>"+woorden[i]+"</span> ";
+  }
+  document.getElementById('woorden').innerHTML="<h2>"+woordentext+"</h2><hr>";
+
   var nextElement=document.getElementById("0");
   if (nextElement)
   {
@@ -133,6 +196,8 @@ function testWoord(element,waarde)
   {
     element.style.color="#00ff00";
     element.disabled = true;
+
+    document.getElementById('woord-'+waarde).style.color="#00ff00";
 
     var index=parseInt(element.id);
     index++;
@@ -158,6 +223,13 @@ function testWoord(element,waarde)
   </head>
   <body>
     <h2>Woordenschat</h2>
+
+<select id="woordtype" onchange="nieuweZinnen()">
+  <option value="set1">Set 1</option>
+  <option value="set2">Set 2</option>
+</select>
+
+    <div id='woorden'></div>
     <div id='zinnetjes'></div>
     <div id='next'>
       <br>
