@@ -42,6 +42,17 @@ function Cijfer(variabele, index)
   return document.getElementById(variabele+"-"+index);
 }
 
+function WisGetal(variabele)
+{
+  for (i=0;i<=8;i++)
+  {
+    var element=Cijfer(variabele,i);
+    if (element!=null)
+    {
+      element.innerHTML="";
+    }
+  }
+}
 
 
 function MaakGetal(variabele)
@@ -49,10 +60,7 @@ function MaakGetal(variabele)
   var nr=Math.floor(4+4*Math.random());
   var i;
 
-  for (i=0;i<=8;i++)
-  {
-    Cijfer(variabele,i).innerHTML="";
-  }
+  WisGetal(variabele);
 
   for (i=1;i<=nr;i++)
   {
@@ -91,8 +99,8 @@ function typ(cijfer)
       }
       else
       {
-
-        setTimeout(function(){  document.getElementById('next').style.display="block"; },100);
+        setTimeout(function(){  document.getElementById('next').style.display="block"; },500);
+	return;
       }
     }
   }
@@ -138,6 +146,9 @@ function CijferGetal(variabele, index)
 
 function nieuweOptelSom()
 {
+  WisGetal("z");
+  WisGetal("o");
+
   MaakGetal("x");
   MaakGetal("y");
 
