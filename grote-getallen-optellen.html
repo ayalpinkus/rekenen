@@ -52,6 +52,18 @@ function WisGetal(variabele)
       element.innerHTML="";
     }
   }
+/*
+  var element=document.getElementById(variabele+"-dot-3");
+  if (element)
+  {
+    element.style.visibility='hidden';
+  }
+  var element=document.getElementById(variabele+"-dot-6");
+  if (element)
+  {
+    element.style.visibility='hidden';
+  }
+*/
 }
 
 
@@ -253,6 +265,10 @@ input[type=text]
   height:0.5in;
 }
 
+.dot
+{
+  visibility:hidden;
+}
 
 
 
@@ -292,9 +308,11 @@ input[type=text]
   <div id='getal-o'>
     <div class='cijfer' id='o-8'></div>
     <div class='cijfer' id='o-7'></div>
+<div class='cijfer' id='o-dot-6'></div>
     <div class='cijfer' id='o-6'></div>
     <div class='cijfer' id='o-5'></div>
     <div class='cijfer' id='o-4'></div>
+<div class='cijfer' id='o-dot-3'></div>
     <div class='cijfer' id='o-3'></div>
     <div class='cijfer' id='o-2'></div>
     <div class='laatsterij'></div>
@@ -303,23 +321,59 @@ input[type=text]
 
 
   <div id='getal-x'>
-    <div class='laatsterij' id='x-8'> </div><div class='laatsterij' id='x-7'> </div><div class='laatsterij' id='x-6'> </div><div class='laatsterij' id='x-5'> </div><div class='laatsterij' id='x-4'> </div><div class='laatsterij' id='x-3'> </div><div class='laatsterij' id='x-2'> </div><div class='laatsterij' id='x-1'> </div><div class='laatsterij' id='x-0'> </div>
+    <div class='laatsterij' id='x-8'> </div>
+    <div class='laatsterij' id='x-7'> </div>
+<div class='laatsterij dot' id='x-dot-6'>.</div>
+    <div class='laatsterij' id='x-6'> </div>
+    <div class='laatsterij' id='x-5'> </div>
+    <div class='laatsterij' id='x-4'> </div>
+<div class='laatsterij dot' id='x-dot-3'>.</div>
+    <div class='laatsterij' id='x-3'> </div>
+    <div class='laatsterij' id='x-2'> </div>
+    <div class='laatsterij' id='x-1'> </div>
+    <div class='laatsterij' id='x-0'> </div>
   </div>
 
   <div id='getal-y'>
-    <div class='laatsterij' id='y-8'></div><div class='laatsterij' id='y-7'></div><div class='laatsterij' id='y-6'></div><div class='laatsterij' id='y-5'></div><div class='laatsterij' id='y-4'></div><div class='laatsterij' id='y-3'></div><div class='laatsterij' id='y-2'></div><div class='laatsterij' id='y-1'></div><div class='laatsterij' id='y-0'></div>
+    <div class='laatsterij' id='y-8'></div>
+    <div class='laatsterij' id='y-7'></div>
+<div class='laatsterij dot' id='y-dot-6'>.</div>
+    <div class='laatsterij' id='y-6'></div>
+    <div class='laatsterij' id='y-5'></div>
+    <div class='laatsterij' id='y-4'></div>
+<div class='laatsterij dot' id='y-dot-3'>.</div>
+    <div class='laatsterij' id='y-3'></div>
+    <div class='laatsterij' id='y-2'></div>
+    <div class='laatsterij' id='y-1'></div>
+    <div class='laatsterij' id='y-0'></div>
   </div>
 
   <div id='streep'>
-    <div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'>+</div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+<div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+<div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'>+</div>
   </div>
 
   <div id='getal-z'>
     <div class='cijfer' id='z-8'></div>
     <div class='cijfer' id='z-7'></div>
+
+<div class='cijfer dot' id='z-dot-6'>.</div>
+
     <div class='cijfer' id='z-6'></div>
     <div class='cijfer' id='z-5'></div>
     <div class='cijfer' id='z-4'></div>
+
+<div class='cijfer dot' id='z-dot-3'>.</div>
+
     <div class='cijfer' id='z-3'></div>
     <div class='cijfer' id='z-2'></div>
     <div class='cijfer' id='z-1'></div>
