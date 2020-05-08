@@ -1,0 +1,329 @@
+<html>
+  <head>
+    <title>Rekenen-Optellen en Aftrekken</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
+<!--
+    <script src='rekenrijtjes.js?v=001k' type='text/javascript'></script>
+-->
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+  nieuweOptelSom();
+}
+
+
+function Cijfer(variabele, index)
+{
+  return document.getElementById(variabele+"-"+index);
+}
+
+
+
+function MaakGetal(variabele)
+{
+  var nr=Math.floor(4+4*Math.random());
+  var i;
+
+  for (i=0;i<=8;i++)
+  {
+    Cijfer(variabele,i).innerHTML="";
+  }
+
+  for (i=1;i<=nr;i++)
+  {
+    if (i==nr)
+    {
+      Cijfer(variabele,i).innerHTML=""+Math.floor(1+8*Math.random());
+    }
+    else
+    {
+      Cijfer(variabele,i).innerHTML=""+Math.floor(9*Math.random());
+    }
+  }
+}
+
+function typ(cijfer)
+{
+  document.getElementById('next').style.display="none";
+
+//console.log("id is "+laatstegetal+"-"+laatstecijfer);
+
+
+  var element = Cijfer(laatstegetal,laatstecijfer);
+  element.innerHTML=""+cijfer;
+  if (laatstegetal == "z")
+  {
+
+//console.log("Cijfer moet zijn "+antwoord_z[laatstecijfer]);
+    if (cijfer == antwoord_z[laatstecijfer])
+    {
+      element.classList.remove("fout");
+      element.classList.add("goed");
+      if (laatstecijfer<lastzindex)
+      {
+	laatstecijfer++;
+	laatstegetal="o";
+      }
+      else
+      {
+
+        setTimeout(function(){  document.getElementById('next').style.display="block"; },100);
+      }
+    }
+  }
+  else
+  {
+//console.log("Cijfer moet zijn "+antwoord_o[laatstecijfer]);
+    if (cijfer == antwoord_o[laatstecijfer])
+    {
+      element.classList.remove("fout");
+      element.classList.remove("goed");
+      laatstegetal="z";
+    }
+  }
+
+//console.log("new id "+laatstegetal+"-"+laatstecijfer);
+  element=Cijfer(laatstegetal,laatstecijfer);
+  element.innerHTML="&quest;";
+  element.classList.add("fout");
+}
+
+
+var laatstegetal="z";
+var laatstecijfer=1;
+
+var antwoord_o = [];
+var antwoord_z = [];
+
+
+function CijferGetal(variabele, index)
+{
+  var element = document.getElementById(variabele+"-"+index);
+  if (element != null)
+  {
+    var innerHTML=element.innerHTML;
+    if (innerHTML.length>0)
+    {
+      return parseInt(innerHTML);
+    }
+  }
+  return 0;
+}
+
+
+function nieuweOptelSom()
+{
+  MaakGetal("x");
+  MaakGetal("y");
+
+  var i;
+  var onthouden=0;
+  antwoord_o[1]=0;
+  for (i=1;i<=8;i++)
+  {
+    var cijferx=CijferGetal("x",i);
+    var cijfery=CijferGetal("y",i);
+//console.log("cijferx="+cijferx);
+//console.log("cijfery="+cijferx);
+
+    var som=cijferx + cijfery + onthouden;
+    antwoord_z[i] = som%10;
+    onthouden=Math.floor(som/10);
+    antwoord_o[i+1] = onthouden;
+  }
+  lastzindex=8;
+  for (i=8;i>=1;i--)
+  {
+    if (antwoord_z[i] != 0)
+    {
+      lastzindex=i;
+      break;
+    }
+  }
+  
+
+
+/*
+  if (onthouden>0)
+  {
+  }
+*/
+
+/*
+  for (i=1;i<=9;i++)
+  {
+    console.log("z["+i+"]="+antwoord_z[i]);
+    console.log("o["+i+"]="+antwoord_z[i]);
+  }
+*/
+
+  laatstegetal="z";
+  laatstecijfer=1;
+  var element = document.getElementById(laatstegetal+"-"+laatstecijfer);
+  element.innerHTML="&quest;";
+  element.classList.add("fout");
+}
+
+</script>
+
+
+<style>
+.volledige-som, .rekenmachine
+{
+  display:table;
+}
+
+input[type=text]
+{
+}
+
+#getal-o, #getal-x, #getal-y, #getal-z, #streep, .rekenmachine-rij
+{
+  display:table-row;
+}
+
+.cijfer, .rekenmachine-cijfer, .laatsterij
+{
+  display:table-cell;
+}
+
+.rekenmachine
+{
+  font-size:36pt;
+}
+
+.cijfer
+{
+//  border: 1px solid #000000;
+}
+
+.fout
+{
+  color:#ff0000;
+}
+
+.goed
+{
+  color:#00ff00;
+}
+
+
+.rekenmachine-cijfer
+{
+  border: 1px solid #000000;
+  padding:0.125in;
+  margin:0.125in;
+  width:0.5in;
+  height:0.5in;
+}
+
+
+
+
+</style>
+  </head>
+  <body>
+    <div id='sommetjes'></div>
+
+<div style='display:table;'><div style='display:table-row;'><div style='display:table-cell; padding:0in 0.5in;'>
+
+
+<div class='rekenmachine'>
+<div class='rekenmachine-rij'>
+<div class='rekenmachine-cijfer'><a href='javascript:typ("1")'>1</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("2")'>2</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("3")'>3</a></div>
+</div>
+
+<div class='rekenmachine-rij'>
+<div class='rekenmachine-cijfer'><a href='javascript:typ("4")'>4</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("5")'>5</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("6")'>6</a></div>
+</div>
+
+<div class='rekenmachine-rij'>
+<div class='rekenmachine-cijfer'><a href='javascript:typ("7")'>7</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("8")'>8</a></div><div class='rekenmachine-cijfer'><a href='javascript:typ("9")'>9</a></div>
+</div>
+
+<div class='rekenmachine-rij'>
+<div class='rekenmachine-cijfer'> </div><div class='rekenmachine-cijfer'><a href='javascript:typ("0")'>0</a></div><div class='rekenmachine-cijfer'> </div>
+</div>
+</div>
+
+</div><div style='display:table-cell;'>
+
+    <h2>Grote Getallen Optellen</h2>
+    <p>
+
+
+<div class='volledige-som'>
+  <div id='getal-o'>
+    <div class='cijfer' id='o-8'></div>
+    <div class='cijfer' id='o-7'></div>
+    <div class='cijfer' id='o-6'></div>
+    <div class='cijfer' id='o-5'></div>
+    <div class='cijfer' id='o-4'></div>
+    <div class='cijfer' id='o-3'></div>
+    <div class='cijfer' id='o-2'></div>
+    <div class='laatsterij'></div>
+    <div class='laatsterij'>(onthouden)</div>
+  </div>
+
+
+  <div id='getal-x'>
+    <div class='laatsterij' id='x-8'> </div><div class='laatsterij' id='x-7'> </div><div class='laatsterij' id='x-6'> </div><div class='laatsterij' id='x-5'> </div><div class='laatsterij' id='x-4'> </div><div class='laatsterij' id='x-3'> </div><div class='laatsterij' id='x-2'> </div><div class='laatsterij' id='x-1'> </div><div class='laatsterij' id='x-0'> </div>
+  </div>
+
+  <div id='getal-y'>
+    <div class='laatsterij' id='y-8'></div><div class='laatsterij' id='y-7'></div><div class='laatsterij' id='y-6'></div><div class='laatsterij' id='y-5'></div><div class='laatsterij' id='y-4'></div><div class='laatsterij' id='y-3'></div><div class='laatsterij' id='y-2'></div><div class='laatsterij' id='y-1'></div><div class='laatsterij' id='y-0'></div>
+  </div>
+
+  <div id='streep'>
+    <div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'></div><div class='laatsterij'>+</div>
+  </div>
+
+  <div id='getal-z'>
+    <div class='cijfer' id='z-8'></div>
+    <div class='cijfer' id='z-7'></div>
+    <div class='cijfer' id='z-6'></div>
+    <div class='cijfer' id='z-5'></div>
+    <div class='cijfer' id='z-4'></div>
+    <div class='cijfer' id='z-3'></div>
+    <div class='cijfer' id='z-2'></div>
+    <div class='cijfer' id='z-1'></div>
+    <div class='laatsterij'></div>
+  </div>
+</div>
+
+
+
+</div></div></div>
+
+    <div id='next'>
+      <a href='javascript:nieuweOptelSom()'>Nieuwe Som</a>
+    </div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
+  </body>
+</html>
+
