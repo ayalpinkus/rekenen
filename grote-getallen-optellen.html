@@ -122,7 +122,7 @@ function typ(cijfer)
     if (cijfer == antwoord_o[laatstecijfer])
     {
       element.classList.remove("fout");
-      element.classList.remove("goed");
+      element.classList.add("goed");
       laatstegetal="z";
     }
   }
@@ -316,7 +316,7 @@ input[type=text]
     <div class='cijfer' id='o-3'></div>
     <div class='cijfer' id='o-2'></div>
     <div class='laatsterij'></div>
-    <div class='laatsterij'>(onthouden)</div>
+    <div class='laatsterij' style='color:#c0c0c0;'>(onthouden)</div>
   </div>
 
 
