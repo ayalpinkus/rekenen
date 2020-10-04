@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerenza's Galgje Spel</title>
+<script src="woorden.js"></script>
+
+<style>
+a
+{
+  text-decoration:none;
+  color:#d00000;
+}
+
+</style>
+<script>
+
+var solved=0;
+
+function type(letter)
+{
+  if (!gamestarted) return;
+  var id="letter-"+letter;
+  var element=document.getElementById(id);
+  if (element)
+  {
+    if (element.innerHTML == letter) return;
+
+    element.innerHTML=letter;
+    element.style.textDecoration="line-through";
+
+    if (current<8)
+    {
+      var found=false;
+      var i;
+      for (i=0;i<word.length;i++)
+      {
+        if (letter == word.substr(i,1))
+        {
+          found=true;
+          solved++;
+          document.getElementById("antw-"+i).innerHTML = letter;
+        }
+      }
+      if (found && solved == nrletters)
+      {
+          setTimeout(function(){ alert("Goed zo je hebt het goed gedaan!"); }, 500);
+      }
+      if (!found)
+      {
+        document.getElementById("extra-"+current).style.visibility="visible";
+        current++;
+        if (current==8)
+        {
+          setTimeout(function(){ alert("Helaas! Het spel is uit. Het woord was "+word+". Volgende keer beter."); }, 500);
+        }
+      }
+    }
+  }
+
+}
+
+var current=0;
+
+document.onkeyup = KeyCheck;       
+function KeyCheck(e)
+{  
+  var KeyID = (window.event) ? event.keyCode : e.keyCode;
+  var actualkey=String.fromCharCode(KeyID);
+
+  type(actualkey);
+}
+
+var gamestarted=false;
+var word="";
+var nrletters=0;
+function makeWord(newword)
+{
+  gamestarted=true;
+  word=newword;
+  var text="";
+  var i;
+  for (i=0;i<word.length;i++)
+  {
+    var c=word.codePointAt(i);
+
+
+    if (c==32)
+    {
+      text=text + " &nbsp; ";
+    }
+
+
+    else if ( (c>=65 && c<65+26) || (c>=95 && c<95+26) )
+    {
+      nrletters++;
+      text = text + "<span id='antw-"+i+"'>_</span> ";
+    }
+    else
+    {
+      text = text + word.substr(i,1);
+    }
+  }
+  document.getElementById('woord').innerHTML=text;
+}
+
+var prevOnLoad_grid = window.onload;
+window.onload=onLoad_grid;
+function onLoad_grid()
+{
+  if (prevOnLoad_grid != null)
+  {
+    prevOnLoad_grid();
+  }
+}
+
+function validateWord(suggestion)
+{
+  if (suggestion.length<1) return false;
+/*
+  var i;
+  for (i=0;i<suggestion.length;i++)
+  {
+    var c=suggestion.codePointAt(i);
+    if (c==32) continue;
+    if (c>=65 && c<=65+27)
+    {
+      continue;
+    }
+    if (c>=95 && c<=95+27)
+    {
+      continue;
+    }
+    return false;
+  }
+*/
+  return true;
+}
+
+function doSuggestion()
+{
+  var suggestie=document.getElementById('suggestie').value;
+  if (validateWord(suggestie))
+  {
+    makeWord(suggestie.toUpperCase());
+  }
+  else
+  {
+    alert("Deze zin mag niet: alleen letters en spatie zijn toegestaan");
+  }
+}
+
+function selectRandomWord()
+{
+  var wrd=lijst[Math.floor(Math.random()*lijst.length)];
+  makeWord(wrd.toUpperCase());
+}
+
+</script>
+
+</head>
+<body>
+
+<h1>Kerenza's Galgje spel</h1>
+
+
+
+ <svg width="3in" viewBox="0 0 350 450" style="stroke:rgb(0,0,0);stroke-width:5" stroke-linecap="round" fill="none" >
+  <line x1="10" y1="440" x2="50" y2="360"  />
+  <line x1="90" y1="440" x2="50" y2="360"  />
+  <line x1="50" y1="440" x2="50" y2="30"  />
+  <line x1="50" y1="30" x2="240" y2="30"  />
+
+  <line   id='extra-0' style="visibility:hidden;" x1="50" y1="70" x2="90" y2="30"  />
+  <line   id='extra-1' style="visibility:hidden;" x1="240" y1="30" x2="240" y2="100"  />
+  <circle id='extra-2' style="visibility:hidden;" cx="240" cy="140" r="40" />
+  <line   id='extra-3' style="visibility:hidden;" x1="240" y1="180" x2="240" y2="270"  />
+
+  <line   id='extra-4' style="visibility:hidden;" x1="240" y1="200" x2="180" y2="170"  />
+  <line   id='extra-5' style="visibility:hidden;" x1="240" y1="200" x2="300" y2="170"  />
+
+  <line   id='extra-6' style="visibility:hidden;" x1="240" y1="270" x2="180" y2="320"  />
+  <line   id='extra-7' style="visibility:hidden;" x1="240" y1="270" x2="300" y2="320"  />
+
+</svg> 
+<br>
+<h1>
+<span id='woord'>Voer een woord of zin in: <input id='suggestie'><a href='javascript:doSuggestion()'>START</a>
+<p>
+&mdash; of &mdash;
+<p>
+<a href='javascript:selectRandomWord()'>Laat de computer een woord kiezen</a>
+</span>
+</h1>
+
+
+<br>
+<a href='galgje-001.html'>Opnieuw</a>
+<br>
+<h1>
+<span id='letter-A'><a href='javascript:type("A")'>A</a></span>
+<span id='letter-B'><a href='javascript:type("B")'>B</a></span>
+<span id='letter-C'><a href='javascript:type("C")'>C</a></span>
+<span id='letter-D'><a href='javascript:type("D")'>D</a></span>
+<span id='letter-E'><a href='javascript:type("E")'>E</a></span>
+<span id='letter-F'><a href='javascript:type("F")'>F</a></span>
+<span id='letter-G'><a href='javascript:type("G")'>G</a></span>
+<span id='letter-H'><a href='javascript:type("H")'>H</a></span>
+<span id='letter-I'><a href='javascript:type("I")'>I</a></span>
+<span id='letter-J'><a href='javascript:type("J")'>J</a></span>
+<span id='letter-K'><a href='javascript:type("K")'>K</a></span>
+<span id='letter-L'><a href='javascript:type("L")'>L</a></span>
+<span id='letter-M'><a href='javascript:type("M")'>M</a></span>
+<span id='letter-N'><a href='javascript:type("N")'>N</a></span>
+<span id='letter-O'><a href='javascript:type("O")'>O</a></span>
+<span id='letter-P'><a href='javascript:type("P")'>P</a></span>
+<span id='letter-Q'><a href='javascript:type("Q")'>Q</a></span>
+<span id='letter-R'><a href='javascript:type("R")'>R</a></span>
+<span id='letter-S'><a href='javascript:type("S")'>S</a></span>
+<span id='letter-T'><a href='javascript:type("T")'>T</a></span>
+<span id='letter-U'><a href='javascript:type("U")'>U</a></span>
+<span id='letter-V'><a href='javascript:type("V")'>V</a></span>
+<span id='letter-W'><a href='javascript:type("W")'>W</a></span>
+<span id='letter-X'><a href='javascript:type("X")'>X</a></span>
+<span id='letter-Y'><a href='javascript:type("Y")'>Y</a></span>
+<span id='letter-Z'><a href='javascript:type("Z")'>Z</a></span>
+</h1>
+
+
+</body>
+</html>
