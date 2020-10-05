@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title>Tafels</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+<!--
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
+-->
+
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+  nieuweTafel();
+}
+
+var count=0;
+var nrZinnen=1;
+
+function convertSentence(sentence)
+{
+  sentence = sentence.replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' oninput='testWoord(this,\"");
+  sentence = sentence.replace(/}/g, "\")'>");
+  nrZinnen++;
+  return sentence;
+}
+
+var tafelVan=1;
+
+function nieuweTafel()
+{
+  var text="";
+  count=0;
+  nrZinnen=0;
+
+  tafelVan=1+Math.floor(12*Math.random());
+
+  for (nrZinnen=0;nrZinnen<10;nrZinnen++)
+  {
+    text=text+""+(nrZinnen+1)+" keer "+tafelVan+" is "+
+      "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' oninput='testWoord(this,\""+((nrZinnen+1)*tafelVan)+"\")'><br>";
+
+  }
+  document.getElementById('zinnetjes').innerHTML=text;
+
+  var nextElement=document.getElementById("0");
+  if (nextElement)
+  {
+    nextElement.focus();
+  }
+}
+
+
+function testWoord(element,waarde)
+{
+  if (element.value == waarde)
+  {
+    element.style.color="#00ff00";
+    element.disabled = true;
+
+    var index=parseInt(element.id);
+    index++;
+    var nextElement=document.getElementById(""+index);
+    if (nextElement)
+    {
+      nextElement.focus();
+    }
+    count++;
+    if (count==nrZinnen)
+    {
+      document.getElementById('next').style.display='block';
+    }
+    else
+    {
+      document.getElementById('next').style.display='none';
+    }
+  }
+}
+
+
+</script>
+  </head>
+  <body>
+
+    <a href='javascript:nieuweTafel()'>Nieuwe Tafel</a>
+    <h2>Tafels</h2>
+    <div id='woorden'></div>
+    <div id='zinnetjes'></div>
+    <div id='next'>
+      <br>
+      <a href='javascript:nieuweTafel()'>Nieuwe Tafel</a>
+    </div>
+    <a class='homebutton' href='index.html'>&#11013;</a>
+    <p style='height:1in;'></p>
+  </body>
+</html>
+
