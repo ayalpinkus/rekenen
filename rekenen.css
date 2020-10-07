@@ -115,9 +115,10 @@ a.homebutton:hover
 
 .bannerimg
 {
-  width:45%;
+  width:40%;
   border: 1px solid #d00000;
-  margin:0.05in 0.05in;
+  margin:5% 5%;
+  padding:0;
 }
 .bannerimg:hover
 {
