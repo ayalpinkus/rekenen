@@ -189,11 +189,18 @@ function nieuwSpel()
     fields[i]=fields[j];
     fields[j]=swap;  
   }
+
+  for (i=0;i<fields.length;i++)
+  {
+    var element=document.getElementById("field-"+i);
+    element.dataset.used="false";
+  }
   for (i=2;i<fields.length;i++)
   {
     var element=document.getElementById("field-"+fields[i]);
     element.dataset.bee="false";
   }
+
   {
     var element=document.getElementById("field-"+fields[0]);
     element.dataset.bee=true;
@@ -235,6 +242,14 @@ function checkAnswer(num)
   {
     return;
   }
+  {
+    var element=document.getElementById('field-'+num);
+    if (element.dataset.used=="true")
+    {
+      return;
+    }
+  }
+
   if (num != fields[current])
   {
     nrBees--;
@@ -247,6 +262,8 @@ function checkAnswer(num)
   else
   {
     var element=document.getElementById('field-'+num);
+
+    element.dataset.used="true";
     if (element.dataset.bee=="true")
     {
       nrBees++;
