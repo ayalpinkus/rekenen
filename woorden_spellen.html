@@ -303,6 +303,11 @@ function nieuweZinnen()
   var i;
   for (i=0;i<woorden.length;i++)
   {
+    if (i>0)
+    {
+      woordentext=woordentext+" ~ ";
+    }
+    
     woordentext=woordentext+"<span id='woord-"+woorden[i]+"'>"+woorden[i]+"</span> ";
   }
   document.getElementById('woorden').innerHTML="<h2>"+woordentext+"</h2><hr>";
