@@ -231,6 +231,76 @@ var sentences_engels_unit_1_lesson_4_reverse=[
 ];
 
 
+var sentences_engels_unit_2_lesson_4=[
+  "een hap, hapje {a bite}",
+  "appel {apple}",
+  "banaan {banana}",
+  "koekjes {biscuits}",
+  "brood {bread}",
+  "ontbijt {breakfast}",
+  "boter {butter}",
+  "cake, taart {cake}",
+  "kaas {cheese}",
+  "kauwgum {chewing gum}",
+  "chocola {chocolate}",
+  "kopje {cup}",
+  "avondeten {dinner}",
+  "ei {egg}",
+  "jam {jam}",
+  "sap {juice}",
+  "lunch, middageten {lunch}",
+  "melk {milk}",
+  "sinaasappel {orange}",
+  "pasta {pasta}",
+  "peer {pear}",
+  "pizza {pizza}",
+  "rijst {rice}",
+  "salade {salad}",
+  "boterham {sandwich}",
+  "spaghetti {spaghetti}",
+  "suiker {sugar}",
+  "thee {tea}",
+  "theelepel {teaspoon}",
+  "water {water}",
+];
+
+
+var sentences_engels_unit_2_lesson_4_reverse=[
+  "a bite {een hapje}",
+  "apple {appel}",
+  "banana {banaan}",
+  "biscuits {koekjes}",
+  "bread {brood}",
+  "breakfast {ontbijt}",
+  "butter {boter}",
+  "cake {cake}",
+  "cheese {kaas}",
+  "chewing gum {kauwgum}",
+  "chocolate {chocola}",
+  "cup {kopje}",
+  "dinner {avondeten}",
+  "egg {ei}",
+  "jam {jam}",
+  "juice {sap}",
+  "middageten {lunch}",
+  "milk {melk}",
+  "orange {sinaasappel}",
+  "pasta {pasta}",
+  "pear {peer}",
+  "pizza {pizza}",
+  "rice {rijst}",
+  "salad {salade}",
+  "sandwich {boterham}",
+  "spaghetti {spaghetti}",
+  "sugar {suiker}",
+  "tea {thee}",
+  "teaspoon {theelepel}",
+  "water {water}",
+];
+
+
+
+
 function GetSet(woordtype)
 {
   var sentences=sentences_set1;
@@ -238,15 +308,25 @@ function GetSet(woordtype)
   {
     sentences=sentences_set2;
   }
+//
   if (woordtype=='set-engels-unit-1-lesson-4')
   {
     sentences=sentences_engels_unit_1_lesson_4;
   }
-
   if (woordtype=='set-engels-unit-1-lesson-4-reverse')
   {
     sentences=sentences_engels_unit_1_lesson_4_reverse;
   }
+//
+  if (woordtype=='set-engels-unit-2-lesson-4')
+  {
+    sentences=sentences_engels_unit_2_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-2-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_2_lesson_4_reverse;
+  }
+//
   return sentences;
 }
 
@@ -357,6 +437,9 @@ function testWoord(element,waarde)
     <h2>Woordenschat</h2>
 
 <select id="woordtype" onchange="nieuweZinnen()">
+  <option value="set-engels-unit-2-lesson-4">English, unit 2, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-2-lesson-4-reverse">English, unit 2, lesson 4, English to Dutch</option>
+
   <option value="set-engels-unit-1-lesson-4">English, unit 1, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-1-lesson-4-reverse">English, unit 1, lesson 4, English to Dutch</option>
 
