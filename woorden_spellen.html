@@ -59,7 +59,7 @@ var nrZinnen=1;
 
 function convertSentence(sentence)
 {
-  sentence = sentence.replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' oninput='testWoord(this,\"");
+  sentence = sentence.replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' autocorrect='off' autocapitalize='none' oninput='testWoord(this,\"");
   sentence = sentence.replace(/}/g, "\")'>");
   nrZinnen++;
   return sentence;
