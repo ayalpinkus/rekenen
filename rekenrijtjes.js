@@ -88,7 +88,7 @@ function nieuweKeerSommetjes()
       }
       else
       {
-        text=text+z + " &div; " + x + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'>";
+        text=text+z + " : " + x + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'>";
       }
       text=text+"</div></div>";
     }
