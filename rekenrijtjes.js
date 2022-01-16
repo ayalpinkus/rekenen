@@ -77,7 +77,7 @@ function nieuweKeerSommetjes()
     for (i=0;i<nrSommen;i++)
     {
       var x=van+Math.floor(Math.random()*(tot-van));
-      var y=van+Math.floor(Math.random()*(tot-van));
+      var y=1+Math.floor(Math.random()*(9));
       var z=x*y;
       var mult = (Math.random()>0.5);
 
