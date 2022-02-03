@@ -24,7 +24,7 @@
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
 
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001f" />
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -301,6 +301,33 @@ var sentences_engels_unit_2_lesson_4_reverse=[
 
 
 
+var topografie_friesland_groningen_drenthe=[
+  "1 {Vlieland}",
+  "2 {Terschelling}",
+  "3 {Ameland}",
+  "4 {Schiermonnikoog}",
+  "5 {Afsluitdijk}",
+  "6 {Sneek}",
+  "7 {Leeuwarden}",
+  "8 {Friesland}",
+  "9 {Heerenveen}",
+  "10 {Drachten}",
+  "11 {Groningen}",
+  "12 {Delfzijl}",
+  "13 {Groningen}",
+  "14 {Veendam}",
+  "15 {Assen}",
+  "16 {Drenthe}",
+  "17 {Emmen}",
+  "18 {Hoogeveen}",
+  "19 {Meppel}",
+  "20 {Ijsselmeer}",
+  "21 {Waddenzee}",
+];
+
+
+
+
 function GetSet(woordtype)
 {
   var sentences=sentences_set1;
@@ -308,6 +335,10 @@ function GetSet(woordtype)
   {
     sentences=sentences_set2;
   }
+
+  var plaatjesElement=document.getElementById('plaatje');
+  plaatjesElement.style.display="none";
+
 //
   if (woordtype=='set-engels-unit-1-lesson-4')
   {
@@ -327,6 +358,14 @@ function GetSet(woordtype)
     sentences=sentences_engels_unit_2_lesson_4_reverse;
   }
 //
+  if (woordtype=='topografie-friesland-groningen-drenthe')
+  {
+    sentences=topografie_friesland_groningen_drenthe;
+    plaatjesElement.style.display="inherit";
+  }
+  
+
+
   return sentences;
 }
 
@@ -404,7 +443,7 @@ function nieuweZinnen()
 
 function testWoord(element,waarde)
 {
-  if (element.value.toLowerCase() == waarde)
+  if (element.value.toLowerCase() == waarde.toLowerCase())
   {
     element.style.color="#00ff00";
     element.disabled = true;
@@ -437,6 +476,9 @@ function testWoord(element,waarde)
     <h2>Woordenschat</h2>
 
 <select id="woordtype" onchange="nieuweZinnen()">
+
+
+  <option value="topografie-friesland-groningen-drenthe">Topografie Friesland, Groningen, Drenthe</option>
   <option value="set-engels-unit-2-lesson-4">English, unit 2, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-2-lesson-4-reverse">English, unit 2, lesson 4, English to Dutch</option>
 
@@ -452,6 +494,7 @@ function testWoord(element,waarde)
       <div id='woorden'></div>
     </details>
 <p>
+<img id='plaatje' src='kaart-friesland-groningen-drenthe.png' />
     <div id='zinnetjes'></div>
     <div id='next'>
       <br>

@@ -161,7 +161,11 @@ a.homebutton:hover
 }
 
 
-
+#plaatje
+{
+  width:100%;
+  max-width:6in;
+}
 
 @media screen and (max-width: 8in)
 {
