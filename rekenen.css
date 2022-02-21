@@ -167,6 +167,11 @@ a.homebutton:hover
   max-width:6in;
 }
 
+.nieuwezinnen-cta
+{
+  z-index:100;
+}
+
 @media screen and (max-width: 8in)
 {
 
