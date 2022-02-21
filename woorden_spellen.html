@@ -547,7 +547,7 @@ function nieuweZinnen()
 
 function testWoord(element,waarde)
 {
-  if (element.value.toLowerCase() == waarde.toLowerCase())
+  if (element.value.toLowerCase().trim() == waarde.toLowerCase())
   {
     element.style.color="#00ff00";
     element.disabled = true;
