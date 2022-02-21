@@ -24,7 +24,8 @@
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
 
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001f" />
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001g" />
+    <link rel="stylesheet" type="text/css" href="fireworks.css?v=001g" />
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -301,6 +302,89 @@ var sentences_engels_unit_2_lesson_4_reverse=[
 
 
 
+
+
+
+
+
+var sentences_engels_unit_3_lesson_4=[
+  "dier {animal}",
+  "vogel {bird}",
+  "zwart {black}",
+  "blauw {blue}",
+  "bruin {brown}",
+  "kat, poes {cat}",
+  "kip {chicken}",
+  "koe {cow}",
+  "hond {dog}",
+  "eend {duck}",
+  "olifant {elephant}",
+  "giraf {giraffe}",
+  "groen {green}",
+  "grijs {grey}",
+  "paard {horse}",
+  "leeuw {lion}",
+  "aap {monkey}",
+  "oranje {orange}",
+  "papegaai {parrot}",
+  "huisdier {pet}",
+  "dierenwinkel {pet shop}",
+  "varken {pig}",
+  "puppy, jonge hond {puppy}",
+  "konijn {rabbit}",
+  "rood {red}",
+  "slang {snake}",
+  "tijger {tiger}",
+  "wit {white}",
+  "geel {yellow}",
+  "dierentuin {zoo}",
+];
+
+
+var sentences_engels_unit_3_lesson_4_reverse=[
+  "animal {dier}",
+  "bird {vogel}",
+  "black {zwart}",
+  "blue {blauw}",
+  "brown {bruin}",
+  "cat {kat}",
+  "chicken {kip}",
+  "cow {koe}",
+  "dog {hond}",
+  "duck {eend}",
+  "elephant {olifant}",
+  "giraffe {giraf}",
+  "green {groen}",
+  "grey {grijs}",
+  "horse {paard}",
+  "lion {leeuw}",
+  "monkey {aap}",
+  "orange {oranje}",
+  "parrot {papegaai}",
+  "pet {huisdier}",
+  "pet shop {dierenwinkel}",
+  "pig {varken}",
+  "puppy {puppy}",
+  "rabbit {konijn}",
+  "red {rood}",
+  "snake {slang}",
+  "tiger {tijger}",
+  "white {wit}",
+  "yellow {geel}",
+  "zoo {dierentuin}",
+];
+
+
+
+
+
+
+
+
+
+
+
+
 var topografie_friesland_groningen_drenthe=[
   "1 {Vlieland}",
   "2 {Terschelling}",
@@ -358,6 +442,16 @@ function GetSet(woordtype)
     sentences=sentences_engels_unit_2_lesson_4_reverse;
   }
 //
+  if (woordtype=='set-engels-unit-3-lesson-4')
+  {
+    sentences=sentences_engels_unit_3_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-3-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_3_lesson_4_reverse;
+  }
+//
+
   if (woordtype=='topografie-friesland-groningen-drenthe')
   {
     sentences=topografie_friesland_groningen_drenthe;
@@ -372,6 +466,16 @@ function GetSet(woordtype)
 
 function nieuweZinnen()
 {
+
+  {
+    var vuurwerkElement=document.getElementById('vuurwerk');
+    if (vuurwerkElement!=null)
+    {
+      vuurwerkElement.innerHTML="";
+    }
+
+  }
+
   var text="";
   count=0;
   nrZinnen=0;
@@ -461,6 +565,11 @@ function testWoord(element,waarde)
     if (count==nrZinnen)
     {
       document.getElementById('next').style.display='block';
+      var vuurwerkElement=document.getElementById('vuurwerk');
+      if (vuurwerkElement!=null)
+      {
+        vuurwerkElement.innerHTML="<div class='pyro' onclick='nieuweZinnen()'><div class='before'></div><div class='after'></div></div>";
+      }
     }
     else
     {
@@ -477,6 +586,8 @@ function testWoord(element,waarde)
 
 <select id="woordtype" onchange="nieuweZinnen()">
 
+  <option value="set-engels-unit-3-lesson-4">English, unit 3, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-3-lesson-4-reverse">English, unit 3, lesson 4, English to Dutch</option>
 
   <option value="topografie-friesland-groningen-drenthe">Topografie Friesland, Groningen, Drenthe</option>
   <option value="set-engels-unit-2-lesson-4">English, unit 2, lesson 4, Nederlands naar Engels</option>
@@ -497,11 +608,15 @@ function testWoord(element,waarde)
 <img id='plaatje' src='kaart-friesland-groningen-drenthe.png' />
     <div id='zinnetjes'></div>
     <div id='next'>
-      <br>
-      <a href='javascript:nieuweZinnen()'>Nieuwe zinnen</a>
+      <a class='nieuwezinnen-cta' href='javascript:nieuweZinnen()'><span style='font-size:42pt;'>Nieuwe zinnen</span></a>
     </div>
-    <a class='homebutton' href='index.html'>&#11013;</a>
+<p style='height:1in;'>&nbsp;</p>
+    <a class='homebutton' href='index.html'>&#11013; <span style='font-size:16pt;'>Hoofdmenu</span></a>
     <p style='height:1in;'></p>
+
+<div id='vuurwerk'></div>
+
+
   </body>
 </html>
 
