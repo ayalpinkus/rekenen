@@ -161,11 +161,17 @@ a.homebutton:hover
 }
 
 
-#plaatje
+#plaatjeshouder
 {
   width:100%;
   max-width:6in;
 }
+
+#plaatje
+{
+  width:100%;
+}
+
 
 .nieuwezinnen-cta
 {

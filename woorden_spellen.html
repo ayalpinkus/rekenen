@@ -24,8 +24,8 @@
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
 
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001h" />
-    <link rel="stylesheet" type="text/css" href="fireworks.css?v=001h" />
+    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001j" />
+    <link rel="stylesheet" type="text/css" href="fireworks.css?v=001j" />
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -58,10 +58,16 @@ function rekenen_onload()
 var count=0;
 var nrZinnen=1;
 
-function convertSentence(sentence)
+function convertSentence(sentenceindex)
 {
-  sentence = sentence.replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' autocorrect='off' autocapitalize='none' oninput='testWoord(this,\"");
+  var sentence = sentences[sentenceindex].replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' autocorrect='off' autocapitalize='none' oninput='testWoord(this,\"");
   sentence = sentence.replace(/}/g, "\")'>");
+
+  if (posities)
+  {
+    sentence = sentence.replace("**",""+(nrZinnen+1));
+  }
+
   nrZinnen++;
   return sentence;
 }
@@ -411,10 +417,70 @@ var topografie_friesland_groningen_drenthe=[
 
 
 
+var topografie_overijssel_gelderland_flevoland=[
+  "** {Ijsselmeer}",
+  "** {Markermeer}",
+  "** {Emmeloord}",
+  "** {Lelystad}",
+  "** {Almere}",
+  "** {Kampen}",
+  "** {Zwolle}",
+  "** {Overijssel}",
+  "** {Deventer}",
+  "** {Almelo}",
+  "** {Twente}",
+  "** {Hengelo}",
+  "** {Enschede}",
+  "** {Zutphen}",
+  "** {Doetinchem}",
+  "** {Gelderland}",
+  "** {Apeldoorn}",
+  "** {Veluwe}",
+  "** {Arnhem}",
+  "** {Wageningen}",
+  "** {Nijmegen}",
+  "** {Randstad}",
+  "** {Neder-Rijn}",
+  "** {Waal}",
+  "** {Ijssel}",
+  "** {Maas}",
+];
 
+var posities_overijssel_gelderland_flevoland=[
+"left:35%; top:10%;",
+"left:30%; top:25%;",
+"left:50%; top:15%;",
+"left:42%; top:30%;",
+"left:33%; top:40%;",
+"left:57%; top:26%;",
+"left:63%; top:28%;",
+"left:73%; top:35%;",
+"left:67%; top:47%;",
+"left:80%; top:37%;",
+"left:88%; top:38%;",
+"left:89%; top:45%;",
+"left:87%; top:54%;",
+"left:69%; top:57%;",
+"left:72%; top:73%;",
+"left:57%; top:65%;",
+"left:57%; top:50%;",
+"left:52%; top:60%;",
+"left:59%; top:72%;",
+"left:49%; top:72%;",
+"left:51%; top:84%;",
+"left:15%; top:47%;",
+"left:41%; top:75%;",
+"left:36%; top:85%;",
+"left:64%; top:67%;",
+"left:45%; top:88%;",
+];
+
+var posities=null;
+var sentences = sentences_set1;
 function GetSet(woordtype)
 {
-  var sentences=sentences_set1;
+  sentences=sentences_set1;
+  posities=null;
   if (woordtype=='set2')
   {
     sentences=sentences_set2;
@@ -422,6 +488,10 @@ function GetSet(woordtype)
 
   var plaatjesElement=document.getElementById('plaatje');
   plaatjesElement.style.display="none";
+  var nummertjesElement=document.getElementById('nummertjes');
+  nummertjesElement.style.display="none";
+
+
 
 //
   if (woordtype=='set-engels-unit-1-lesson-4')
@@ -456,10 +526,17 @@ function GetSet(woordtype)
   {
     sentences=topografie_friesland_groningen_drenthe;
     plaatjesElement.style.display="inherit";
+    plaatjesElement.src='kaart-friesland-groningen-drenthe.png';
   }
   
-
-
+  if (woordtype=='topografie-overijssel-gelderland-flevoland')
+  {
+    sentences=topografie_overijssel_gelderland_flevoland;
+    plaatjesElement.style.display="inherit";
+    plaatjesElement.src='kaart-overijssel-gelderland-flevoland.png';
+    nummertjesElement.style.display="inherit";
+    posities=posities_overijssel_gelderland_flevoland;
+  }
   return sentences;
 }
 
@@ -488,6 +565,8 @@ function nieuweZinnen()
 
   var woorden= new Array();
 
+  var nummertjes="";
+
   while (nrZinnen<sentencecount)
   {
 
@@ -495,7 +574,12 @@ function nieuweZinnen()
     if (!used[index])
     {
       used[index]=true;
-      text=text+convertSentence(sentences[index])+"<p><hr><p>";
+      text=text+convertSentence(index)+"<p><hr><p>";
+
+      if (posities != null)
+      {
+        nummertjes=nummertjes+"<span style='position:absolute; "+posities[index]+"'>"+(nrZinnen)+"</span>";
+      }
 
 
 //antwoorden
@@ -517,6 +601,7 @@ function nieuweZinnen()
   }
 
   document.getElementById('zinnetjes').innerHTML=text;
+  document.getElementById('nummertjes').innerHTML=nummertjes;
 
   woorden.sort();
 
@@ -588,8 +673,11 @@ function testWoord(element,waarde)
 
   <option value="set-engels-unit-3-lesson-4">English, unit 3, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-3-lesson-4-reverse">English, unit 3, lesson 4, English to Dutch</option>
-
+<!--
+-->
+  <option value="topografie-overijssel-gelderland-flevoland">Topografie Overijssel, Gelderland, Flevoland</option>
   <option value="topografie-friesland-groningen-drenthe">Topografie Friesland, Groningen, Drenthe</option>
+
   <option value="set-engels-unit-2-lesson-4">English, unit 2, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-2-lesson-4-reverse">English, unit 2, lesson 4, English to Dutch</option>
 
@@ -605,7 +693,41 @@ function testWoord(element,waarde)
       <div id='woorden'></div>
     </details>
 <p>
-<img id='plaatje' src='kaart-friesland-groningen-drenthe.png' />
+<div id='plaatjeshouder' style='position:relative;'>
+<img  style='position:relative;' id='plaatje' src='kaart-friesland-groningen-drenthe.png' />
+<div id='nummertjes' style='position:absolute; left:0; top:0; width:100%; height:100%; font-size:80%; color:#ff0000;'>
+
+<!--
+<span style='position:absolute; left:35%; top:10%;'>1</span>
+<span style='position:absolute; left:30%; top:25%;'>2</span>
+<span style='position:absolute; left:50%; top:15%;'>3</span>
+<span style='position:absolute; left:42%; top:30%;'>4</span>
+<span style='position:absolute; left:33%; top:40%;'>5</span>
+<span style='position:absolute; left:57%; top:26%;'>6</span>
+<span style='position:absolute; left:63%; top:28%;'>7</span>
+<span style='position:absolute; left:73%; top:35%;'>8</span>
+<span style='position:absolute; left:67%; top:47%;'>9</span>
+<span style='position:absolute; left:80%; top:37%;'>10</span>
+<span style='position:absolute; left:88%; top:38%;'>11</span>
+<span style='position:absolute; left:89%; top:45%;'>12</span>
+<span style='position:absolute; left:87%; top:54%;'>13</span>
+<span style='position:absolute; left:69%; top:57%;'>14</span>
+<span style='position:absolute; left:72%; top:73%;'>15</span>
+<span style='position:absolute; left:57%; top:65%;'>16</span>
+<span style='position:absolute; left:57%; top:50%;'>17</span>
+<span style='position:absolute; left:52%; top:60%;'>18</span>
+<span style='position:absolute; left:59%; top:72%;'>19</span>
+<span style='position:absolute; left:49%; top:72%;'>20</span>
+<span style='position:absolute; left:51%; top:84%;'>21</span>
+<span style='position:absolute; left:15%; top:47%;'>22</span>
+<span style='position:absolute; left:41%; top:75%;'>23</span>
+<span style='position:absolute; left:36%; top:85%;'>24</span>
+<span style='position:absolute; left:64%; top:67%;'>25</span>
+<span style='position:absolute; left:45%; top:88%;'>26</span>
+-->
+</div>
+</div>
+
     <div id='zinnetjes'></div>
     <div id='next'>
       <a class='nieuwezinnen-cta' href='javascript:nieuweZinnen()'><span style='font-size:42pt;'>Nieuwe zinnen</span></a>
