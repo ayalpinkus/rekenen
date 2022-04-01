@@ -10,15 +10,15 @@
     <meta http-equiv="Expires" content="-1"/>
     <meta name='description' content='Vlug Vermenigvuldigen'>
     <meta property='og:title' content='Vlug Vermenigvuldigen'>
-    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:description' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
     <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Multiplication-Division-001.png?v=124'>
     <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/vlug.html'>
     <meta property='og:site_name' content='Rekenen'>
     <meta name='twitter:title' content='Vlug Vermenigvuldigen'>
-    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:description' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
     <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Multiplication-Division-001.png?v=124'>
     <meta name='twitter:card' content='summary_large_image'>
-    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:image:alt' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
     <meta name='twitter:site' content='@ayalpinkus'>
 
 <style>
@@ -48,7 +48,7 @@ html, div, body {
   display:table-cell;
   width:50vw;
   height:16vh;
-  margin:1vh 1vw 1vh 1vw;
+  padding:1vh 1vw 1vh 1vw;
   text-align:center;
   vertical-align:middle;
 }
@@ -57,7 +57,7 @@ html, div, body {
   display:table-cell;
   width:100vw;
   height:16vh;
-  margin:1vh 1vw 1vh 1vw;
+  padding:1vh 1vw 1vh 1vw;
   text-align:center;
   vertical-align:middle;
 }
@@ -93,6 +93,19 @@ html, div, body {
     from { opacity: 0; }
     to { opacity: 1; }
   }
+
+@keyframes fade-flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+@keyframes fade-font {
+    0% { font-size: 0; opacity:0; }
+    50% { font-size: 1.75em; opacity:1;}
+    100% { font-size: 0; opacity:0; }
+  }
+
 
 @keyframes fade-move {
     from { left: 0; }
@@ -185,7 +198,13 @@ function type(n)
   $('antwoord').innerHTML+=n;
   if (z_antwoord==$('antwoord').innerHTML)
   {
-    $('alles').innerHTML = "<div style='position:absolute; white-space: nowrap; color:#ff0000; font-weight:600; font-size:1.25em; animation: fade-move 1500ms;   left:100vw;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+//    $('alles').innerHTML = "<div style='position:absolute; white-space: nowrap; color:#ff0000; font-weight:600; font-size:1.25em; animation: fade-move 1500ms;   left:100vw;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+//    $('alles').innerHTML = "<div style='color:#ff0000; font-weight:600; font-size:1.75em; animation: fade-flash 1000ms;   opacity:0;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+    $('alles').innerHTML = "<div style='color:#ff0000; font-weight:600; font-size:1.75em; animation: fade-font 1500ms;   opacity:0; font-size:0;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+
     numgoed++;    
     $('num-goed').innerHTML=""+numgoed;
     $('antwoord').innerHTML="";
@@ -224,7 +243,7 @@ function antwclear()
 </div>
 <div class='my-table'>
   <div class='my-table-row'>
-    <div class='my-table-cell-4'>
+    <div class='my-table-cell-4' style='overflow:hidden;'>
       <div id='alles'></div>
     </div>
   </div>
