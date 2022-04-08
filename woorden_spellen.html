@@ -391,6 +391,104 @@ var sentences_engels_unit_3_lesson_4_reverse=[
 
 
 
+
+
+
+
+
+
+var sentences_engels_unit_4_lesson_4=[
+  "dicht, gesloten {closed}",
+  "hoek {corner}",
+  "kruispunt {crossroads}",
+  "lol, pret {fun}",
+  "blij {happy}",
+  "links {left}",
+  "kaart (plattegrond) {map}",
+  "midden {middle}",
+  "open {open}",
+  "park {park}",
+  "speelplaats {playground}",
+  "spoorweg {railway}",
+  "rit {ride}",
+  "rechts {right}",
+  "weg, straat {road}",
+  "achtbaan {roller coaster}",
+  "rotonde {roundabout}",
+  "winkel {shop}",
+  "rechtdoor {straight on}",
+  "kopen {to buy}",
+  "genieten {to enjoy}",
+  "volgen {to follow}",
+  "teruggaan {to go back}",
+  "een leuke tijd hebben {to have a good time}",
+  "afslaan naar links {to turn left}",
+  "afslaan naar rechts {to turn right}",
+  "lopen {to walk}",
+  "stad {town}",
+  "speelgoedwinkel {toy store}",
+  "verkeer {traffic}",
+  "verkeerslicht {traffic light}",
+  "boom {tree}",
+];
+
+
+var sentences_engels_unit_4_lesson_4_reverse=[
+  "closed {dicht}",
+  "corner {hoek}",
+  "crossroads {kruispunt}",
+  "fun {lol}",
+  "happy {blij}",
+  "left {links}",
+  "map {kaart}",
+  "middle {midden}",
+  "open {open}",
+  "park {park}",
+  "playground {speelplaats}",
+  "railway {spoorweg}",
+  "ride {rit}",
+  "right {rechts}",
+  "road {weg}",
+  "roller coaster {achtbaan}",
+  "roundabout {rotonde}",
+  "shop {winkel}",
+  "straight on {rechtdoor}",
+  "to buy {kopen}",
+  "to enjoy {genieten}",
+  "to follow {volgen}",
+  "to go back {terug gaan}",
+  "to have a good time {een leuke tijd hebben}",
+  "to turn left {afslaan naar links}",
+  "to turn right {afslaan naar rechts}",
+  "to walk {lopen}",
+  "town {stad}",
+  "toy store {speelgoedwinkel}",
+  "traffic {verkeer}",
+  "traffic light {verkeerslicht}",
+  "tree {boom}",
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var topografie_friesland_groningen_drenthe=[
   "1 {Vlieland}",
   "2 {Terschelling}",
@@ -521,6 +619,17 @@ function GetSet(woordtype)
     sentences=sentences_engels_unit_3_lesson_4_reverse;
   }
 //
+  if (woordtype=='set-engels-unit-4-lesson-4')
+  {
+    sentences=sentences_engels_unit_4_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-4-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_4_lesson_4_reverse;
+  }
+//
+
+
 
   if (woordtype=='topografie-friesland-groningen-drenthe')
   {
@@ -670,6 +779,9 @@ function testWoord(element,waarde)
     <h2>Woordenschat</h2>
 
 <select id="woordtype" onchange="nieuweZinnen()">
+
+  <option value="set-engels-unit-4-lesson-4">English, unit 4, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-4-lesson-4-reverse">English, unit 4, lesson 4, English to Dutch</option>
 
   <option value="set-engels-unit-3-lesson-4">English, unit 3, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-3-lesson-4-reverse">English, unit 3, lesson 4, English to Dutch</option>
