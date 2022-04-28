@@ -161,7 +161,21 @@ a.homebutton:hover
 }
 
 
+#plaatjeshouder
+{
+  width:100%;
+  max-width:6in;
+}
 
+#plaatje
+{
+  width:100%;
+}
+
+
+.nieuwezinnen-cta
+{
+}
 
 @media screen and (max-width: 8in)
 {

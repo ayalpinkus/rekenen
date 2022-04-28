@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kerenza's Rekenspel</title>
+<meta name="description" content="Kerenza's rekenspel">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<style>
+
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+
+html, body
+{
+  margin:0;
+  padding:0;
+  border:0;
+  font-size: 36pt;
+  line-height:144%;
+
+}
+
+
+.hexa
+{
+  border:none;
+  display:inline-block;
+  width:1in;
+  height:1.60in;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin:0;
+  padding:0;
+
+  font-size:36pt;
+  font-weight:600;
+  text-align:center;
+  line-height:1.25in;
+}
+
+.hexa.red
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 166' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(255,128,128); stroke:rgb(0,0,0); stroke-width:2;' /></svg>");
+}
+
+.hexa.green
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 166' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(128,255,128); stroke:rgb(0,0,0); stroke-width:2;' /></svg>");
+}
+
+.hexa.blue
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 166' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(128,128,255); stroke:rgb(0,0,0); stroke-width:2;' /></svg>");
+}
+
+.hexa.cyan
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 166' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(128,255,255); stroke:rgb(0,0,0); stroke-width:2;' /></svg>");
+}
+
+
+.hexa.yellow
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 166' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(255,255,128); stroke:rgb(0,0,0); stroke-width:2;' /></svg>");
+}
+
+
+
+.hexa:hover
+{
+  background:url("data:image/svg+xml;utf8,<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 163' version='1.1' ><path d='M0,35.35533905932738 l50,-35.35533905932738 l50,35.35533905932738 l0,61.237243569579455 l-50,35.35533905932738 l-50,-35.35533905932738 l0,-61.237243569579455 z' style='fill:rgb(240,240,240); stroke:none;' /></svg>");
+}
+
+.honeycomb-container
+{
+  position:relative;
+}
+
+.hexa
+{
+  position:absolute;
+}
+
+.col0a { left:0in; }
+.col1a { left:1.025in; }
+.col2a { left:2.050in; }
+.col3a { left:3.075in; }
+
+.col0b { left:0.5125in; }
+.col1b { left:1.5375in; }
+.col2b { left:2.5625in; }
+.col3b { left:3.5875in; }
+
+.row0 { top:0in; }
+.row1 { top:1in; }
+.row2 { top:2in; }
+.row3 { top:3in; }
+.row4 { top:4in; }
+
+
+.bee
+{
+  width:0.5in;
+}
+
+
+@media screen and (max-width: 12in)
+{
+  .hexa
+  {
+    width:25vw;
+    height:40vw;
+    font-size:12vw;
+    line-height:30vw;
+  }
+  .col0a { left:0vw; }
+  .col1a { left:25vw; }
+  .col2a { left:50vw; }
+  .col3a { left:75vw; }
+
+  .col0b { left:12.5vw; }
+  .col1b { left:37.5vw; }
+  .col2b { left:62.5vw; }
+  .col3b { left:87.5vw; }
+
+  .row0 { top:0in; }
+  .row1 { top:24vw; }
+  .row2 { top:48vw; }
+  .row3 { top:72vw; }
+  .row4 { top:100vw; }
+}
+
+
+</style>
+
+<script>
+
+function beeSvg()
+{
+  return '<svg class="bee" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><g fill="#8fbedb"><g opacity=".6"><path d="m60.2 12.5c-3.4-3.6-9.6-1.8-13.9 4-4.3 5.8-7.5 20-7.5 20s14.6-2 18.9-7.8c4.3-5.8 5.8-12.6 2.5-16.2"/><path d="M3.8,12.5c3.4-3.6,9.6-1.8,13.9,4c4.3,5.8,7.5,20,7.5,20s-14.6-2-18.9-7.8C2,22.9,0.5,16.1,3.8,12.5z"/></g><g opacity=".6"><path d="M4.1,40.3c-1.2-9.9,26.6-2.6,26.6-2.6S6.9,62.9,4.1,40.3z"/><path d="m59.3 40.3c1.2-9.9-26.6-2.6-26.6-2.6s23.8 25.2 26.6 2.6"/></g></g><path d="m44 37.5c0 26.3-24 26.3-24 0 0-8.4 24-8.4 24 0" fill="#3e4347"/><g fill="#ffce31"><path d="m22.7 36.6c-.4.6-.7 1.3-.7 2 0 1.2.1 2.2.2 3.3 6.3.5 13.4.5 19.7 0 .1-1 .2-2.1.2-3.3 0-.8-.2-1.4-.7-2-6.1 1.4-12.7 1.4-18.7 0"/><path d="m23.3 47.3c.7 2 1.6 3.6 2.7 4.8 3.9-.6 8-.6 12 0 1.1-1.2 2-2.8 2.7-4.8-5.6-.4-11.8-.4-17.4 0"/><circle cx="32" cy="22" r="13.8"/></g><g fill="#3e4347"><path d="m28.4 9.7l-.9-.1c.1-1.9-1.3-4.3-3.8-5l.2-.9c2.7.8 4.6 3.4 4.5 6"/><path d="m25.5 2.8c.8.9.7 2.3-.2 3.1-.9.8-2.3.7-3.1-.2-.8-.9-.7-2.3.2-3.1.9-.9 2.3-.8 3.1.2"/><path d="m35.6 9.7l.9-.1c-.1-1.9 1.3-4.3 3.8-5l-.2-.9c-2.7.8-4.6 3.4-4.5 6"/><path d="m38.5 2.8c-.8.9-.7 2.3.2 3.1.9.8 2.3.7 3.1-.2.8-.9.7-2.3-.2-3.1-.9-.9-2.3-.8-3.1.2"/></g><path d="m44.3 22.6c0 3.3-2.2 6-5 6-2.8 0-5-2.7-5-6 0-3.3 2.2-6 5-6 2.7 0 5 2.7 5 6" fill="#fcfcfa"/><path d="m41.8 22.6c0 1.7-1.1 3-2.5 3-1.4 0-2.5-1.3-2.5-3 0-1.7 1.1-3 2.5-3 1.3 0 2.5 1.3 2.5 3" fill="#3f3438"/><path d="m29.7 22.6c0 3.3-2.2 6-5 6-2.8 0-5-2.7-5-6 0-3.3 2.2-6 5-6 2.8 0 5 2.7 5 6" fill="#fcfcfa"/><path d="m27.2 22.6c0 1.7-1.1 3-2.5 3-1.4 0-2.5-1.3-2.5-3 0-1.7 1.1-3 2.5-3 1.4 0 2.5 1.3 2.5 3" fill="#3f3438"/><g fill="#3e4347"><path d="m32 32.2c-2.4 0-4.5-.9-4.5-1.8 0-.1 0-.2.1-.3.1-.1.2-.1.4-.1.2 0 .3.1.6.2.6.2 1.7.7 3.5.7 1.8 0 2.9-.5 3.4-.7.2-.2.4-.2.5-.2.2 0 .4.1.4.4.1.9-2 1.8-4.4 1.8"/><path d="m31.1 62c0 0 1.1-3.7-.3-6.1-.2-.3 2.8-.8 3-.5 1.8 3.4-2.7 6.6-2.7 6.6"/></g></svg>';
+}
+
+var nrBees=0;
+var current=0;
+var fields=[0,1,2,3,4,5,6,7,8,9];
+
+function showBees()
+{
+  var i;
+  var text="";
+  for (i=0;i<nrBees;i++)
+  {
+    text = text + beeSvg();
+  }
+  document.getElementById("score").innerHTML=text;
+}
+
+function ShowCurrentSum()
+{
+  var fieldElement = document.getElementById('field-'+fields[current]);
+  var questionElement = document.getElementById('question');
+  questionElement.innerHTML=""+fieldElement.dataset.x+"+"+fieldElement.dataset.y+"=?";
+}
+
+
+function nieuwSpel()
+{
+  nrBees=2;
+  showBees();
+
+  var set=new Array();
+
+  var i;
+  for (i=fields.length-1;i>=1;i--)
+  {
+    var s=Math.random();
+    var j=Math.floor(i*s);
+    var swap=fields[i];
+    fields[i]=fields[j];
+    fields[j]=swap;  
+  }
+
+  for (i=0;i<fields.length;i++)
+  {
+    var element=document.getElementById("field-"+i);
+    element.dataset.used="false";
+  }
+  for (i=2;i<fields.length;i++)
+  {
+    var element=document.getElementById("field-"+fields[i]);
+    element.dataset.bee="false";
+  }
+
+  {
+    var element=document.getElementById("field-"+fields[0]);
+    element.dataset.bee=true;
+    element=document.getElementById("field-"+fields[1]);
+    element.dataset.bee="true";
+  }
+  for (i=0;i<fields.length;i++)
+  {
+    var element=document.getElementById("field-"+i);
+    var x=(1+Math.floor(50*Math.random()))
+    var y=(1+Math.floor(50*Math.random()))
+
+    while (set[(x+y)] != null)
+    {
+//console.log("SAME")
+      x=(1+Math.floor(50*Math.random()))
+      y=(1+Math.floor(50*Math.random()))
+    }
+    set[(x+y)]="set";
+
+    element.dataset.x=x;
+    element.dataset.y=y;
+    var text=""+(x+y);
+    if (element.dataset.bee=="true")
+    {
+      text=text+beeSvg();
+    }
+    element.innerHTML=text;
+  }
+
+  current=0;
+  ShowCurrentSum();
+}
+
+
+function checkAnswer(num)
+{
+  if (nrBees==0 || current==10)
+  {
+    return;
+  }
+  {
+    var element=document.getElementById('field-'+num);
+    if (element.dataset.used=="true")
+    {
+      return;
+    }
+  }
+
+  if (num != fields[current])
+  {
+    nrBees--;
+    showBees();
+    if (nrBees==0)
+    {
+      setTimeout(function(){ alert("Einde Spel!"); }, 200);
+    }
+  }
+  else
+  {
+    var element=document.getElementById('field-'+num);
+
+    element.dataset.used="true";
+    if (element.dataset.bee=="true")
+    {
+      nrBees++;
+      showBees();
+    }
+    element.innerHTML="";
+    current++;
+    if (current==10)
+    {
+      setTimeout(function(){ alert("Alles Goed!"); }, 200);
+    }
+    else
+    {
+      ShowCurrentSum();  
+    }
+  }
+}
+
+var prev_onload=window.onload;
+
+window.onload=honing_onload;
+function honing_onload()
+{
+  if (prev_onload)
+  {
+    prev_onload();
+  }
+  nieuwSpel();
+}
+
+</script>
+
+
+</head>
+<body>
+
+
+<a href='javascript:nieuwSpel()'>Nieuw Spel</a>
+
+<div id='question'>Hoeveel plus hoeveel is ...</div>
+
+<div id='score'></div>
+<p>
+<div class='honeycomb-container'>
+<div id="field-0" class='hexa tile red    row0 col0b' onclick='checkAnswer(0)'></div>
+<div id="field-1" class='hexa tile yellow row0 col1b' onclick='checkAnswer(1)'></div>
+<div id="field-2" class='hexa tile red    row0 col2b' onclick='checkAnswer(2)'></div>
+
+<div id="field-3" class='hexa tile yellow row1 col0a' onclick='checkAnswer(3)'></div>
+<div id="field-4" class='hexa tile green  row1 col1a' onclick='checkAnswer(4)'></div>
+<div id="field-5" class='hexa tile blue   row1 col2a' onclick='checkAnswer(5)'></div>
+<div id="field-6" class='hexa tile yellow row1 col3a' onclick='checkAnswer(6)'></div>
+
+<div id="field-7" class='hexa tile red    row2 col0b' onclick='checkAnswer(7)'></div>
+<div id="field-8" class='hexa tile yellow row2 col1b' onclick='checkAnswer(8)'></div>
+<div id="field-9" class='hexa tile red    row2 col2b' onclick='checkAnswer(9)'></div>
+</div>
+
+
+<p style='height:5in;'></p>
+
+
+
+
+<!--
+<script>
+var w=100;
+var halfw=w/2.0;
+var alpha=Math.PI*45.0/180.0;
+var cosaplha=Math.cos(alpha);
+var d=(w/2.0)*cosaplha;
+var h=Math.sqrt(d*d+halfw*halfw);
+document.write("Width w="+w+"<br>");
+document.write("Angle alpha="+alpha+"<br>");
+document.write("cos alpha="+cosaplha+"<br>");
+document.write("d="+d+"<br>");
+document.write("h="+h+"<br>");
+
+document.write("heightneeded="+(h+2*d)+"<br>");
+
+document.write("M0,"+d+" l"+halfw+",-"+d+" l"+halfw+","+d+" l0,"+h+" l-"+halfw+","+d+" l-"+halfw+",-"+d+" l-"+h+",0 z");
+
+document.write("<svg width='1in' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' viewBox='-40 -40 180 "+(80+h+2*d)+"' version='1.1' ><path d='M0,"+d+" l"+halfw+",-"+d+" l"+halfw+","+d+" l0,"+h+" l-"+halfw+","+d+" l-"+halfw+",-"+d+" l0,-"+h+" z' style='fill:#ff8080; stroke:none;' /></svg>");
+</script>
+-->
+<!--
+<svg class='bee' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><g fill="#8fbedb"><g opacity=".6"><path d="m60.2 12.5c-3.4-3.6-9.6-1.8-13.9 4-4.3 5.8-7.5 20-7.5 20s14.6-2 18.9-7.8c4.3-5.8 5.8-12.6 2.5-16.2"/><path d="M3.8,12.5c3.4-3.6,9.6-1.8,13.9,4c4.3,5.8,7.5,20,7.5,20s-14.6-2-18.9-7.8C2,22.9,0.5,16.1,3.8,12.5z"/></g><g opacity=".6"><path d="M4.1,40.3c-1.2-9.9,26.6-2.6,26.6-2.6S6.9,62.9,4.1,40.3z"/><path d="m59.3 40.3c1.2-9.9-26.6-2.6-26.6-2.6s23.8 25.2 26.6 2.6"/></g></g><path d="m44 37.5c0 26.3-24 26.3-24 0 0-8.4 24-8.4 24 0" fill="#3e4347"/><g fill="#ffce31"><path d="m22.7 36.6c-.4.6-.7 1.3-.7 2 0 1.2.1 2.2.2 3.3 6.3.5 13.4.5 19.7 0 .1-1 .2-2.1.2-3.3 0-.8-.2-1.4-.7-2-6.1 1.4-12.7 1.4-18.7 0"/><path d="m23.3 47.3c.7 2 1.6 3.6 2.7 4.8 3.9-.6 8-.6 12 0 1.1-1.2 2-2.8 2.7-4.8-5.6-.4-11.8-.4-17.4 0"/><circle cx="32" cy="22" r="13.8"/></g><g fill="#3e4347"><path d="m28.4 9.7l-.9-.1c.1-1.9-1.3-4.3-3.8-5l.2-.9c2.7.8 4.6 3.4 4.5 6"/><path d="m25.5 2.8c.8.9.7 2.3-.2 3.1-.9.8-2.3.7-3.1-.2-.8-.9-.7-2.3.2-3.1.9-.9 2.3-.8 3.1.2"/><path d="m35.6 9.7l.9-.1c-.1-1.9 1.3-4.3 3.8-5l-.2-.9c-2.7.8-4.6 3.4-4.5 6"/><path d="m38.5 2.8c-.8.9-.7 2.3.2 3.1.9.8 2.3.7 3.1-.2.8-.9.7-2.3-.2-3.1-.9-.9-2.3-.8-3.1.2"/></g><path d="m44.3 22.6c0 3.3-2.2 6-5 6-2.8 0-5-2.7-5-6 0-3.3 2.2-6 5-6 2.7 0 5 2.7 5 6" fill="#fcfcfa"/><path d="m41.8 22.6c0 1.7-1.1 3-2.5 3-1.4 0-2.5-1.3-2.5-3 0-1.7 1.1-3 2.5-3 1.3 0 2.5 1.3 2.5 3" fill="#3f3438"/><path d="m29.7 22.6c0 3.3-2.2 6-5 6-2.8 0-5-2.7-5-6 0-3.3 2.2-6 5-6 2.8 0 5 2.7 5 6" fill="#fcfcfa"/><path d="m27.2 22.6c0 1.7-1.1 3-2.5 3-1.4 0-2.5-1.3-2.5-3 0-1.7 1.1-3 2.5-3 1.4 0 2.5 1.3 2.5 3" fill="#3f3438"/><g fill="#3e4347"><path d="m32 32.2c-2.4 0-4.5-.9-4.5-1.8 0-.1 0-.2.1-.3.1-.1.2-.1.4-.1.2 0 .3.1.6.2.6.2 1.7.7 3.5.7 1.8 0 2.9-.5 3.4-.7.2-.2.4-.2.5-.2.2 0 .4.1.4.4.1.9-2 1.8-4.4 1.8"/><path d="m31.1 62c0 0 1.1-3.7-.3-6.1-.2-.3 2.8-.8 3-.5 1.8 3.4-2.7 6.6-2.7 6.6"/></g></svg>
+-->
+
+</body>
+</html>

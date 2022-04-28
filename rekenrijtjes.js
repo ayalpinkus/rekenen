@@ -77,7 +77,7 @@ function nieuweKeerSommetjes()
     for (i=0;i<nrSommen;i++)
     {
       var x=van+Math.floor(Math.random()*(tot-van));
-      var y=van+Math.floor(Math.random()*(tot-van));
+      var y=1+Math.floor(Math.random()*(9));
       var z=x*y;
       var mult = (Math.random()>0.5);
 
@@ -88,7 +88,7 @@ function nieuweKeerSommetjes()
       }
       else
       {
-        text=text+z + " &div; " + x + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'>";
+        text=text+z + " : " + x + " = </div><div class='reken-antwoord'><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+y+")'>";
       }
       text=text+"</div></div>";
     }
