@@ -12,12 +12,12 @@
     <meta name='description' content='Addition and Subtraction Exercises for Children'>
     <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
     <meta property='og:description' content='Generates random exercises at any difficulty level.'>
-    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
     <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
     <meta property='og:site_name' content='Rekenen'>
     <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
     <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
-    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/TwitterImage-Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
     <meta name='twitter:card' content='summary_large_image'>
     <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
     <meta name='twitter:site' content='@ayalpinkus'>
@@ -305,14 +305,6 @@ var sentences_engels_unit_2_lesson_4_reverse=[
   "water {water}",
 ];
 
-
-
-
-
-
-
-
-
 var sentences_engels_unit_3_lesson_4=[
   "dier {animal}",
   "vogel {bird}",
@@ -379,23 +371,6 @@ var sentences_engels_unit_3_lesson_4_reverse=[
   "yellow {geel}",
   "zoo {dierentuin}",
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var sentences_engels_unit_4_lesson_4=[
   "dicht, gesloten {closed}",
@@ -467,27 +442,6 @@ var sentences_engels_unit_4_lesson_4_reverse=[
   "traffic light {verkeerslicht}",
   "tree {boom}",
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var topografie_friesland_groningen_drenthe=[
   "1 {Vlieland}",
@@ -627,22 +581,19 @@ function GetSet(woordtype)
   {
     sentences=sentences_engels_unit_4_lesson_4_reverse;
   }
-//
-
-
 
   if (woordtype=='topografie-friesland-groningen-drenthe')
   {
     sentences=topografie_friesland_groningen_drenthe;
     plaatjesElement.style.display="inherit";
-    plaatjesElement.src='kaart-friesland-groningen-drenthe.png';
+    plaatjesElement.src='images/kaart-friesland-groningen-drenthe.png';
   }
   
   if (woordtype=='topografie-overijssel-gelderland-flevoland-2')
   {
     sentences=topografie_overijssel_gelderland_flevoland;
     plaatjesElement.style.display="inherit";
-    plaatjesElement.src='kaart-overijssel-gelderland-flevoland.png';
+    plaatjesElement.src='images/kaart-overijssel-gelderland-flevoland.png';
     nummertjesElement.style.display="inherit";
     posities=posities_overijssel_gelderland_flevoland;
   }
@@ -696,16 +647,15 @@ function nieuweZinnen()
       if (start>=0)
       {
         var antwoord=sentences[index].substr(start+1);
-	var end=antwoord.indexOf("}");
+	      var end=antwoord.indexOf("}");
         if (end>=0)
-	{
-	  antwoord = antwoord.substr(0,end);
+	      {
+	        antwoord = antwoord.substr(0,end);
           woorden.push(antwoord);
 //          woorden=woorden+"<span id='woord-"+antwoord+"'>"+antwoord+"</span> ";
 //   	  alert(antwoord);
-	}
+	      }
       }
-
     }
   }
 
@@ -735,7 +685,6 @@ function nieuweZinnen()
     if (nextElement.trigger) nextElement.trigger("click");
 */
   }
-
 }
 
 
@@ -806,7 +755,7 @@ function testWoord(element,waarde)
     </details>
 <p>
 <div id='plaatjeshouder' style='position:relative;'>
-<img  style='position:relative;' id='plaatje' src='kaart-friesland-groningen-drenthe.png' />
+<img  style='position:relative;' id='plaatje' src='images/kaart-friesland-groningen-drenthe.png' />
 <div id='nummertjes' style='position:absolute; left:0; top:0; width:100%; height:100%; font-size:80%; color:#ff0000;'>
 
 <!--

@@ -1,0 +1,350 @@
+<html>
+
+<head>
+  <title>Topografie</title>
+  <meta charset="utf8">
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <meta name="author" content="Ayal Pinkus" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <!--
+    <meta name='description' content='Dutch topography exercises for children'>
+    <meta property='og:title' content='Dutch topography exercises for children'>
+    <meta property='og:description' content='Learn the major cities, waterways and provinces of the Netherlands.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/topografie.html'>
+    <meta property='og:site_name' content='Topografie'>
+    <meta name='twitter:title' content='Dutch topography exercises for children'>
+    <meta name='twitter:description' content='Learn the major cities, waterways and provinces of the Netherlands.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice Dutch topography here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
+-->
+
+  <link rel="stylesheet" type="text/css" href="rekenen.css?v=001j" />
+  <link rel="stylesheet" type="text/css" href="fireworks.css?v=001j" />
+  <script type='text/javascript'>
+    var older_onload = window.onload;
+    window.onload = rekenen_onload;
+    function rekenen_onload() {
+      if (older_onload != null) {
+        older_onload();
+      }
+
+      if (document.location.search) {
+        var i;
+        var request = new Array();
+        var vals = document.location.search.substr(1).split("&");
+        for (i in vals) {
+          vals[i] = vals[i].replace(/\+/g, " ").split("=");
+          request[unescape(vals[i][0])] = unescape(vals[i][1]);
+        }
+        if (request["set"] != null) {
+          document.getElementById('woordtype').value = request["set"];
+        }
+      }
+
+      nieuweZinnen();
+    }
+
+    var count = 0;
+    var nrZinnen = 1;
+
+    function convertSentence(sentenceindex) {
+      var sentence = locaties[sentenceindex].replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='" + nrZinnen + "' class='antwoord' type='text' autocorrect='off' autocapitalize='none' oninput='testWoord(this,\"");
+      sentence = sentence.replace(/}/g, "\")'>");
+
+      if (posities) {
+        sentence = sentence.replace("**", "" + (nrZinnen + 1));
+      }
+
+      nrZinnen++;
+      return sentence;
+    }
+
+    var topografie_friesland_groningen_drenthe = [
+      "1 {Vlieland}",
+      "2 {Terschelling}",
+      "3 {Ameland}",
+      "4 {Schiermonnikoog}",
+      "5 {Afsluitdijk}",
+      "6 {Sneek}",
+      "7 {Leeuwarden}",
+      "8 {Friesland}",
+      "9 {Heerenveen}",
+      "10 {Drachten}",
+      "11 {Groningen}",
+      "12 {Delfzijl}",
+      "13 {Groningen}",
+      "14 {Veendam}",
+      "15 {Assen}",
+      "16 {Drenthe}",
+      "17 {Emmen}",
+      "18 {Hoogeveen}",
+      "19 {Meppel}",
+      "20 {IJsselmeer}",
+      "21 {Waddenzee}",
+    ];
+
+    var topografie_overijssel_gelderland_flevoland = [
+      "** {IJsselmeer}",
+      "** {Markermeer}",
+      "** {Emmeloord}",
+      "** {Lelystad}",
+      "** {Almere}",
+      "** {Kampen}",
+      "** {Zwolle}",
+      "** {Overijssel}",
+      "** {Deventer}",
+      "** {Almelo}",
+      "** {Twente}",
+      "** {Hengelo}",
+      "** {Enschede}",
+      "** {Zutphen}",
+      "** {Doetinchem}",
+      "** {Gelderland}",
+      "** {Apeldoorn}",
+      "** {Veluwe}",
+      "** {Arnhem}",
+      "** {Wageningen}",
+      "** {Nijmegen}",
+      "** {Randstad}",
+      "** {Neder-Rijn}",
+      "** {Waal}",
+      "** {IJssel}",
+      "** {Maas}",
+    ];
+
+    var posities_overijssel_gelderland_flevoland = [
+      "left:35%; top:10%;",
+      "left:30%; top:25%;",
+      "left:50%; top:15%;",
+      "left:42%; top:30%;",
+      "left:33%; top:40%;",
+      "left:57%; top:26%;",
+      "left:63%; top:28%;",
+      "left:73%; top:35%;",
+      "left:67%; top:47%;",
+      "left:80%; top:37%;",
+      "left:88%; top:38%;",
+      "left:89%; top:45%;",
+      "left:87%; top:54%;",
+      "left:69%; top:57%;",
+      "left:72%; top:73%;",
+      "left:57%; top:65%;",
+      "left:57%; top:50%;",
+      "left:52%; top:60%;",
+      "left:59%; top:72%;",
+      "left:49%; top:72%;",
+      "left:51%; top:84%;",
+      "left:15%; top:47%;",
+      "left:41%; top:75%;",
+      "left:36%; top:85%;",
+      "left:64%; top:67%;",
+      "left:45%; top:88%;",
+    ];
+
+    var posities = null;
+    var locaties = topografie_friesland_groningen_drenthe;
+    function GetSet(woordtype) {
+      locaties = topografie_friesland_groningen_drenthe;
+      posities = null;
+
+      var plaatjesElement = document.getElementById('plaatje');
+      plaatjesElement.style.display = "none";
+      var nummertjesElement = document.getElementById('nummertjes');
+      nummertjesElement.style.display = "none";
+
+      if (woordtype == 'topografie-friesland-groningen-drenthe') {
+        locaties = topografie_friesland_groningen_drenthe;
+        plaatjesElement.style.display = "inherit";
+        plaatjesElement.src = 'images/kaart-friesland-groningen-drenthe.png';
+      }
+
+      if (woordtype == 'topografie-overijssel-gelderland-flevoland-2') {
+        locaties = topografie_overijssel_gelderland_flevoland;
+        plaatjesElement.style.display = "inherit";
+        plaatjesElement.src = 'images/kaart-overijssel-gelderland-flevoland.png';
+        nummertjesElement.style.display = "inherit";
+        posities = posities_overijssel_gelderland_flevoland;
+      }
+      return locaties;
+    }
+
+
+    function nieuweZinnen() {
+      {
+        var vuurwerkElement = document.getElementById('vuurwerk');
+        if (vuurwerkElement != null) {
+          vuurwerkElement.innerHTML = "";
+        }
+      }
+
+      var text = "";
+      count = 0;
+      nrZinnen = 0;
+
+      var woordtype = document.getElementById('woordtype').value;
+      var sentences = GetSet(woordtype);
+
+      var used = new Array();
+      var sentencecount = 5; // sentences.length; // 5;
+
+      var woorden = new Array();
+      var nummertjes = "";
+
+      while (nrZinnen < sentencecount) {
+
+        var index = Math.floor(sentences.length * Math.random());
+        if (!used[index]) {
+          used[index] = true;
+          text = text + convertSentence(index) + "<p><hr><p>";
+
+          if (posities != null) {
+            nummertjes = nummertjes + "<span style='position:absolute; " + posities[index] + "'>" + (nrZinnen) + "</span>";
+          }
+
+          //antwoorden
+          var start = sentences[index].indexOf("{");
+          if (start >= 0) {
+            var antwoord = sentences[index].substr(start + 1);
+            var end = antwoord.indexOf("}");
+            if (end >= 0) {
+              antwoord = antwoord.substr(0, end);
+              woorden.push(antwoord);
+              //          woorden=woorden+"<span id='woord-"+antwoord+"'>"+antwoord+"</span> ";
+              //   	  alert(antwoord);
+            }
+          }
+
+        }
+      }
+
+      document.getElementById('zinnetjes').innerHTML = text;
+      document.getElementById('nummertjes').innerHTML = nummertjes;
+
+      woorden.sort();
+
+      var woordentext = "";
+      var i;
+      for (i = 0; i < woorden.length; i++) {
+        if (i > 0) {
+          woordentext = woordentext + " ~ ";
+        }
+
+        woordentext = woordentext + "<span id='woord-" + woorden[i] + "'>" + woorden[i] + "</span> ";
+      }
+      document.getElementById('woorden').innerHTML = "<h2>" + woordentext + "</h2><hr>";
+
+      var nextElement = document.getElementById("0");
+      if (nextElement) {
+        nextElement.focus();
+        /*does not work, was supposed to pop up the keyboard on devices
+            if (nextElement.trigger) nextElement.trigger("click");
+        */
+      }
+
+    }
+
+
+    function testWoord(element, waarde) {
+      if (element.value.toLowerCase().trim() == waarde.toLowerCase()) {
+        element.style.color = "#00ff00";
+        element.disabled = true;
+
+        document.getElementById('woord-' + waarde).style.color = "#00ff00";
+
+        var index = parseInt(element.id);
+        index++;
+        var nextElement = document.getElementById("" + index);
+        if (nextElement) {
+          nextElement.focus();
+        }
+        count++;
+        if (count == nrZinnen) {
+          document.getElementById('next').style.display = 'block';
+          var vuurwerkElement = document.getElementById('vuurwerk');
+          if (vuurwerkElement != null) {
+            vuurwerkElement.innerHTML = "<div class='pyro' onclick='nieuweZinnen()'><div class='before'></div><div class='after'></div></div>";
+          }
+        }
+        else {
+          document.getElementById('next').style.display = 'none';
+        }
+      }
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <h2>Topografie</h2>
+  <i>Vul de plaatsen, provincies en rivieren in bij de nummers.</i>
+  <br><br>
+  <select id="woordtype" onchange="nieuweZinnen()">
+    <option style='display:none;' value="topografie-overijssel-gelderland-flevoland-2">Topografie Overijssel,
+      Gelderland, Flevoland</option>
+    <option style='display:none;' value="topografie-friesland-groningen-drenthe">Topografie Friesland, Groningen,
+      Drenthe</option>
+  </select>
+  <p>
+  <details style='background-color:#e8e8e8;'>
+    <summary>Antwoorden</summary>
+    <div id='woorden'></div>
+  </details>
+  <p>
+  <div id='plaatjeshouder' style='position:relative;'>
+    <img style='position:relative;' id='plaatje' src='images/kaart-friesland-groningen-drenthe.png' />
+    <div id='nummertjes'
+      style='position:absolute; left:0; top:0; width:100%; height:100%; font-size:80%; color:#ff0000;'>
+
+      <!--
+<span style='position:absolute; left:35%; top:10%;'>1</span>
+<span style='position:absolute; left:30%; top:25%;'>2</span>
+<span style='position:absolute; left:50%; top:15%;'>3</span>
+<span style='position:absolute; left:42%; top:30%;'>4</span>
+<span style='position:absolute; left:33%; top:40%;'>5</span>
+<span style='position:absolute; left:57%; top:26%;'>6</span>
+<span style='position:absolute; left:63%; top:28%;'>7</span>
+<span style='position:absolute; left:73%; top:35%;'>8</span>
+<span style='position:absolute; left:67%; top:47%;'>9</span>
+<span style='position:absolute; left:80%; top:37%;'>10</span>
+<span style='position:absolute; left:88%; top:38%;'>11</span>
+<span style='position:absolute; left:89%; top:45%;'>12</span>
+<span style='position:absolute; left:87%; top:54%;'>13</span>
+<span style='position:absolute; left:69%; top:57%;'>14</span>
+<span style='position:absolute; left:72%; top:73%;'>15</span>
+<span style='position:absolute; left:57%; top:65%;'>16</span>
+<span style='position:absolute; left:57%; top:50%;'>17</span>
+<span style='position:absolute; left:52%; top:60%;'>18</span>
+<span style='position:absolute; left:59%; top:72%;'>19</span>
+<span style='position:absolute; left:49%; top:72%;'>20</span>
+<span style='position:absolute; left:51%; top:84%;'>21</span>
+<span style='position:absolute; left:15%; top:47%;'>22</span>
+<span style='position:absolute; left:41%; top:75%;'>23</span>
+<span style='position:absolute; left:36%; top:85%;'>24</span>
+<span style='position:absolute; left:64%; top:67%;'>25</span>
+<span style='position:absolute; left:45%; top:88%;'>26</span>
+-->
+    </div>
+  </div>
+
+  <div id='zinnetjes'></div>
+  <div id='next'>
+    <a class='nieuwezinnen-cta' href='javascript:nieuweZinnen()'><span style='font-size:42pt;'>Opnieuw</span></a>
+  </div>
+  <p style='height:1in;'>&nbsp;</p>
+  <a class='homebutton' href='index.html'>&#11013; <span style='font-size:16pt;'>Hoofdmenu</span></a>
+  <p style='height:1in;'></p>
+
+  <div id='vuurwerk'></div>
+
+
+</body>
+
+</html>
