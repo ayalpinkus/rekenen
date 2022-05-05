@@ -305,14 +305,6 @@ var sentences_engels_unit_2_lesson_4_reverse=[
   "water {water}",
 ];
 
-
-
-
-
-
-
-
-
 var sentences_engels_unit_3_lesson_4=[
   "dier {animal}",
   "vogel {bird}",
@@ -379,23 +371,6 @@ var sentences_engels_unit_3_lesson_4_reverse=[
   "yellow {geel}",
   "zoo {dierentuin}",
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var sentences_engels_unit_4_lesson_4=[
   "dicht, gesloten {closed}",
@@ -467,27 +442,6 @@ var sentences_engels_unit_4_lesson_4_reverse=[
   "traffic light {verkeerslicht}",
   "tree {boom}",
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var topografie_friesland_groningen_drenthe=[
   "1 {Vlieland}",
@@ -627,9 +581,6 @@ function GetSet(woordtype)
   {
     sentences=sentences_engels_unit_4_lesson_4_reverse;
   }
-//
-
-
 
   if (woordtype=='topografie-friesland-groningen-drenthe')
   {
@@ -696,16 +647,15 @@ function nieuweZinnen()
       if (start>=0)
       {
         var antwoord=sentences[index].substr(start+1);
-	var end=antwoord.indexOf("}");
+	      var end=antwoord.indexOf("}");
         if (end>=0)
-	{
-	  antwoord = antwoord.substr(0,end);
+	      {
+	        antwoord = antwoord.substr(0,end);
           woorden.push(antwoord);
 //          woorden=woorden+"<span id='woord-"+antwoord+"'>"+antwoord+"</span> ";
 //   	  alert(antwoord);
-	}
+	      }
       }
-
     }
   }
 
@@ -735,7 +685,6 @@ function nieuweZinnen()
     if (nextElement.trigger) nextElement.trigger("click");
 */
   }
-
 }
 
 
