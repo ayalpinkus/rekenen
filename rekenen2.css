@@ -1,0 +1,277 @@
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+html, body
+{
+  padding:0;
+  border:0;
+  background: #ffffff;
+  color: #000000;
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+
+html, body,input,sommetjes,table {
+  font-family:Helvetica;
+  font-size:24pt;
+  font-weight:500;
+}
+
+html
+{
+  margin: 0;
+}
+body
+{
+  margin: 0 0.125in;
+}
+
+
+a
+{
+  color:#d00000;
+  text-decoration:none;
+}
+
+a:hover
+{
+  text-decoration:underline;
+}
+.homebutton
+{
+  font-size:48pt;
+}
+
+a.homebutton:hover
+{
+  text-decoration:none;
+  color:#d0d0d0;
+}
+
+#title, #question
+{
+  font-size:5vh;
+  font-weight:600;
+}
+
+#scorepanel
+{
+  vertical-align:top;
+  display:inline-block;
+  width:20vw;
+  height:60vh;
+  background:#ff0000;
+}
+
+#mainfield
+{
+  position:relative;
+  vertical-align:top;
+  display:inline-block;
+  width:76vw;
+  height:60vh;
+  border: 1px solid #808080;
+  overflow:hidden;
+}
+
+#completecontainer
+{
+}
+
+.score
+{
+  font-size:4vh;
+  font-weight:600;
+
+}
+
+.answer
+{
+  position:absolute;
+  padding:2vw;
+  border: 1px solid #d00000;
+  color:#d00000;
+  border-radius:1vw;  
+  background:#ffffff;
+  cursor:pointer;
+}
+
+.antwoord
+{
+  color:#ff0000;
+}
+
+
+.bannerimage-container
+{
+  width:8in;
+  max-width:100%;
+}
+
+.bannerimg
+{
+  width:45%;
+  border: 1px solid #d00000;
+  margin:0.05in 0.05in;
+}
+.bannerimg:hover
+{
+  opacity:0.25;
+  border: 1px solid #d0d0d0;
+}
+
+
+.unselectable
+{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+#sommetjes
+{
+  display:table;
+}
+
+
+.reken-regel
+{
+  display:table-row;
+}
+
+.reken-som
+{
+  display:table-cell; 
+  padding-right:0.25in; 
+  white-space:nowrap;
+}
+
+.reken-antwoord
+{
+  display:table-cell;
+}
+
+
+#plaatjeshouder
+{
+  width:100%;
+  max-width:6in;
+}
+
+#plaatje
+{
+  width:100%;
+}
+
+.nieuwezinnen-cta
+{
+}
+
+@media screen and (max-width: 8in)
+{
+
+  body
+  {
+    margin: 0 2vw;
+  }
+
+  html, body,input,sommetjes,table {
+    font-size:14pt;
+  }
+
+  .answer
+  {
+    font-size:28pt;
+  }
+
+  .bannerimage-container
+  {
+    width:100%;
+    max-width:100%;
+  }
+
+  .bannerimg
+  {
+    width:100%;
+    margin:0.05in 0;
+  }
+
+  #sommetjes
+  {
+    display:block;
+  }
+  .reken-regel
+  {
+    display:block;
+  }
+  .reken-som
+  {
+    display:block; 
+  }
+  .reken-antwoord
+  {
+    display:block;
+  }
+
+
+  #scorepanel
+  {
+    color:#a0a0a0;
+    width:94vw;
+    height:auto;
+  }
+
+  #mainfield
+  {
+    width:94vw;
+    height:80vh;
+  }
+
+
+  hr.score-separator
+  {
+    display:none;
+  }
+
+}
+
+/* Axel: New stuff for rekenen 2 */
+
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+
+.rekenen {
+  letter-spacing: 0;
+  line-height: 55px;
+  margin-top: 31px;
+  min-height: 69px;
+  white-space: nowrap;
+}
+
+.button-rectangle:hover {
+  transform: scale(1.1);
+}
+
+.button-rectangle {
+  border-radius: 50px;
+  cursor: pointer;
+  height: 352px;
+  width: 352px;
+  transition: all 0.2s ease;
+}
+
+.fredokaone-normal-dove-gray-55px {
+  color: var(--dove-gray);
+  font-family: var(--font-family-fredoka_one);
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  font-style: normal;
+}
