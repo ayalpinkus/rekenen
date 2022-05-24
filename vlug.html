@@ -112,7 +112,35 @@ html, div, body {
     to { left: 100vw; }
   }
 
+
+
+
 </style>
+
+<!-- These are to prevent scrolling on mobile -->
+<style>
+html: { overflow: hidden; }
+body {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+</style>
+<script type='text/javascript'>
+window.addEventListener("scroll", preventMotion, false);
+window.addEventListener("touchmove", preventMotion, false);
+
+function preventMotion(event)
+{
+    window.scrollTo(0, 0);
+    event.preventDefault();
+    event.stopPropagation();
+}
+</script>
+
+
+
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
