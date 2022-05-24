@@ -275,3 +275,14 @@ a.homebutton:hover
   font-weight: 400;
   font-style: normal;
 }
+
+
+#search-button {
+  width: 2.4rem;
+  height: 1.9rem;
+}
+
+#search-icon {
+width: 1.3rem;
+height: 1.3rem;
+}
