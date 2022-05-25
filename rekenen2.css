@@ -1,6 +1,5 @@
 * {
 -webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
 -o-box-sizing: border-box;
 box-sizing: border-box;
 }
@@ -246,7 +245,16 @@ a.homebutton:hover
 
 /* Axel: New stuff for rekenen 2 */
 
-@import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+/* @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900"); */
+
+
+.fredokaone-normal-dove-gray-55px {
+  color: var(--dove-gray);
+  font-family: var(--font-family-fredoka_one);
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  font-style: normal;
+}
 
 .rekenen {
   letter-spacing: 0;
@@ -263,19 +271,10 @@ a.homebutton:hover
 .button-rectangle {
   border-radius: 50px;
   cursor: pointer;
-  height: 352px;
-  width: 352px;
+  height: 5rem;
+  width: 5rem;
   transition: all 0.2s ease;
 }
-
-.fredokaone-normal-dove-gray-55px {
-  color: var(--dove-gray);
-  font-family: var(--font-family-fredoka_one);
-  font-size: var(--font-size-l);
-  font-weight: 400;
-  font-style: normal;
-}
-
 
 #search-button {
   width: 2.4rem;
