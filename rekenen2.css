@@ -274,6 +274,7 @@ a.homebutton:hover
   height: 5rem;
   width: 5rem;
   transition: all 0.2s ease;
+  display: inline-block;
 }
 
 #search-button {
