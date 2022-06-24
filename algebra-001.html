@@ -1,0 +1,176 @@
+<html>
+  <head>
+    <title>Algrebra 1.1</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+
+<style>
+html, body, div {font-size:4vw;
+</style>
+
+<script type='text/javascript'>
+
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+  maak_vergelijking();
+}
+ 
+function $(id)
+{
+  return document.getElementById(id);
+} 
+
+var a=0;
+var b=0;
+var c=0;
+var subex=0;
+function maak_vergelijking()
+{
+  subex=0;
+  a=Math.round(10*Math.random()-5);
+  b=Math.round(10*Math.random()-5);
+  c=Math.round(10*Math.random()-5);
+  $('variabelen').innerHTML=  
+    "a="+a+" &nbsp;&nbsp;&nbsp; b="+b+" &nbsp;&nbsp;&nbsp; c="+c+"<p>";
+  var resultaat=vergelijking(false);
+  $('vergelijking').innerHTML=resultaat[0]+"=?<p>";
+  $('antwoord').innerHTML="<a href='javascript:geef_antwoord("+resultaat[1]+")'>Antwoord</a>";
+}
+
+function vergelijking(sommoet)
+{
+  var split=Math.random();
+  
+  if (split<0.4 && !sommoet)
+  {
+    return term();
+  }
+  else if (split<0.7)
+  {
+    var t1=term();
+    var t2=term();
+    return [ t1[0]+"+"+t2[0], t1[1]+t2[1] ];
+  }
+  else 
+  {
+    var t1=term();
+    var t2=term();
+    return [ t1[0]+"-"+t2[0], t1[1]-t2[1] ];
+  }
+}
+
+function term()
+{
+  var factorstr="";
+  var factorn=1;
+  var split=Math.random();
+  if (split<0.5)
+  {
+    factorn=2+Math.round(8*Math.random());
+/*
+    if (Math.random()<0.5)
+    {
+      factorn=-factorn;
+    }
+*/
+    factorstr=""+factorn;
+  }
+  var f=factor();
+
+  var result= [ factorstr+f[0], factorn*f[1] ];
+
+console.log("term: "+result[0]+"="+result[1] );
+  
+  return result;
+}
+
+function factor()
+{
+  var resultstr="";
+  var resultval=1;
+
+  var ns= [0,0,0];
+  ns[Math.floor(Math.random()*3)]++;
+  ns[Math.floor(Math.random()*3)]++;
+
+  var na=ns[0]; //Math.round(Math.random()*2);
+  var nb=ns[1]; //Math.round(Math.random()*2);
+  var nc=ns[2]; //Math.round(Math.random()*2);
+
+  if (na==1)
+  {
+    resultstr+="a";
+    resultval*=a;
+  }
+  if (na==2)
+  {
+    resultstr+="a<sup>"+na+"</sup>";
+    resultval*=a*a;
+  }
+
+  if (nb==1)
+  {
+    resultstr+="b";
+    resultval*=b;
+  }
+  if (nb==2)
+  {
+    resultstr+="b<sup>"+nb+"</sup>";
+    resultval*=b*b;
+  }
+  if (nc==1)
+  {
+    resultstr+="c";
+    resultval*=c;
+  }
+  if (nc==2)
+  {
+    resultstr+="c<sup>"+nc+"</sup>";
+    resultval*=c*c;
+  }
+
+  if (subex==0)
+  {
+    var split=Math.random();
+    if (split<0.3)
+    {
+      subex=1;
+      var sx=vergelijking(true);
+      resultstr+="("+sx[0]+")";
+      resultval*=sx[1];
+    }
+  }
+  
+console.log("factor: "+resultstr+" = "+resultval );
+  return [ resultstr, resultval ];
+}
+
+
+function geef_antwoord(antwoord)
+{
+  $('antwoord').innerHTML="<h1>"+antwoord+"</h1><a href='javascript:maak_vergelijking()'>Nieuwe som</a>";
+}
+
+</script>
+
+  </head>
+  <body>
+
+<div id='variabelen'>...</div>
+<div id='vergelijking'>...</div>
+<div id='antwoord'></div>
+
+
+  </body>
+</html>
