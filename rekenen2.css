@@ -135,6 +135,14 @@ a.homebutton:hover
   user-select: none;
 }
 
+.overlap-title-item {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 55px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
 
 #sommetjes
 {
