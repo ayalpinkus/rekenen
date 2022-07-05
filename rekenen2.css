@@ -285,6 +285,19 @@ a.homebutton:hover
   display: inline-block;
 }
 
+.button-title {
+	position: relative;
+	overflow: visible;
+	width: 5rem;
+	white-space: nowrap;
+	text-align: center;
+	font-family: STIXIntegralsD;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+
 #search-button {
   width: 2.4rem;
   height: 1.9rem;
