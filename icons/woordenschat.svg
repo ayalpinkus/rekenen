@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1700.8 1700.8" style="enable-background:new 0 0 1700.8 1700.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#010101;}
+	.st1{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:#71BF4A;stroke:#000000;stroke-miterlimit:10;}
+	.st3{fill:#D95F5B;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g id="Layer_2">
+	<g>
+		<path class="st0" d="M1068.4,1100H634.7c-16.7,0-32.8-6.7-44.6-18.5s-18.5-27.9-18.5-44.6V603.2c0-16.7,6.7-32.8,18.5-44.6
+			c11.8-11.8,27.9-18.5,44.6-18.5h433.7c16.7,0,32.8,6.7,44.6,18.5c11.8,11.8,18.5,27.9,18.5,44.6v433.7c0,16.7-6.7,32.8-18.5,44.6
+			C1101.1,1093.3,1085.1,1100,1068.4,1100z M634.7,566.7c-9.6,0-18.9,3.8-25.7,10.6c-6.8,6.8-10.6,16.1-10.6,25.7v433.8
+			c0,9.6,3.8,18.9,10.6,25.7c6.8,6.8,16.1,10.6,25.7,10.6h433.7c9.6,0,18.9-3.8,25.7-10.6c6.8-6.8,10.6-16.1,10.6-25.7V603.2
+			c0-9.6-3.8-18.9-10.6-25.7c-6.8-6.8-16.1-10.6-25.7-10.6L634.7,566.7z"/>
+	</g>
+	<path class="st0" d="M1086.1,1075.6H616.9c-11.6,0-21-9.4-21-21V585.4c0-11.6,9.4-21,21-21h469.2c11.6,0,21,9.4,21,21v469.2
+		C1107.1,1066.2,1097.7,1075.6,1086.1,1075.6z"/>
+</g>
+<g id="Layer_1">
+	<g>
+		<rect x="931.9" y="691.8" class="st1" width="132.9" height="47.8"/>
+		<g>
+			<rect x="813.7" y="691.8" class="st2" width="109.9" height="47.8"/>
+			<g>
+				<rect x="634.9" y="691.8" class="st1" width="168.9" height="47.8"/>
+				<g>
+					<rect x="634.9" y="796.1" class="st1" width="168.9" height="47.8"/>
+					<rect x="958.2" y="796.1" class="st2" width="109.9" height="47.8"/>
+					<rect x="815.3" y="795.9" class="st1" width="132.9" height="47.8"/>
+				</g>
+				<g>
+					<rect x="634.9" y="900.4" class="st3" width="129.2" height="47.8"/>
+					<rect x="958.2" y="900.4" class="st1" width="109.9" height="47.8"/>
+					<rect x="775.8" y="900.1" class="st1" width="172.4" height="47.8"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

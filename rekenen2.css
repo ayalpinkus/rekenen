@@ -183,6 +183,74 @@ a.homebutton:hover
 {
 }
 
+/* Axel: New stuff for rekenen 2
+   Axel: this needs to be above @media, so that it can be made responsive.
+*/
+
+/* @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900"); */
+
+
+.fredokaone-normal-dove-gray-55px, h1, h2, h3, h4 {
+  color: var(--dove-gray);
+  font-family: var(--font-family-fredoka_one);
+/*  font-size: var(--font-size-l); */
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.rekenen {
+  letter-spacing: 0;
+  line-height: 55px;
+  margin-top: 31px;
+  min-height: 69px;
+  white-space: nowrap;
+}
+
+.button-rectangle:hover {
+  transform: scale(1);
+}
+
+.button-rectangle {
+  border-radius: 50px;
+  cursor: pointer;
+  height: 5rem;
+  width: 5rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  transform: scale(0.9);
+}
+
+.button-title {
+	position: relative;
+	overflow: visible;
+	width: 5rem;
+	white-space: nowrap;
+	text-align: center;
+	font-family: STIXIntegralsD;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+
+#search-button {
+  width: 2.4rem;
+  height: 1.9rem;
+}
+
+#search-icon {
+width: 1.3rem;
+height: 1.3rem;
+}
+
+.exercise-icon
+{
+  display:block;
+}
+
+/* Responsive part for big screens */
+
 @media screen and (max-width: 8in)
 {
 
@@ -249,61 +317,9 @@ a.homebutton:hover
     display:none;
   }
 
+  .button-title
+  {
+    font-size: 10px;
+  }
 }
 
-/* Axel: New stuff for rekenen 2 */
-
-/* @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900"); */
-
-
-.fredokaone-normal-dove-gray-55px {
-  color: var(--dove-gray);
-  font-family: var(--font-family-fredoka_one);
-  font-size: var(--font-size-l);
-  font-weight: 400;
-  font-style: normal;
-}
-
-.rekenen {
-  letter-spacing: 0;
-  line-height: 55px;
-  margin-top: 31px;
-  min-height: 69px;
-  white-space: nowrap;
-}
-
-.button-rectangle:hover {
-  transform: scale(1.1);
-}
-
-.button-rectangle {
-  border-radius: 50px;
-  cursor: pointer;
-  height: 5rem;
-  width: 5rem;
-  transition: all 0.2s ease;
-  display: inline-block;
-}
-
-.button-title {
-	position: relative;
-	overflow: visible;
-	width: 5rem;
-	white-space: nowrap;
-	text-align: center;
-	font-family: STIXIntegralsD;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 20px;
-	color: rgba(112,112,112,1);
-}
-
-#search-button {
-  width: 2.4rem;
-  height: 1.9rem;
-}
-
-#search-icon {
-width: 1.3rem;
-height: 1.3rem;
-}
