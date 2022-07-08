@@ -207,18 +207,12 @@ a.homebutton:hover
   white-space: nowrap;
 }
 
-.button-rectangle:hover {
-  transform: scale(1);
-}
-
 .button-rectangle {
   border-radius: 50px;
   cursor: pointer;
   height: 5rem;
   width: 5rem;
-  transition: all 0.2s ease;
   display: inline-block;
-  transform: scale(0.9);
 }
 
 .button-title {
@@ -230,7 +224,7 @@ a.homebutton:hover
 	font-family: STIXIntegralsD;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 16px;
 	color: rgba(112,112,112,1);
 }
 
@@ -244,9 +238,14 @@ width: 1.3rem;
 height: 1.3rem;
 }
 
+.exercise-icon:hover {
+  transform: scale(1);
+}
 .exercise-icon
 {
   display:block;
+  transition: all 0.2s ease;
+  transform: scale(0.9);
 }
 
 /* Responsive part for big screens */
