@@ -199,6 +199,14 @@ a.homebutton:hover
 
 }
 
+.title-backbutton {
+  border-radius: 50px;
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+  display: inline-block;
+}
+
 .rekenen {
   letter-spacing: 0;
   line-height: 55px;

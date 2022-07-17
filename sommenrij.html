@@ -1,5 +1,9 @@
 <html>
   <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
+  
     <title>Rekenen-Optellen en Aftrekken</title>
     <meta charset="utf8">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -20,8 +24,9 @@
     <meta name='twitter:card' content='summary_large_image'>
     <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
     <meta name='twitter:site' content='@ayalpinkus'>
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
-    <script src='rekenrijtjes.js?v=001k' type='text/javascript'></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css" />
+      <script src='rekenrijtjes.js?v=001k' type='text/javascript'></script>
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -36,7 +41,11 @@ function rekenen_onload()
 </script>
   </head>
   <body>
-    <h2>Optellen en Aftrekken</h2>
+    
+    <div class="title-backbutton">
+      <a href="https://rekenentaal.com"><img src = "icons/backarrow.svg"></a></div>
+      <h1 { text-align: left; }>Optellen en Aftrekken</h1>
+  
     <label for='ondernul'>Getallen onder nul?</label>
     <input type='checkbox' id='ondernul' value="1" onchange='nieuweOptelSommetjes();'>
     <br><br>
