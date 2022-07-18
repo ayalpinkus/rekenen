@@ -202,8 +202,9 @@ a.homebutton:hover
 .title-backbutton {
   border-radius: 50px;
   cursor: pointer;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
   display: inline-block;
 }
 
