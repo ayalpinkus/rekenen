@@ -1,6 +1,10 @@
 <html>
   <head>
-    <title>Algrebra 1.1</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
+
+    <title>Algebra 1.1</title>
     <meta charset="utf8">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="author" content="Ayal Pinkus" />
@@ -8,6 +12,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="-1"/>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
 
 <style>
 html, body, div {font-size:4vw;
@@ -45,7 +51,7 @@ function maak_vergelijking()
     "a="+a+" &nbsp;&nbsp;&nbsp; b="+b+" &nbsp;&nbsp;&nbsp; c="+c+"<p>";
   var resultaat=vergelijking(false);
   $('vergelijking').innerHTML=resultaat[0]+"=?<p>";
-  $('antwoord').innerHTML="<a href='javascript:geef_antwoord("+resultaat[1]+")'>Antwoord</a>";
+  $('antwoord').innerHTML="<a href='javascript:geef_antwoord("+resultaat[1]+")'>Toon Antwoord</a>";
 }
 
 function vergelijking(sommoet)
@@ -166,11 +172,15 @@ function geef_antwoord(antwoord)
 
   </head>
   <body>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Algebra</h1>
 
 <div id='variabelen'>...</div>
 <div id='vergelijking'>...</div>
 <div id='antwoord'></div>
-
 
   </body>
 </html>
