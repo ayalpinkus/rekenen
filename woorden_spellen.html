@@ -1,5 +1,8 @@
 <html>
   <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
     <title>Woordenschat</title>
     <meta charset="utf8">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -24,7 +27,8 @@
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
 
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001j" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
     <link rel="stylesheet" type="text/css" href="fireworks.css?v=001j" />
 <script type='text/javascript'>
 var older_onload=window.onload;
@@ -799,7 +803,11 @@ function testWoord(element,waarde)
 </script>
   </head>
   <body>
-    <h2>Woordenschat</h2>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Woordenschat</h1>
 
 <select id="woordtype" onchange="nieuweZinnen()">
   <option value="set-engels-unit-5-lesson-4">English, unit 5, lesson 4, Nederlands naar Engels</option>

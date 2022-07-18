@@ -1,6 +1,9 @@
 <html>
 
 <head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+  </style>
   <title>Topografie</title>
   <meta charset="utf8">
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -25,7 +28,9 @@
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
 
-  <link rel="stylesheet" type="text/css" href="rekenen.css?v=001j" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
+
   <link rel="stylesheet" type="text/css" href="fireworks.css?v=001j" />
   <script type='text/javascript'>
     var older_onload = window.onload;
@@ -283,7 +288,12 @@
 </head>
 
 <body>
-  <h2>Topografie</h2>
+  <h1 { text-align: left; }>
+    <div class="title-backbutton">
+    <a href='index.html'><img src = "icons/backarrow.svg"></a>
+    </div>
+    Topografie</h1>
+
   <i>Vul de plaatsen, provincies en rivieren in bij de nummers.</i>
   <br><br>
   <select id="woordtype" onchange="nieuweZinnen()">
@@ -339,7 +349,6 @@
     <a class='nieuwezinnen-cta' href='javascript:nieuweZinnen()'><span style='font-size:42pt;'>Opnieuw</span></a>
   </div>
   <p style='height:1in;'>&nbsp;</p>
-  <a class='homebutton' href='index.html'>&#11013; <span style='font-size:16pt;'>Hoofdmenu</span></a>
   <p style='height:1in;'></p>
 
   <div id='vuurwerk'></div>
