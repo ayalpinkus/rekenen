@@ -1,0 +1,138 @@
+:root {
+<<<<<<< HEAD
+--black: rgba(0, 0, 0, 1);
+--midnight-moss:
+rgba(5, 6, 5, 1);
+--eerie-black:rgba(26, 24, 24,
+1);
+--sushi: rgba(111, 179, 53, 1);
+--dove-gray:rgba(112, 112,
+112, 1);
+--white: rgba(255, 255, 255,
+1);
+--font-size-s: 7px;
+--font-size-m: 30px;
+--font-size-1: 55px;
+--font-size-xl: 58px;
+--font-size-xxl: 59px;
+--font-size-xxxl: 80px;
+--font-size-xxxx1: 116px;
+--font-family-fredoka_one:
+"Fredoka One";
+--font-family-lato: "Lato";
+--font-family-myriadpro-regular:
+"MyriadPro-Regular";
+--font-family-stixintegralsd-
+bold: "STIXIntegralsD-Bold";
+}
+/* Classes */
+.lato-black-white-116px {
+color: var(--white);
+font-family: var(--font-family-
+lato);
+font-size: var(--font-size-
+xxxx1);
+font-weight: 900;
+font-style: normal;
+}
+.lato-black-black-80px {
+color: var(--black);
+font-family: var(--font-family-
+lato);
+font-size: var(--font-size-xxx1);
+font-weight: 900;
+font-style: normal;
+}
+.myriadpro-regular-normal-eerie-
+black-7px {
+color: var(--eerie-black);
+font-family: var(--font-family-
+myriadpro-regular);
+font-size: var(--font-size-s);
+font-weight: 400;
+font-style: normal;
+}
+.stixintegralsd-bold-dove-gray-30px
+{
+color: var(--dove-gray);
+font-family: var(--font-family-
+stixintegralsd-bold);
+font-size: var(--font-size-m);
+font-weight: 700;
+font-style: normal;
+}
+fredokaone-normal-dove-gray-55px {
+color: var(--dove-gray);
+font-family: var(--font-family-
+fredoka_one);
+font-size: var(--font-size-1);
+font-weight: 400;
+font-style: normal;
+}
+=======
+    --black: rgba(0, 0, 0, 1);
+    --midnight-moss:
+        rgba(5, 6, 5, 1);
+    --eerie-black: rgba(26, 24, 24,
+            1);
+    --sushi: rgba(111, 179, 53, 1);
+    --dove-gray: rgba(112, 112,
+            112, 1);
+    --white: rgba(255, 255, 255,
+            1);
+    --font-size-s: 7px;
+    --font-size-m: 30px;
+    --font-size-1: 55px;
+    --font-size-xl: 58px;
+    --font-size-xxl: 59px;
+    --font-size-xxxl: 80px;
+    --font-size-xxxx1: 116px;
+    --font-family-fredoka_one:
+        "Fredoka One";
+    --font-family-lato: "Lato";
+    --font-family-myriadpro-regular:
+        "MyriadPro-Regular";
+    --font-family-stixintegralsd- bold: "STIXIntegralsD-Bold";
+}
+
+/* Classes */
+.lato-black-white-116px {
+    color: var(--white);
+    font-family: var(--font-family- lato);
+    font-size: var(--font-size- xxxx1);
+    font-weight: 900;
+    font-style: normal;
+}
+
+.lato-black-black-80px {
+    color: var(--black);
+    font-family: var(--font-family- lato);
+    font-size: var(--font-size-xxx1);
+    font-weight: 900;
+    font-style: normal;
+}
+
+.myriadpro-regular-normal-eerie- black-7px {
+    color: var(--eerie-black);
+    font-family: var(--font-family- myriadpro-regular);
+    font-size: var(--font-size-s);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.stixintegralsd-bold-dove-gray-30px {
+    color: var(--dove-gray);
+    font-family: var(--font-family- stixintegralsd-bold);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+fredokaone-normal-dove-gray-55px {
+    color: var(--dove-gray);
+    font-family: var(--font-family- fredoka_one);
+    font-size: var(--font-size-1);
+    font-weight: 400;
+    font-style: normal;
+}
+>>>>>>> designing
