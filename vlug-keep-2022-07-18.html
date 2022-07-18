@@ -1,0 +1,329 @@
+<html>
+  <head>
+    <title>Vlug Vermenigvuldigen</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta name='description' content='Vlug Vermenigvuldigen'>
+    <meta property='og:title' content='Vlug Vermenigvuldigen'>
+    <meta property='og:description' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/images/Multiplication-Division-001.png?v=124'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/vlug.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Vlug Vermenigvuldigen'>
+    <meta name='twitter:description' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/images/Multiplication-Division-001.png?v=124'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Zo veel mogelijk vermenigvuldigsommen in 60 seconden.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+
+<style>
+
+html, div, body {
+  font-size:5vw;
+}
+
+.my-table {
+  display:table;
+}
+
+.my-table-row {
+  display:table-row;
+}
+
+.my-table-cell-1 {
+  display:table-cell;
+  width:25vw;
+  height:14vh;
+  margin:1vh 1vw 1vh 1vw;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.my-table-cell-2 {
+  display:table-cell;
+  width:50vw;
+  height:14vh;
+  padding:1vh 1vw 1vh 1vw;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.my-table-cell-4 {
+  display:table-cell;
+  width:100vw;
+  height:14vh;
+  padding:1vh 1vw 1vh 1vw;
+  text-align:center;
+  vertical-align:middle;
+}
+
+
+
+#num-goed
+{
+  color:#00ff00;
+}
+
+.my-button {
+  width:90%;
+  height:90%;
+  border-radius:5%;
+  color:#ffffff;
+  background-color:#000080;
+}
+
+
+
+.my-button:hover
+{
+/*  background-color:#8080ff; */
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  } 
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+@keyframes fade-flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+@keyframes fade-font {
+    0% { font-size: 0; opacity:0; }
+    50% { font-size: 1em; opacity:1;}
+    100% { font-size: 0; opacity:0; }
+  }
+
+
+@keyframes fade-move {
+    from { left: 0; }
+    to { left: 100vw; }
+  }
+
+
+
+
+</style>
+
+<!-- These are to prevent scrolling on mobile -->
+<style>
+html: { overflow: hidden; }
+body {
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+</style>
+<script type='text/javascript'>
+window.addEventListener("scroll", preventMotion, false);
+window.addEventListener("touchmove", preventMotion, false);
+
+function preventMotion(event)
+{
+    window.scrollTo(0, 0);
+    event.preventDefault();
+    event.stopPropagation();
+}
+</script>
+
+
+
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if(event.keyCode >= 48 && event.keyCode <= 57 ) {
+        type(event.keyCode-48);
+    }
+    else if(event.keyCode == 88 || event.keyCode == 46 || event.keyCode == 8) {
+        antwclear();
+    }
+});
+
+
+  startSpel();
+}
+
+function $(id)
+{
+  return document.getElementById(id);
+}
+
+var  seconds=60;
+var  numgoed=0;
+var starttime;
+
+function startSpel()
+{
+  alert("Probeer zo veel mogelijk keersommetjes te doen in zestig seconden.");
+  seconds=60;
+  numgoed=0;
+  $('num-goed').innerHTML=""+numgoed;
+  $('seconds').innerHTML=""+seconds;
+  $('alles').innerHTML="";
+  nieuweKeerSommetje();
+  starttime = new Date().getTime();
+  updateClock();
+}
+
+function updateClock()
+{
+  var now = new Date().getTime();
+  var delta=now-starttime;
+  var countdown=Math.round(60-delta/1000);
+  if (countdown<0)
+  {
+    $('seconds').innerHTML="0";
+    alert("Klaar! Je had er "+numgoed+" goed in zestig seconden!");
+    startSpel();
+  }
+  else
+  {
+    $('seconds').innerHTML=""+countdown;
+    setTimeout(updateClock, 1000);
+  }
+}
+
+var z_antwoord="";
+
+function nieuweKeerSommetje()
+{
+  var van=1;
+  var tot=12;
+  var x=van+Math.floor(Math.random()*(tot+1-van));
+  var y=van+Math.floor(Math.random()*(tot+1-van));
+  z_antwoord=""+(x*y);
+  var text="";
+  {
+    text=text+x + " x " + y + " = ";
+  }
+  $('sommetjes').innerHTML=text;
+  $('antwoord').innerHTML="";
+}
+
+function type(n)
+{
+  $('antwoord').innerHTML+=n;
+  if (z_antwoord==$('antwoord').innerHTML)
+  {
+//    $('alles').innerHTML = "<div style='position:absolute; white-space: nowrap; color:#ff0000; font-weight:600; font-size:1.25em; animation: fade-move 1500ms;   left:100vw;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+//    $('alles').innerHTML = "<div style='color:#ff0000; font-weight:600; font-size:1.75em; animation: fade-flash 1000ms;   opacity:0;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+    $('alles').innerHTML = "<div style='color:#ff0000; font-weight:600; font-size:1.75em; animation: fade-font 1500ms;   opacity:0; font-size:0;'>"+$('sommetjes').innerHTML+z_antwoord+"</div>";
+
+
+    numgoed++;    
+    $('num-goed').innerHTML=""+numgoed;
+    $('antwoord').innerHTML="";
+    nieuweKeerSommetje();
+  }
+}
+
+function antwclear()
+{
+  $('antwoord').innerHTML="";
+
+}
+
+</script>
+  </head>
+  <body>
+<div class='my-table'>
+  <div class='my-table-row'>
+    <div class='my-table-cell-2' id='sommetjes'>
+    </div>
+    <div class='my-table-cell-1'>
+    </div>
+    <div class='my-table-cell-1' id='seconds'>
+    </div>
+  </div>
+  <div class='my-table-row'>
+    <div class='my-table-cell-2' id='antwoord'>
+
+    </div>
+    <div class='my-table-cell-1'>
+
+    </div>
+    <div class='my-table-cell-1' id='num-goed'>
+    </div>
+  </div>
+</div>
+<div class='my-table'>
+  <div class='my-table-row'>
+    <div class='my-table-cell-4' style='overflow:hidden;'>
+      <div id='alles'></div>
+    </div>
+  </div>
+</div>
+<div class='my-table'>
+  <div class='my-table-row'>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("1")'>1</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("2")'>2</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("3")'>3</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("4")'>4</div>
+
+    </div>
+  </div>
+
+  <div class='my-table-row'>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("5")'>5</div>
+
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("6")'>6</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("7")'>7</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("8")'>8</div>
+    </div>
+  </div>
+
+  <div class='my-table-row'>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("9")'>9</div>
+    </div>
+    <div class='my-table-cell-1'>
+      <div class='my-button' onclick='type("0")'>0</div>
+
+    </div>
+    <div class='my-table-cell-1'>
+    </div>
+    <div class='my-table-cell-1' onclick='antwclear()'>
+      <div class='my-button'>DEL</div>
+
+    </div>
+  </div>
+</div>
+  </body>
+</html>
