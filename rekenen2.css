@@ -1,6 +1,5 @@
 * {
 -webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
 -o-box-sizing: border-box;
 box-sizing: border-box;
 }
@@ -65,7 +64,7 @@ a.homebutton:hover
   display:inline-block;
   width:20vw;
   height:60vh;
-/*  background:#ff0000; */
+  background:#ff0000;
 }
 
 #mainfield
@@ -136,6 +135,14 @@ a.homebutton:hover
   user-select: none;
 }
 
+.overlap-title-item {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 55px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
 
 #sommetjes
 {
@@ -172,10 +179,84 @@ a.homebutton:hover
   width:100%;
 }
 
-
 .nieuwezinnen-cta
 {
 }
+
+/* Axel: New stuff for rekenen 2
+   Axel: this needs to be above @media, so that it can be made responsive.
+*/
+
+/* @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900"); */
+
+
+.fredokaone-normal-dove-gray-55px, h1, h2, h3, h4 {
+  color: var(--dove-gray);
+  font-family: var(--font-family-fredoka_one);
+/*  font-size: var(--font-size-l); */
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.title-backbutton {
+  border-radius: 50px;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  display: inline-block;
+}
+
+.rekenen {
+  letter-spacing: 0;
+  line-height: 55px;
+  margin-top: 31px;
+  min-height: 69px;
+  white-space: nowrap;
+}
+
+.button-rectangle {
+  border-radius: 50px;
+  cursor: pointer;
+  height: 5rem;
+  width: 5rem;
+  display: inline-block;
+}
+
+.button-title {
+	position: relative;
+	overflow: visible;
+	width: 5rem;
+	white-space: nowrap;
+	text-align: center;
+	font-family: STIXIntegralsD;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(112,112,112,1);
+}
+
+#search-button {
+  width: 2.4rem;
+  height: 1.9rem;
+}
+
+#search-icon {
+width: 1.3rem;
+height: 1.3rem;
+}
+
+.exercise-icon:hover {
+  transform: scale(1);
+}
+.exercise-icon
+{
+  display:block;
+  transition: all 0.2s ease;
+  transform: scale(0.9);
+}
+
+/* Responsive part for big screens */
 
 @media screen and (max-width: 8in)
 {
@@ -243,4 +324,9 @@ a.homebutton:hover
     display:none;
   }
 
+  .button-title
+  {
+    font-size: 10px;
+  }
 }
+
