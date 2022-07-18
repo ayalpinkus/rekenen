@@ -1,0 +1,649 @@
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
+    <title>Woordenschat</title>
+    <meta charset="utf8">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="author" content="Ayal Pinkus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+<!--
+    <meta name='description' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:title' content='Addition and Subtraction Exercises for Children'>
+    <meta property='og:description' content='Generates random exercises at any difficulty level.'>
+    <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
+    <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/sommenrij.html'>
+    <meta property='og:site_name' content='Rekenen'>
+    <meta name='twitter:title' content='Addition and Subtraction Exercises for Children'>
+    <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
+    <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/images/Addition-Subtraction-001.png?v=125'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+    <meta name='twitter:site' content='@ayalpinkus'>
+    <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
+-->
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
+    <link rel="stylesheet" type="text/css" href="fireworks.css?v=001j" />
+<script type='text/javascript'>
+var older_onload=window.onload;
+window.onload=rekenen_onload;
+function rekenen_onload()
+{
+  if (older_onload != null)
+  {
+    older_onload();
+  }
+ 
+  if (document.location.search)
+  {
+    var i;
+    var request = new Array();
+    var vals=document.location.search.substr(1).split("&");
+    for (i in vals) 
+    {
+      vals[i] = vals[i].replace(/\+/g, " ").split("=");
+      request[unescape(vals[i][0])] = unescape(vals[i][1]);
+    }
+    if (request["set"] != null)
+    {
+      document.getElementById('woordtype').value = request["set"];
+    }
+  }
+ 
+  nieuweZinnen();
+}
+
+var count=0;
+var nrZinnen=1;
+
+function convertSentence(sentenceindex)
+{
+  var sentence = sentences[sentenceindex].replace(/{/g, "<input style='margin-bottom:0.05in; font-size:24pt;' id='"+nrZinnen+"' class='antwoord' type='text' autocorrect='off' autocapitalize='none' oninput='testWoord(this,\"");
+  sentence = sentence.replace(/}/g, "\")'>");
+
+  if (posities)
+  {
+    sentence = sentence.replace("**",""+(nrZinnen+1));
+  }
+
+  nrZinnen++;
+  return sentence;
+}
+
+var sentences_engels_unit_1_lesson_4=[
+ "Amerika {America}",
+ "Belgi&euml; {Belgium}",
+ "jongen {boy}",
+ "kind {child}",
+ "land {country}",
+ "papa {dad}",
+ "e-mail {email}",
+ "Engeland {England}",
+ "vriend {friend}",
+ "meisje {girl}",
+ "honderd {hundred}",
+ "Itali&euml; {Italy}",
+ "brief {letter}",
+ "man {man}",
+ "geld {money}",
+ "mama {mum}",
+ "naam {name}",
+ "nummer {number}",
+ "mensen {people}",
+ "Zuid-Afrika {South Africa}",
+ "schaap, schapen {sheep}",
+ "straat {street}",
+ "meester, juf {teacher}",
+ "Nederland {the Netherlands}",
+ "tellen {to count}",
+ "wonen {to live}",
+ "Turkije {Turkey}",
+ "vrouw {woman}",
+ "wereld {world}",
+ "jaar {year}",
+];
+
+
+
+var sentences_engels_unit_1_lesson_4_reverse=[
+ "America {Amerika}",
+ "Belgium {Belgie}",
+ "boy {jongen}",
+ "child {kind}",
+ "country {land}",
+ "dad {papa}",
+ "email {e-mail}",
+ "England {Engeland}",
+ "friend {vriend}",
+ "girl {meisje}",
+ "hundred {honderd}",
+ "Italy {Italie}",
+ "letter {brief}",
+ "man {man}",
+ "money {geld}",
+ "mum {mama}",
+ "name {naam}",
+ "number {nummer}",
+ "people {mensen}",
+ "South Africa {Zuid-Afrika}",
+ "sheep {schaap, schapen}",
+ "street {straat}",
+ "teacher {meester, juf}",
+ "the Netherlands {Nederland}",
+ "to count {tellen}",
+ "to live {wonen}",
+ "Turkey {Turkije}",
+ "woman {vrouw}",
+ "world {wereld}",
+ "year {jaar}",
+];
+
+
+var sentences_engels_unit_2_lesson_4=[
+  "een hap, hapje {a bite}",
+  "appel {apple}",
+  "banaan {banana}",
+  "koekjes {biscuits}",
+  "brood {bread}",
+  "ontbijt {breakfast}",
+  "boter {butter}",
+  "cake, taart {cake}",
+  "kaas {cheese}",
+  "kauwgum {chewing gum}",
+  "chocola {chocolate}",
+  "kopje {cup}",
+  "avondeten {dinner}",
+  "ei {egg}",
+  "jam {jam}",
+  "sap {juice}",
+  "lunch, middageten {lunch}",
+  "melk {milk}",
+  "sinaasappel {orange}",
+  "pasta {pasta}",
+  "peer {pear}",
+  "pizza {pizza}",
+  "rijst {rice}",
+  "salade {salad}",
+  "boterham {sandwich}",
+  "spaghetti {spaghetti}",
+  "suiker {sugar}",
+  "thee {tea}",
+  "theelepel {teaspoon}",
+  "water {water}",
+];
+
+
+var sentences_engels_unit_2_lesson_4_reverse=[
+  "a bite {een hapje}",
+  "apple {appel}",
+  "banana {banaan}",
+  "biscuits {koekjes}",
+  "bread {brood}",
+  "breakfast {ontbijt}",
+  "butter {boter}",
+  "cake {cake}",
+  "cheese {kaas}",
+  "chewing gum {kauwgum}",
+  "chocolate {chocola}",
+  "cup {kopje}",
+  "dinner {avondeten}",
+  "egg {ei}",
+  "jam {jam}",
+  "juice {sap}",
+  "middageten {lunch}",
+  "milk {melk}",
+  "orange {sinaasappel}",
+  "pasta {pasta}",
+  "pear {peer}",
+  "pizza {pizza}",
+  "rice {rijst}",
+  "salad {salade}",
+  "sandwich {boterham}",
+  "spaghetti {spaghetti}",
+  "sugar {suiker}",
+  "tea {thee}",
+  "teaspoon {theelepel}",
+  "water {water}",
+];
+
+var sentences_engels_unit_3_lesson_4=[
+  "dier {animal}",
+  "vogel {bird}",
+  "zwart {black}",
+  "blauw {blue}",
+  "bruin {brown}",
+  "kat, poes {cat}",
+  "kip {chicken}",
+  "koe {cow}",
+  "hond {dog}",
+  "eend {duck}",
+  "olifant {elephant}",
+  "giraf {giraffe}",
+  "groen {green}",
+  "grijs {grey}",
+  "paard {horse}",
+  "leeuw {lion}",
+  "aap {monkey}",
+  "oranje {orange}",
+  "papegaai {parrot}",
+  "huisdier {pet}",
+  "dierenwinkel {pet shop}",
+  "varken {pig}",
+  "puppy, jonge hond {puppy}",
+  "konijn {rabbit}",
+  "rood {red}",
+  "slang {snake}",
+  "tijger {tiger}",
+  "wit {white}",
+  "geel {yellow}",
+  "dierentuin {zoo}",
+];
+
+
+var sentences_engels_unit_3_lesson_4_reverse=[
+  "animal {dier}",
+  "bird {vogel}",
+  "black {zwart}",
+  "blue {blauw}",
+  "brown {bruin}",
+  "cat {kat}",
+  "chicken {kip}",
+  "cow {koe}",
+  "dog {hond}",
+  "duck {eend}",
+  "elephant {olifant}",
+  "giraffe {giraf}",
+  "green {groen}",
+  "grey {grijs}",
+  "horse {paard}",
+  "lion {leeuw}",
+  "monkey {aap}",
+  "orange {oranje}",
+  "parrot {papegaai}",
+  "pet {huisdier}",
+  "pet shop {dierenwinkel}",
+  "pig {varken}",
+  "puppy {puppy}",
+  "rabbit {konijn}",
+  "red {rood}",
+  "snake {slang}",
+  "tiger {tijger}",
+  "white {wit}",
+  "yellow {geel}",
+  "zoo {dierentuin}",
+];
+
+var sentences_engels_unit_4_lesson_4=[
+  "dicht, gesloten {closed}",
+  "hoek {corner}",
+  "kruispunt {crossroads}",
+  "lol, pret {fun}",
+  "blij {happy}",
+  "links {left}",
+  "kaart (plattegrond) {map}",
+  "midden {middle}",
+  "open {open}",
+  "park {park}",
+  "speelplaats {playground}",
+  "spoorweg {railway}",
+  "rit {ride}",
+  "rechts {right}",
+  "weg, straat {road}",
+  "achtbaan {roller coaster}",
+  "rotonde {roundabout}",
+  "winkel {shop}",
+  "rechtdoor {straight on}",
+  "kopen {to buy}",
+  "genieten {to enjoy}",
+  "volgen {to follow}",
+  "teruggaan {to go back}",
+  "een leuke tijd hebben {to have a good time}",
+  "afslaan naar links {to turn left}",
+  "afslaan naar rechts {to turn right}",
+  "lopen {to walk}",
+  "stad {town}",
+  "speelgoedwinkel {toy store}",
+  "verkeer {traffic}",
+  "verkeerslicht {traffic light}",
+  "boom {tree}",
+];
+
+
+var sentences_engels_unit_4_lesson_4_reverse=[
+  "closed {dicht}",
+  "corner {hoek}",
+  "crossroads {kruispunt}",
+  "fun {lol}",
+  "happy {blij}",
+  "left {links}",
+  "map {kaart}",
+  "middle {midden}",
+  "open {open}",
+  "park {park}",
+  "playground {speelplaats}",
+  "railway {spoorweg}",
+  "ride {rit}",
+  "right {rechts}",
+  "road {weg}",
+  "roller coaster {achtbaan}",
+  "roundabout {rotonde}",
+  "shop {winkel}",
+  "straight on {rechtdoor}",
+  "to buy {kopen}",
+  "to enjoy {genieten}",
+  "to follow {volgen}",
+  "to go back {terug gaan}",
+  "to have a good time {een leuke tijd hebben}",
+  "to turn left {afslaan naar links}",
+  "to turn right {afslaan naar rechts}",
+  "to walk {lopen}",
+  "town {stad}",
+  "toy store {speelgoedwinkel}",
+  "traffic {verkeer}",
+  "traffic light {verkeerslicht}",
+  "tree {boom}",
+];
+
+var sentences_engels_unit_5_lesson_4=[
+  "arm {arm}",
+  "lichaam {body}",
+  "borst {chest}",
+  "oor; oren {ear; ears}",
+  "oog; ogen {eye; eyes}",
+  "vinger {finger}",
+  "voet; voeten {foot; feet}",
+  "haar {hair}",
+  "hand {hand}",
+  "hoofd {head}",
+  "knie {knee}",
+  "been {leg}",
+  "lippen {lips}",
+  "mond {mouth}",
+  "neus {nose}",
+  "schouder {shoulder}",
+  "maag, buik {stomach}",
+  "duim {thumb}",
+  "fietsen {to cycle}",
+  "sporten {to exercise}",
+  "springen {to jump}",
+  "kijken {to look}",
+  "bewegen {to move}",
+  "honkballen {to play baseball}",
+  "rennen {to run}",
+  "schreeuwen {to scream}",
+  "gaan zitten {to sit down}",
+  "stil staan {to stand still}",
+  "opnieuw proberen {to try again}",
+  "tand; tanden {tooth; teeth}"
+];
+
+var sentences_engels_unit_5_lesson_4_reverse=[
+  "arm {arm}",
+  "body {lichaam}",
+  "chest {borst}",
+  "ear; ears {oor; oren}",
+  "eye; eyes {oog; ogen}",
+  "finger {vinger}",
+  "foot; feet {voet; voeten}",
+  "hair {haar}",
+  "hand {hand}",
+  "head {hoofd}",
+  "knee {knie}",
+  "leg {been}",
+  "lips {lippen}",
+  "mouth {mond}",
+  "nose {neus}",
+  "shoulder {schouder}",
+  "stomach {maag, buik}",
+  "thumb {duim}",
+  "to cycle {fietsen}",
+  "to exercise {sporten}",
+  "to jump {springen}",
+  "to look {kijken}",
+  "to move {bewegen}",
+  "to play baseball {honkballen}",
+  "to run {rennen}",
+  "to scream {schreeuwen}",
+  "to sit down {gaan zitten}",
+  "to stand still {stil staan}",
+  "to try again {opnieuw proberen}",
+  "tooth; teeth {tand; tanden}"
+];
+
+var posities=null;
+var sentences = sentences_engels_unit_1_lesson_4;
+function GetSet(woordtype)
+{
+  sentences=sentences_engels_unit_1_lesson_4;
+  posities=null;
+
+//
+  if (woordtype=='set-engels-unit-1-lesson-4')
+  {
+    sentences=sentences_engels_unit_1_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-1-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_1_lesson_4_reverse;
+  }
+//
+  if (woordtype=='set-engels-unit-2-lesson-4')
+  {
+    sentences=sentences_engels_unit_2_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-2-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_2_lesson_4_reverse;
+  }
+//
+  if (woordtype=='set-engels-unit-3-lesson-4')
+  {
+    sentences=sentences_engels_unit_3_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-3-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_3_lesson_4_reverse;
+  }
+//
+  if (woordtype=='set-engels-unit-4-lesson-4')
+  {
+    sentences=sentences_engels_unit_4_lesson_4;
+  }
+  if (woordtype=='set-engels-unit-4-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_4_lesson_4_reverse;
+  }
+//
+  if (woordtype=='set-engels-unit-5-lesson-4')
+{
+  sentences=sentences_engels_unit_5_lesson_4;
+}
+  if (woordtype=='set-engels-unit-5-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_5_lesson_4_reverse;
+  }
+  return sentences;
+}
+
+
+function nieuweZinnen()
+{
+
+  {
+    var vuurwerkElement=document.getElementById('vuurwerk');
+    if (vuurwerkElement!=null)
+    {
+      vuurwerkElement.innerHTML="";
+    }
+
+  }
+
+  var text="";
+  count=0;
+  nrZinnen=0;
+
+  var woordtype=document.getElementById('woordtype').value;
+  var sentences=GetSet(woordtype);
+
+  var used = new Array();
+  var sentencecount= 5; // sentences.length; // 5;
+
+  var woorden= new Array();
+
+  var nummertjes="";
+
+  while (nrZinnen<sentencecount)
+  {
+
+    var index=Math.floor(sentences.length*Math.random());
+    if (!used[index])
+    {
+      used[index]=true;
+      text=text+convertSentence(index)+"<p><hr><p>";
+
+      if (posities != null)
+      {
+        nummertjes=nummertjes+"<span style='position:absolute; "+posities[index]+"'>"+(nrZinnen)+"</span>";
+      }
+
+
+//antwoorden
+      var start = sentences[index].indexOf("{");
+      if (start>=0)
+      {
+        var antwoord=sentences[index].substr(start+1);
+	      var end=antwoord.indexOf("}");
+        if (end>=0)
+	      {
+	        antwoord = antwoord.substr(0,end);
+          woorden.push(antwoord);
+//          woorden=woorden+"<span id='woord-"+antwoord+"'>"+antwoord+"</span> ";
+//   	  alert(antwoord);
+	      }
+      }
+    }
+  }
+
+  document.getElementById('zinnetjes').innerHTML=text;
+  document.getElementById('nummertjes').innerHTML=nummertjes;
+
+  woorden.sort();
+
+  var woordentext="";
+  var i;
+  for (i=0;i<woorden.length;i++)
+  {
+    if (i>0)
+    {
+      woordentext=woordentext+" ~ ";
+    }
+    
+    woordentext=woordentext+"<span id='woord-"+woorden[i]+"'>"+woorden[i]+"</span> ";
+  }
+  document.getElementById('woorden').innerHTML="<h2>"+woordentext+"</h2><hr>";
+
+  var nextElement=document.getElementById("0");
+  if (nextElement)
+  {
+    nextElement.focus();
+/*does not work, was supposed to pop up the keyboard on devices
+    if (nextElement.trigger) nextElement.trigger("click");
+*/
+  }
+}
+
+
+function testWoord(element,waarde)
+{
+  if (element.value.toLowerCase().trim() == waarde.toLowerCase())
+  {
+    element.style.color="#00ff00";
+    element.disabled = true;
+
+    document.getElementById('woord-'+waarde).style.color="#00ff00";
+
+    var index=parseInt(element.id);
+    index++;
+    var nextElement=document.getElementById(""+index);
+    if (nextElement)
+    {
+      nextElement.focus();
+    }
+    count++;
+    if (count==nrZinnen)
+    {
+      document.getElementById('next').style.display='block';
+      var vuurwerkElement=document.getElementById('vuurwerk');
+      if (vuurwerkElement!=null)
+      {
+        vuurwerkElement.innerHTML="<div class='pyro' onclick='nieuweZinnen()'><div class='before'></div><div class='after'></div></div>";
+      }
+    }
+    else
+    {
+      document.getElementById('next').style.display='none';
+    }
+  }
+}
+
+
+</script>
+  </head>
+  <body>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Woordenschat</h1>
+
+<select id="woordtype" onchange="nieuweZinnen()">
+  <option value="set-engels-unit-5-lesson-4">English, unit 5, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-5-lesson-4-reverse">English, unit 5, lesson 4, English to Dutch</option>
+
+  <option value="set-engels-unit-4-lesson-4">English, unit 4, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-4-lesson-4-reverse">English, unit 4, lesson 4, English to Dutch</option>
+
+  <option value="set-engels-unit-3-lesson-4">English, unit 3, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-3-lesson-4-reverse">English, unit 3, lesson 4, English to Dutch</option>
+<!--
+-->
+
+  <option value="set-engels-unit-2-lesson-4">English, unit 2, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-2-lesson-4-reverse">English, unit 2, lesson 4, English to Dutch</option>
+
+  <option value="set-engels-unit-1-lesson-4">English, unit 1, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-1-lesson-4-reverse">English, unit 1, lesson 4, English to Dutch</option>
+
+</select>
+<p>
+    <details style='background-color:#e8e8e8;'>
+      <summary>Antwoorden</summary>
+      <div id='woorden'></div>
+    </details>
+<p>
+  <div id='plaatjeshouder' style='position:relative;'>
+    <div id='nummertjes' style='position:absolute; left:0; top:0; width:100%; height:100%; font-size:80%; color:#ff0000;'>
+    
+</div>
+</div>
+
+    <div id='zinnetjes'></div>
+    <div id='next'>
+      <a class='nieuwezinnen-cta' href='javascript:nieuweZinnen()'><span style='font-size:42pt;'>Nieuwe zinnen</span></a>
+    </div>
+<p style='height:1in;'>&nbsp;</p>
+    <a class='homebutton' href='index.html'>&#11013; <span style='font-size:16pt;'>Hoofdmenu</span></a>
+    <p style='height:1in;'></p>
+
+<div id='vuurwerk'></div>
+
+
+  </body>
+</html>
+
