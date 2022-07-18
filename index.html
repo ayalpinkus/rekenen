@@ -1,53 +1,146 @@
 <html>
 
 <head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+  </style>
   <title>Rekenen-Vermenigvuldigen en Delen</title>
-  <meta charset="iso-8859-1">
-  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-  <meta name="author" content="Ayal Pinkus" />
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Ayal Pinkus, Axel Roest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="-1" />
-  <meta name='description' content='Calculation Exercises for Children'>
-  <meta property='og:title' content='Calculation Exercises for Children'>
+  <meta name='description' content='School Exercises for Children'>
+  <meta property='og:title' content='School Exercises for Children'>
   <meta property='og:description' content='Generates random exercises at any difficulty level.'>
-  <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/images/Dropping-Down-001.png?v=126'>
+  <meta property='og:image' content='https://ayalpinkus.github.io/rekenen/icons/plus-minus.svg?v=126'>
   <meta property='og:url' content='https://ayalpinkus.github.io/rekenen/index.html'>
-  <meta property='og:site_name' content='Rekenen'>
+  <meta property='og:site_name' content='Rekenen en Taal'>
   <meta name='twitter:title' content='Calculation Exercises for Children'>
   <meta name='twitter:description' content='Generates random exercises at any difficulty level.'>
-  <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/images/Dropping-Down-001.png?v=126'>
+  <meta name='twitter:image' content='https://ayalpinkus.github.io/rekenen/icons/plus-minus.svg?v=126'>
   <meta name='twitter:card' content='summary_large_image'>
-  <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
+  <meta name='twitter:image:alt' content='Your child can practice calculations and Dutch/English words here.'>
   <meta name='twitter:site' content='@ayalpinkus'>
-  <link rel="stylesheet" type="text/css" href="rekenen.css?v=001qewrqes" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="rekenen2.css?v=001qewrqest" />
 </head>
 
 <body>
-  <center>
 
-    <div class='bannerimage-container'>
-      <h1>Rekenoefeningen</h1>
-      <a href='sommenrij.html?v=002e'>
-        <img class='bannerimg' src='images/Addition-Subtraction-001.png?v=126' /></a>
-      <a href='vermenigvuldigen.html?v=002e'><img class='bannerimg'
-          src='images/Multiplication-Division-001.png?v=126' /></a>
-      <a href='droppingdown.html?v=002e'><img class='bannerimg' src='images/Dropping-Down-001.png?v=126' /></a>
-      <a href='droppingdown_multiply.html?v=002e'><img class='bannerimg'
-          src='images/Dropping-Down-Multiply-001.png?v=126' /></a>
-      <a href='woorden_spellen.html?v=002e'><img class='bannerimg' src='images/Woordenschat-001.png?v=126' /></a>
-      <a href='geldsom.html?v=002e'><img class='bannerimg' src='images/Geldsom-001.png?v=126' /></a>
-      <a href='grote-getallen-optellen.html?v=002e'><img class='bannerimg'
-          src='images/Grote-Getallen-Optellen-001.png?v=126' /></a>
-      <a href='woordzoeken.html?v=002e'><img class='bannerimg' src='images/Woorden-Zoeken-001.png?v=126' /></a>
-      <a href='galgje-001.html?v=002e'><img class='bannerimg' src='images/Galgje-001.png?v=126' /></a>
-      <a href='tafels-001.html?v=002e'><img class='bannerimg' src='images/Tafels-001.png?v=126' /></a>
+  <h1 { text-align: center; }>Reken en Taal Oefeningen</h1>
+  <h2>Rekenen</h2>
 
+  <div class="button-rectangle">
+    <a href='sommenrij.html'>
+      <img class='exercise-icon' src='icons/plus-minus.svg' />
+    </a>
+    <div class="button-title">Optellen en Aftrekken</div>
+  </div>
 
-      <p style='height:1in;'></p>
-    </div>
-  </center>
+  <div class="button-rectangle">
+    <a href='vermenigvuldigen.html'>
+      <img class='exercise-icon' src='icons/divide-multiply.svg' />
+    </a>
+    <div class="button-title">Keer sommen</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="grote-getallen-optellen.html">
+      <img class='exercise-icon' src='icons/big-plus.svg' />
+    </a>
+    <div class="button-title">Grote Getallen Optellen</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="geldsom.html">
+      <img class='exercise-icon' src='icons/euro.svg' />
+    </a>
+    <div class="button-title">Rekenen met Geld</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="vermenigvuldigen.html">
+      <img class='exercise-icon' src='icons/divide-multiply.svg' />
+    </a>
+    <div class="button-title">Keer sommen</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="tafels.html">
+      <img class='exercise-icon' src='icons/tables.svg' />
+    </a>
+    <div class="button-title">Tafels</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="vlugge-tafels.html">
+      <img class='exercise-icon' src='icons/flying-multiply.svg' />
+    </a>
+    <div class="button-title">Vlugge Tafels</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="droppingdown.html">
+      <img class='exercise-icon' src='icons/falling-plus.svg' />
+    </a>
+    <div class="button-title">Vlug Optellen</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="droppingdown-multiply.html">
+      <img class='exercise-icon' src='icons/falling-keer.svg' />
+    </a>
+    <div class="button-title">Vlugge Keersommen</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="honingraat.html">
+      <img class='exercise-icon' src='icons/honeycomb.svg' />
+    </a>
+    <div class="button-title">Honingraat</div>
+  </div>
+
+  <h2 { text-align:left; }>Taal</h2>
+  <div class="button-rectangle">
+    <a href="vermenigvuldigen.html">
+      <img class='exercise-icon' src='icons/magnifying-glass.svg' />
+    </a>
+    <div class="button-title">Woorden zoeken</div>
+  </div>
+  
+  <div class="button-rectangle">
+    <a href="galgje.html">
+      <img class='exercise-icon' src='icons/hangman.svg' />
+    </a>
+    <div class="button-title">Galgje</div>
+  </div>
+
+  <div class="button-rectangle">
+    <a href="woorden_spellen.html">
+      <img class='exercise-icon' src='icons/woordenschat.svg' />
+    </a>
+    <div class="button-title">Woordenschat</div>
+  </div>
+
+  <h2 { text-align:left; }>Topografie</h2>
+  <div class="button-rectangle">
+    <a href="topografie.html">
+      <img class='exercise-icon' src='icons/topography.svg' />
+    </a>
+    <div class="button-title">Nederlandse kaart</div>
+  </div>
+
+  <h2 { text-align:left; }>Engels</h2>
+  <div class="button-rectangle">
+    <a href="woorden_spellen.html">
+      <img class='exercise-icon' src='icons/nl-en.svg' />
+    </a>
+    <div class="button-title">EN ➔ NL</div>
+  </div>
+
 </body>
 
 </html>

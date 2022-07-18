@@ -443,6 +443,72 @@ var sentences_engels_unit_4_lesson_4_reverse=[
   "tree {boom}",
 ];
 
+var sentences_engels_unit_5_lesson_4=[
+  "arm {arm}",
+  "lichaam {body}",
+  "borst {chest}",
+  "oor; oren {ear; ears}",
+  "oog; ogen {eye; eyes}",
+  "vinger {finger}",
+  "voet; voeten {foot; feet}",
+  "haar {hair}",
+  "hand {hand}",
+  "hoofd {head}",
+  "knie {knee}",
+  "been {leg}",
+  "lippen {lips}",
+  "mond {mouth}",
+  "neus {nose}",
+  "schouder {shoulder}",
+  "maag, buik {stomach}",
+  "duim {thumb}",
+  "fietsen {to cycle}",
+  "sporten {to exercise}",
+  "springen {to jump}",
+  "kijken {to look}",
+  "bewegen {to move}",
+  "honkballen {to play baseball}",
+  "rennen {to run}",
+  "schreeuwen {to scream}",
+  "gaan zitten {to sit down}",
+  "stil staan {to stand still}",
+  "opnieuw proberen {to try again}",
+  "tand; tanden {tooth; teeth}"
+];
+
+var sentences_engels_unit_5_lesson_4_reverse=[
+  "arm {arm}",
+  "body {lichaam}",
+  "chest {borst}",
+  "ear; ears {oor; oren}",
+  "eye; eyes {oog; ogen}",
+  "finger {vinger}",
+  "foot; feet {voet; voeten}",
+  "hair {haar}",
+  "hand {hand}",
+  "head {hoofd}",
+  "knee {knie}",
+  "leg {been}",
+  "lips {lippen}",
+  "mouth {mond}",
+  "nose {neus}",
+  "shoulder {schouder}",
+  "stomach {maag, buik}",
+  "thumb {duim}",
+  "to cycle {fietsen}",
+  "to exercise {sporten}",
+  "to jump {springen}",
+  "to look {kijken}",
+  "to move {bewegen}",
+  "to play baseball {honkballen}",
+  "to run {rennen}",
+  "to scream {schreeuwen}",
+  "to sit down {gaan zitten}",
+  "to stand still {stil staan}",
+  "to try again {opnieuw proberen}",
+  "tooth; teeth {tand; tanden}"
+];
+
 var topografie_friesland_groningen_drenthe=[
   "1 {Vlieland}",
   "2 {Terschelling}",
@@ -581,7 +647,15 @@ function GetSet(woordtype)
   {
     sentences=sentences_engels_unit_4_lesson_4_reverse;
   }
-
+//
+  if (woordtype=='set-engels-unit-5-lesson-4')
+{
+  sentences=sentences_engels_unit_5_lesson_4;
+}
+  if (woordtype=='set-engels-unit-5-lesson-4-reverse')
+  {
+    sentences=sentences_engels_unit_5_lesson_4_reverse;
+  }
   if (woordtype=='topografie-friesland-groningen-drenthe')
   {
     sentences=topografie_friesland_groningen_drenthe;
@@ -728,6 +802,8 @@ function testWoord(element,waarde)
     <h2>Woordenschat</h2>
 
 <select id="woordtype" onchange="nieuweZinnen()">
+  <option value="set-engels-unit-5-lesson-4">English, unit 5, lesson 4, Nederlands naar Engels</option>
+  <option value="set-engels-unit-5-lesson-4-reverse">English, unit 5, lesson 4, English to Dutch</option>
 
   <option value="set-engels-unit-4-lesson-4">English, unit 4, lesson 4, Nederlands naar Engels</option>
   <option value="set-engels-unit-4-lesson-4-reverse">English, unit 4, lesson 4, English to Dutch</option>
