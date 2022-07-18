@@ -64,7 +64,7 @@ a.homebutton:hover
   display:inline-block;
   width:20vw;
   height:60vh;
-  background:#ff0000;
+  /* background:#ff0000; */
 }
 
 #mainfield
@@ -86,7 +86,6 @@ a.homebutton:hover
 {
   font-size:4vh;
   font-weight:600;
-
 }
 
 .answer

@@ -1,5 +1,8 @@
 <html>
   <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
     <title>Rekenen-Vlug Optellen en Aftrekken</title>
     <meta charset="iso-8859-1">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -20,7 +23,9 @@
     <meta name='twitter:card' content='summary_large_image'>
     <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
     <meta name='twitter:site' content='@ayalpinkus'>
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001g" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
+
     <script src='droppingdown.js?v=001M' type='text/javascript'></script>
 <script type='text/javascript'>
 function generateQuestion()
@@ -44,7 +49,12 @@ function randomSolution(van,tot,correctAnswer)
 </script>
   </head>
   <body>
-    <div id='title'>&nbsp;VLUG OPTELLEN!</div>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Vlug Optellen!</h1>
+  
     <div id='completecontainer'>
       <div id='mainfield'></div><div id='scorepanel'>
         <span class='score' id='totalscore'>0000</span>
