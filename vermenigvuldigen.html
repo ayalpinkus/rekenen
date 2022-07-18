@@ -1,5 +1,9 @@
 <html>
   <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
+
     <title>Rekenen-Vermenigvuldigen en Delen</title>
     <meta charset="utf8">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -20,7 +24,8 @@
     <meta name='twitter:card' content='summary_large_image'>
     <meta name='twitter:image:alt' content='Your child can practice calculations here.'>
     <meta name='twitter:site' content='@ayalpinkus'>
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
     <script src='rekenrijtjes.js?v=001M' type='text/javascript'></script>
 <script type='text/javascript'>
 var older_onload=window.onload;
@@ -36,8 +41,13 @@ function rekenen_onload()
 </script>
   </head>
   <body>
-    <h2>Vermenigvuldigen en Delen</h2>
-    <br><br>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Vermenigvuldigen en Delen</h1>
+
+    <br>
     <div id='sommetjes'>
     </div>
     <div id='next'>
@@ -49,7 +59,6 @@ function rekenen_onload()
     <label for="tot">Tot/To (1-1000):</label>
     <input type="number" id="tot" name="quantity" min="1" max="1000" value='10'>
     </div>
-    <a class='homebutton' href='index.html'>&#11013;</a>
   </body>
 </html>
 

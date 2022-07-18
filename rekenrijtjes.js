@@ -49,7 +49,7 @@ function nieuweOptelSommetjes()
         y=van+Math.floor(Math.random()*(x));
       }
       var plus = (Math.random()>0.5);
-      text=text+"<div class='reken-regel' ><div class='reken-som'>" + x + (plus ? " + " : " - ") + y + " = </div><div class='reken-antwoord' ><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='text' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
+      text=text+"<div class='reken-regel' ><div class='reken-som'>" + x + (plus ? " + " : " - ") + y + " = </div><div class='reken-antwoord' ><input style='margin-bottom:0.05in; font-size:24pt;' id='"+i+"' class='antwoord' type='number' oninput='testWaarde(this,"+(plus?(x+y):(x-y))+")'></div></div>";
     }
     sommetjes.innerHTML=text;
 

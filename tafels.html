@@ -1,5 +1,9 @@
 <html>
   <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One:400|Lato:900");
+    </style>
+
     <title>Tafels</title>
     <meta charset="utf8">
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -23,8 +27,9 @@
     <meta name='twitter:site' content='@ayalpinkus'>
     <script src='rekenrijtjes.js?v=001d' type='text/javascript'></script>
 -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
 
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
 <script type='text/javascript'>
 var older_onload=window.onload;
 window.onload=rekenen_onload;
@@ -104,16 +109,19 @@ function testWoord(element,waarde)
 </script>
   </head>
   <body>
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Tafels</h1>
 
-    <a href='javascript:nieuweTafel()'>Nieuwe Tafel</a>
-    <h2>Tafels</h2>
     <div id='woorden'></div>
     <div id='zinnetjes'></div>
     <div id='next'>
       <br>
       <a href='javascript:nieuweTafel()'>Nieuwe Tafel</a>
     </div>
-    <a class='homebutton' href='index.html'>&#11013;</a>
+
     <p style='height:1in;'></p>
   </body>
 </html>
