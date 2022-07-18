@@ -12,8 +12,10 @@
 <meta http-equiv="Expires" content="-1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Woorden zoeken</title>
-    <link rel="stylesheet" type="text/css" href="rekenen.css?v=001e" />
 
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="rekenen2.css?v=002e" />
+    
 <style type="text/css">
 
 .mid-column
@@ -464,8 +466,12 @@ function doHint()
 </script>
   </head>
   <body>
-<h1>Woorden zoeken</h1>
-
+    <h1 { text-align: left; }>
+      <div class="title-backbutton">
+      <a href='index.html'><img src = "icons/backarrow.svg"></a>
+      </div>
+      Woorden zoeken</h1>
+  
 <select id="woordtype" onchange="nieuwSpel()">
   <option value="set001">Set 1</option>
   <option value="eiij">EI of IJ</option>
@@ -611,10 +617,6 @@ function doHint()
 </div>
 
 </div>
-
-    <a class='homebutton' href='index.html'>&#11013;</a>
-
-
-  </body>
+</body>
 <html>
 
