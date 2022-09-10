@@ -168,8 +168,7 @@ function createBoard()
     var rowValue=0;
     for (x=0;x<nrCols;x++)
     {
-      //@@@ determine correct var
-//      var n=Math.floor(nrVars*Math.random());
+      // determine correct variable
       var n=board[x][y];
       rowValue+=values[n];
       row +="<div class='p-cell'>&"+varNames[n]+";</div>";
@@ -184,8 +183,7 @@ function createBoard()
     var row="<div class='p-row'><div class='p-cell' id='antwoord'>?</div>";
     for (x=1;x<nrCols;x++)
     {
-      //@@@ determine correct var
-      var n=Math.floor(nrVars*Math.random());
+      // determine correct sum
       row +="<div class='p-cell'>"+columnSum(x)+"</div>";
     }
     
