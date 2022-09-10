@@ -109,7 +109,7 @@ function createMatrix()
       var newstr=columnString(column);
       if (parallel(x,newstr))
       {
-console.log("DOUBLE: newstr="+newstr);
+//console.log("DOUBLE: newstr="+newstr);
         column=[];
       }
       else
@@ -141,6 +141,7 @@ function columnString(column)
   return result;
 }
 
+//Controleren dat de vergelijkingen lineair onafhankelijk zijn
 function parallel(columnIndex,newstr)
 {
   var x;
