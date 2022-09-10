@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Algebrapuzzel</title>
+<meta name="description" content="Kerenza's rekenspel">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<style>
+.p-table
+{
+  display:table;
+//  border:1px solid black;
+}
+
+.p-row
+{
+  display:table-row;
+}
+.p-cell, .p-cell-empty
+{
+  display:table-cell;
+  padding:1em;
+}
+
+.p-cell
+{
+  border:1px solid black;
+}
+
+</style>
+
+<script>
+var prev_onload=window.onload;
+
+window.onload=puzzle_onload;
+function puzzle_onload()
+{
+  if (prev_onload)
+  {
+    prev_onload();
+  }
+  createBoard();
+}
+
+var varNames=["Oslash", "Delta", "bull", "mdash", "varr", "beta"];
+
+var nrVars=5;
+var nrRows=4;
+var nrCols=5;
+var highestValue=9;
+
+function $(id)
+{
+  return document.getElementById(id);
+}
+
+var values=[];
+
+function setValues()
+{
+  var sortArray=[];
+  var i;
+  for (i=1;i<=highestValue;i++)
+  {
+    sortArray[i-1]=i;
+  }
+
+/* https://en.m.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+Durstenfeld, O(n) algorithm
+-- To shuffle an array a of n elements (indices 0..n-1):
+for i from n-1 downto 1 do
+     j <-- random integer such that 0 <= j <= i
+     exchange a[j] and a[i]
+*/
+  for (i=highestValue-1;i>=1;i--)
+  {
+    var j=Math.floor(i*Math.random());
+    var swap=sortArray[i];
+    sortArray[i]=sortArray[j];
+    sortArray[j]=swap;
+  }
+
+  for (i=0;i<nrVars;i++)
+  {
+    values[i]=sortArray[i];
+//console.log(varNames[i]+"="+values[i]);
+  }
+}
+
+var board;
+var columnStrings;
+function createMatrix()
+{
+  board=[];
+  columnStrings=[];
+  var x,y;
+  for (x=0;x<nrCols;x++)
+  {
+    var column=[];
+    while (column.length == 0)
+    {
+      for (y=0;y<nrRows;y++)
+      {
+	column[y]=Math.floor(nrVars*Math.random());
+      }
+      var newstr=columnString(column);
+      if (parallel(x,newstr))
+      {
+console.log("DOUBLE: newstr="+newstr);
+        column=[];
+      }
+      else
+      {
+        columnStrings[x]=newstr;
+      }
+    }
+    board[x]=column;
+  }
+}
+
+function columnString(column)
+{
+  var result="";
+  var counts=[];
+  var i;
+  for (i=0;i<nrVars;i++)
+  {
+    counts[i]=0;
+  }
+  for (i=0;i<nrRows;i++)
+  {
+    counts[column[i]] = counts[column[i]]+1;
+  }
+  for (i=0;i<nrVars;i++)
+  {
+    result+=counts[i]+"-";
+  }
+  return result;
+}
+
+function parallel(columnIndex,newstr)
+{
+  var x;
+  for (x=0;x<columnIndex;x++)
+  {
+    if (columnStrings[x]==newstr) return true;    
+  }
+  return false;
+}
+
+function createBoard()
+{
+  $('values').innerHTML="<a href='javascript:answer()'>Antwoord</a>";
+
+  setValues();
+
+  createMatrix();
+
+  var text="<div class='p-table'>";
+  var x,y;
+  for (y=0;y<nrRows;y++)
+  {
+    var row="<div class='p-row'>";
+    var rowValue=0;
+    for (x=0;x<nrCols;x++)
+    {
+      //@@@ determine correct var
+//      var n=Math.floor(nrVars*Math.random());
+      var n=board[x][y];
+      rowValue+=values[n];
+      row +="<div class='p-cell'>&"+varNames[n]+";</div>";
+    }
+    row += "<div class='p-cell'>"+rowValue+"</div>";
+    row += "</div>";
+
+    text+=row;
+  }
+  
+  {
+    var row="<div class='p-row'><div class='p-cell' id='antwoord'>?</div>";
+    for (x=1;x<nrCols;x++)
+    {
+      //@@@ determine correct var
+      var n=Math.floor(nrVars*Math.random());
+      row +="<div class='p-cell'>"+columnSum(x)+"</div>";
+    }
+    
+    row += "<div class='p-cell-empty'>&nbsp;</div>";
+    row += "</div>";
+    text+=row;
+  }
+  
+  text+="</div>";
+  $('puzzle-container').innerHTML=text;
+}
+
+function columnSum(column)
+{
+  var result=0;
+  var i;
+  for (i=0;i<nrRows;i++)
+  {
+//console.log(""+i+" : "+values[board[column][i]]);
+    result+=values[board[column][i]];
+  }
+//console.log("result="+result);
+  return result;
+}
+
+function answer()
+{
+  $('antwoord').innerHTML=columnSum(0);
+
+  var i;
+  var vals="";
+  for (i=0;i<nrVars;i++)
+  {
+    if (i>0) vals+=",&nbsp;&nbsp;&nbsp;";
+    vals+="&"+varNames[i]+";="+values[i];
+  }
+  vals+=".";
+  $('values').innerHTML=vals;
+}
+</script>
+</head>
+<body>
+  <div id='puzzle-container'></div>
+<p>
+
+<div id='values'></div>
+<a href='javascript:createBoard()'>NIEUW</a>
+</body>
+</html>
